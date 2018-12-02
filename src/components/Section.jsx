@@ -4,7 +4,7 @@ import styled from 'react-emotion'
 import SectionContents from './SectionContents'
 
 const StyledSection = styled.section`
-  ${tw`w-full h-screen `};
+  ${tw`py-16 lg:py-0 w-full lg:h-screen `};
   background-color: ${props => props.theme.colors[props.bg]};
   color: ${props => props.theme.colors[props.color]};
 `
