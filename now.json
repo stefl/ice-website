@@ -1,0 +1,5 @@
+{
+  "env": {
+    "API_KEY": "@ice_prismic_api_key"
+  }
+}

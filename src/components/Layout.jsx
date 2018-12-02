@@ -7,8 +7,9 @@ import { injectGlobal } from 'emotion';
 import { ThemeProvider } from 'emotion-theming';
 import 'typeface-lora';
 import 'typeface-source-sans-pro';
-import { Footer, SEO } from 'components';
+import { Footer, SEO, Logo, Nav} from 'components';
 import { theme, reset } from 'styles';
+import Headroom from 'react-headroom'
 
 injectGlobal`
   ${reset}
@@ -64,14 +65,18 @@ injectGlobal`
   }
 `;
 
-const PureLayout = ({ children, data }) => (
+const PureLayout = ({ children, data, color }) => (
   <ThemeProvider theme={theme}>
     <>
+      <div style={{position: 'absolute', width: '100%', zIndex: 1000}}><Headroom>
+        <div style={{position: 'relative'}}>
+          <div style={{float: 'left'}}><Logo color={color} /></div>
+          <div style={{position: 'absolute', top: '0px', left: '0px', width: '100%'}}><Nav color={theme.colors[color]} /></div>
+        </div>
+      </Headroom>
+      </div>
       <SEO />
       {children}
-      <Footer>
-        <div dangerouslySetInnerHTML={{ __html: data.prismicHomepage.data.footer.html }} />
-      </Footer>
     </>
   </ThemeProvider>
 );
