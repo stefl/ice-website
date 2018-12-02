@@ -11,8 +11,8 @@ class Index extends Component {
       data: { homepage, social, posts, projects },
     } = this.props;
     return (
-      <Layout color={'icePink'}>
-        <Hero color={'icePink'} 
+      <Layout color={'rose'}>
+        <Hero color={'rose'} 
           images={homepage.data.background.localFile.childImageSharp.fluid}
           >
           <Heading size={1} color='white' bg='black' text={homepage.data.title.text} />

@@ -4,7 +4,7 @@ import memoizeOne from 'memoize-one'
 import styled from 'react-emotion'
 import Chevron from '../../svgs/chevron.svg'
 
-const FlexContent = styled.header`
+const FlexContent = styled.div`
   ${tw`w-full h-full flex flex-col justify-center items-center`};
 `
 

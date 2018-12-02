@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'react-emotion'
 import SectionContents from './SectionContents'
 
-const StyledSection = styled.header`
+const StyledSection = styled.section`
   ${tw`w-full h-screen `};
   background-color: ${props => props.theme.colors[props.bg]};
   color: ${props => props.theme.colors[props.color]};

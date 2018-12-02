@@ -30,5 +30,5 @@ Logo.propTypes = {
 }
 
 Logo.defaultProps = {
-  color: 'icePink',
+  color: 'rose',
 }

@@ -27,8 +27,14 @@ const StyledH3 = styled.h3`
   position: relative;
 `
 
+const StyledH4 = styled.h4`
+  ${tw`m-auto text-center`}
+  max-width: 20em;
+  position: relative;
+`
+
 const StyledP = styled.p`
-  ${tw`mx-2 text-center`}
+  ${tw`m-auto text-center`}
   max-width: 24em;
   position: relative;
 `
@@ -81,6 +87,19 @@ const StyledHeading4 = styled.span`
   box-shadow: 0.4em 0 0 ${props => props.theme.colors[props.bg]},-0.4em 0 0 ${props => props.theme.colors[props.bg]};
 `
 
+
+const StyledHeading5 = styled.span`
+  padding: 0.4em;
+  background-color: ${props => props.theme.colors[props.bg]};
+  color: ${props => props.theme.colors[props.color]};
+  max-width: 24em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  display: inline;
+  overflow: visible;
+  box-shadow: 0.4em 0 0 ${props => props.theme.colors[props.bg]},-0.4em 0 0 ${props => props.theme.colors[props.bg]};
+`
+
 class Heading extends Component {
   render() {
     const { text, bg, color, size } = this.props;
@@ -95,9 +114,12 @@ class Heading extends Component {
     } else if(size === 3){
       Wrapper = StyledH3
       Heading = StyledHeading3
+    } else if(size === 3){
+      Wrapper = StyledH4
+      Heading = StyledHeading4
     } else {
       Wrapper = StyledP
-      Heading = StyledHeading4
+      Heading = StyledHeading5
     }
 
     return (

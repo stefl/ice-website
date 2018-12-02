@@ -14,7 +14,7 @@ class Events extends Component {
         <Hero color='black'>
           <Heading size={1} color='black' bg='white' text='Grab your diary' />
           <Narrow>
-            <Heading size={3} color='white' bg='iceBlue' text='Upcoming ICE events for your moleskin. That’s right, we know you.' />
+            <Heading size={3} color='white' bg='sky' text='Upcoming ICE events for your moleskin. That’s right, we know you.' />
           </Narrow>       
         </Hero>
         
