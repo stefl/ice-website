@@ -27,9 +27,9 @@ const Headline = styled.p`
 
 const Category = ({
   pageContext: { category },
-  data: {
-    posts: { edges, totalCount },
-  },
+  // data: {
+  //   posts: { edges, totalCount },
+  // },
   location,
 }) => (
   <Layout>
@@ -41,29 +41,23 @@ const Category = ({
         <h1>{category}</h1>
       </Wrapper>
     </Hero>
-    <Wrapper>
-      <Title style={{ marginTop: '4rem' }}>
-        {totalCount} {totalCount === 1 ? 'Post' : 'Posts'} {totalCount === 1 ? 'was' : 'were'} tagged with "{category}"
-      </Title>
-      <Listing posts={edges} />
-    </Wrapper>
   </Layout>
 );
 
 export default Category;
 
-Category.propTypes = {
-  pageContext: PropTypes.shape({
-    category: PropTypes.string.isRequired,
-  }).isRequired,
-  data: PropTypes.shape({
-    posts: PropTypes.shape({
-      edges: PropTypes.array.isRequired,
-      totalCount: PropTypes.number.isRequired,
-    }).isRequired,
-  }).isRequired,
-  location: PropTypes.object.isRequired,
-};
+// Category.propTypes = {
+//   pageContext: PropTypes.shape({
+//     category: PropTypes.string.isRequired,
+//   }).isRequired,
+//   data: PropTypes.shape({
+//     posts: PropTypes.shape({
+//       edges: PropTypes.array.isRequired,
+//       totalCount: PropTypes.number.isRequired,
+//     }).isRequired,
+//   }).isRequired,
+//   location: PropTypes.object.isRequired,
+// };
 
 // export const pageQuery = graphql`
 //   query CategoryPage($category: String!) {
