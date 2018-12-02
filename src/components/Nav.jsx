@@ -4,7 +4,19 @@ import { Link } from 'gatsby';
 import styled from 'react-emotion';
 import {theme} from '../styles'
 import LogoSVG from '../../svgs/ice-logo.svg'
-import {animated, Trail} from 'react-spring'
+import {animated, Trail, Transition} from 'react-spring'
+
+const Bar = styled.div`
+  height: 3px;
+  width: 100%;
+  ${tw`bg-white`};
+`
+
+const BarRow = styled.div`
+  width: 100%;
+  ${tw`flex flex-col justify-center items-center`};
+`
+
 
 const StyledNav = styled.div`
   display: block;
@@ -18,6 +30,7 @@ const StyledNavContent = styled.div`
 `
 
 const StyledNavButton = styled.button`
+  position: relative;
   outline:0;
   &:focus {
     outline:0;
@@ -25,7 +38,7 @@ const StyledNavButton = styled.button`
   &:active {
     outline:0;
   }
-  ${tw`w-8 h-8 bg-black text-white rounded-lg border-none flex flex-col justify-center items-center`};
+  ${tw`w-8 h-8 bg-black text-white border-none flex flex-col justify-center items-center`};
 `
 
 const NavItem = styled(Link)`
@@ -67,7 +80,7 @@ class Nav extends Component {
 
     const items = menu.map((item) => { 
       const element = <NavItem style={{color: 'white', fontStyle: 'normal'}} to={item.to}>
-        <span style={{textDecoration: 'none'}}>{item.label}</span>
+        <h2 style={{textDecoration: 'none', color: 'white'}}>{item.label}</h2>
       </NavItem>
 
       return({ 
@@ -88,7 +101,34 @@ class Nav extends Component {
         <div style={{position: 'absolute', zIndex: 501, top: '0px', right: '0px'}}>    
           <StyledNav color={color}>
             <StyledNavContent onClick={toggle}>
-              <StyledNavButton onClick={toggle}>{open ? 'X' : 'M'}</StyledNavButton>
+              <StyledNavButton onClick={toggle}>
+                <Transition
+                  items={open}
+                  from={{ 
+                    position: 'absolute', 
+                    width: '100%', 
+                    height: '100%', 
+                    opacity: 0, 
+                    textAlign: 'center',
+                    display: 'grid',
+                    gridAutoRows: '1fr',
+                    padding: '6px'
+                  }}
+                  enter={{ opacity: 1 }}
+                  leave={{ opacity: 0 }}>
+                  {t =>
+                    t
+                      ? props => (<div style={props}>
+                        <BarRow><Bar /></BarRow>
+                      </div>)
+                      : props => <div style={props}>
+                        <BarRow><Bar /></BarRow>
+                        <BarRow><Bar /></BarRow>
+                        <BarRow><Bar /></BarRow>
+                        </div>
+                  }
+                </Transition>
+</StyledNavButton>
             </StyledNavContent>
           </StyledNav>
         </div>
