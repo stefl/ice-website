@@ -2,8 +2,22 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { graphql } from 'gatsby';
-import { Hero, Layout, Listing, Wrapper, Title, Heading } from 'components';
+import Link from 'gatsby-link'
+import { Hero, 
+  Layout, Listing, Wrapper, Title, Heading, Section, Narrow, Thirds,
+  ThirdCol,
+  StandardIcon,
+  SimpleHeader,
+  PaddedCol } from 'components'
+import Umbrella from '../../svgs/icons/sky/Umbrella.svg'
+import Lightning from '../../svgs/icons/mint/Lightning.svg'
+import WebVideo from '../../svgs/icons/rose/WebVideo.svg'
+import Mail from '../../svgs/icons/black/Mail.svg'
 
+const StyledLink = styled(Link)`
+  color: ${props => props.theme.colors.black};
+  font-style: normal;
+`;
 
 class Index extends Component {
   render() {
@@ -18,6 +32,34 @@ class Index extends Component {
           <Heading size={1} color='white' bg='black' text={homepage.data.title.text} />
           <Heading size={3} color='black' bg='white' text={homepage.data.content.text} />
         </Hero>
+        <Section color='black' bg='white'>
+          <Thirds>
+            <ThirdCol>
+              <PaddedCol>
+                <StyledLink to='/membership'>
+                  <StandardIcon><Umbrella style={{width: '100%'}} /></StandardIcon>
+                  <h3>Become a member</h3>
+                </StyledLink>
+              </PaddedCol>
+            </ThirdCol>
+            <ThirdCol>
+              <PaddedCol>
+                <StyledLink to='/sponsorship'>
+                  <StandardIcon><Lightning style={{width: '100%'}} /></StandardIcon>
+                  <h3>Become a sponsor</h3>
+                </StyledLink>
+              </PaddedCol>
+            </ThirdCol>
+            <ThirdCol>
+              <PaddedCol>
+                <StyledLink to='/'>
+                  <StandardIcon><WebVideo style={{width: '100%'}} /></StandardIcon>
+                  <h3>Watch the video</h3>
+                </StyledLink>
+              </PaddedCol>
+            </ThirdCol>
+          </Thirds>            
+        </Section>
       </Layout>
     );
   }
