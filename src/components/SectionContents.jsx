@@ -8,6 +8,10 @@ const FlexContent = styled.div`
 `
 
 class SectionContents extends React.PureComponent {
+  state = {
+
+  }
+  
   static getDerivedStateFromProps(props) {    
     return({fixedHeight: props.containerHeight || 'auto'})
   }

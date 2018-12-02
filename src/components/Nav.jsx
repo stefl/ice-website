@@ -35,11 +35,11 @@ const StyledNavButton = styled.button`
   cursor: pointer;
   &:focus {
     outline:0;
-    ${tw`text-white bg-black`};
+    ${(props) => tw`text-white bg-${() => props.theme.colors[props.bg]}`};
   }
   &:active {
     outline:0;
-    ${tw`text-white bg-black`};
+    ${(props) => tw`text-white bg-${() => props.theme.colors[props.bg]}`};
   }
   ${tw`w-8 h-8 bg-black text-white border-none flex flex-col justify-center items-center`};
 `
@@ -126,7 +126,7 @@ class Nav extends Component {
         <div style={{position: 'absolute', zIndex: 501, top: '0px', right: '0px'}}>    
           <StyledNav color={color} >
             <StyledNavContent onClick={toggle}>
-              <StyledNavButton onClick={toggle}>
+              <StyledNavButton color={color} onClick={toggle} aria-label="Main menu">
                 <Transition
                   items={open}
                   from={{ 

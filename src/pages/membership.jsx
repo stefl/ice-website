@@ -138,11 +138,7 @@ export const pageQuery = graphql`
           localFile {
             childImageSharp {
               fluid(srcSetBreakpoints: [ 600, 800, 1000, 1200, 1400, 1600, 1920 ], quality: 80, grayscale: true) {
-                src
-                srcSet
-                srcSetWebp
-                base64
-                aspectRatio
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }
