@@ -4,16 +4,18 @@ import styled from 'react-emotion'
 import SectionContents from './SectionContents'
 
 const StyledSection = styled.section`
-  ${tw`py-16 lg:py-0 w-full lg:h-screen `};
+  ${tw`py-16 w-full `};
+  $((props) => props.flexible ? '' : ${tw`lg:py-0`});
+  ${(props) => props.flexible ? 'padding-top: 64px; padding-bottom: 64px;' : 'height: 100vh;'}
   background-color: ${props => props.theme.colors[props.bg]};
   color: ${props => props.theme.colors[props.color]};
 `
 
 class Section extends Component {
   render() {
-    const { children, bg, color } = this.props;
+    const { children, bg, color, flexible } = this.props;
     return (
-      <StyledSection bg={bg} color={color}>
+      <StyledSection flexible={flexible} bg={bg} color={color}>
         <SectionContents>{children}</SectionContents>
       </StyledSection>
     )
@@ -29,5 +31,6 @@ Section.propTypes = {
 
 Section.defaultProps = {
   bg: 'transparent',
-  color: 'black'
+  color: 'black',
+  flexible: false
 }

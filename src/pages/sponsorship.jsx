@@ -12,11 +12,12 @@ import Cocktail from '../../svgs/icons/mint/Cocktail.svg'
 import Lightbulb from '../../svgs/icons/mint/Lightbulb.svg'
 import Megaphone from '../../svgs/icons/mint/Megaphone.svg'
 import Mail from '../../svgs/icons/black/Mail.svg'
+import CommitteeGrid from '../components/CommitteeGrid'
 
 class Sponsorship extends Component {
   render() {
     const {
-      data: { sponsorship, social, posts, projects },
+      data: { committee, sponsorship, social, posts, projects },
     } = this.props;
     return (
       <Layout color='mint'>
@@ -95,12 +96,14 @@ class Sponsorship extends Component {
           </Narrow>
         </Section>
 
-        <Section bg='black' color='white'>
+        <Section bg='black' color='white' flexible>
           <Heading size={2} color='mint' bg='white' text='An idea this good must run itself…' />
 
           <Narrow>
             <p>It absolutely doesn’t. ICE is run by an amazing group who give up their time and talent because they believe in what we’re doing here. And they do it for free. The beautiful maniacs.</p>
           </Narrow>
+
+          <CommitteeGrid committee={committee} />
         </Section>
       </Layout>
     );
@@ -111,6 +114,36 @@ export default Sponsorship
 
 export const pageQuery = graphql`
   query SponsorshipQuery {
+
+    committee: allPrismicCommitteeMember {
+      edges {
+        node {
+          data {
+            photo {
+              url
+              localFile {
+              childImageSharp {
+                fluid(srcSetBreakpoints: [ 600, 800, 1000, 1200, 1400, 1600, 1920 ], quality: 80, grayscale: true) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+            }
+            name {
+              text
+            }
+            link {
+              url
+            }
+            role
+            link_text {
+              text
+            }
+          }
+        }
+      }
+    }
+
     sponsorship: prismicSponsorship {
       data {
         title {

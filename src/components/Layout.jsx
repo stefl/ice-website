@@ -29,11 +29,9 @@ injectGlobal`
     background-color: ${theme.colors.primary};
   }
   a {
-    color: ${theme.colors.primary};
+    color: ${theme.colors.sky};
     transition: all 0.4s ease-in-out;
-    text-decoration: none;
     font-weight: 700;
-    font-style: italic;
     &:hover, &:focus {
       text-decoration: underline;
     }
