@@ -66,7 +66,7 @@ injectGlobal`
 
 const NavModal = styled.div`
   ${tw`absolute w-full`};
-  z-index: 1000;
+  z-index: 50;
 `
 
 const PureLayout = ({ children, data, color }) => (

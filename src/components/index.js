@@ -22,6 +22,14 @@ const Thirds = styled.div`
   ${tw`flex flex-wrap m-auto`}
 `
 
+const HalfCol = styled.div`
+  ${tw`w-full md:w-1/2 lg:w-1/2 xl:w-1/2 text-center px-2`}
+`
+
+const Halves = styled.div`
+  ${tw`flex flex-wrap m-auto w-full`}
+`
+
 const StandardIcon = styled.div`
   ${tw`w-24 m-auto py-8`}
 `
@@ -55,6 +63,8 @@ export {
   Narrow,
   Thirds,
   ThirdCol,
+  HalfCol,
+  Halves,
   StandardIcon,
   SimpleHeader,
   PaddedCol

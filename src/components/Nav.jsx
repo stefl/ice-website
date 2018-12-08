@@ -68,7 +68,9 @@ let navModalRoot
 class ModalMenu extends Component {
   constructor(props) {
     super(props);
-    this.el = document.createElement('div');
+    if(typeof(document) !== 'undefined') {
+      this.el = document.createElement('div');
+    }
   }
 
   componentDidMount() {
@@ -81,7 +83,9 @@ class ModalMenu extends Component {
   }
 
   render() {
-
+    if(typeof(document) === 'undefined') {
+      return <div />
+    }
     return ReactDOM.createPortal(
       this.props.children,
       this.el,
