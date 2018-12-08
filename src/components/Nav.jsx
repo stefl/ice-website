@@ -5,6 +5,7 @@ import styled from 'react-emotion';
 import {theme} from '../styles'
 import LogoSVG from '../../svgs/ice-logo.svg'
 import {animated, Trail, Transition} from 'react-spring'
+import ReactDOM from 'react-dom'
 
 const Bar = styled.div`
   height: 3px;
@@ -60,6 +61,51 @@ const FullScreenMenu = styled.ul`
   padding: 0;
   margin: 0;
 `
+
+// Reliant on nav_modal being present in Layout.jsx
+let navModalRoot
+
+class ModalMenu extends Component {
+  constructor(props) {
+    super(props);
+    this.el = document.createElement('div');
+  }
+
+  componentDidMount() {
+    navModalRoot = document.getElementById('nav_modal');
+    navModalRoot.appendChild(this.el)
+  }
+
+  componentWillUnmount() {
+    navModalRoot.removeChild(this.el)
+  }
+
+  render() {
+
+    return ReactDOM.createPortal(
+      this.props.children,
+      this.el,
+    )
+  }
+}
+
+class Menu extends Component {
+  render() {
+    const {hidden, items, to} = this.props
+    return(
+      <FullScreenMenu to={to} hidden={hidden} aria-label="Main navigation">
+        <Trail
+          native
+          items={items} keys={item => item.key}
+          to={to}>
+          {item => props =>
+            <animated.li style={props}>{item.element}</animated.li>
+          }
+        </Trail>
+      </FullScreenMenu>
+    )
+  }
+}
 
 class Nav extends Component {
 
@@ -153,20 +199,11 @@ class Nav extends Component {
                         </div>
                   }
                 </Transition>
-</StyledNavButton>
+              </StyledNavButton>
             </StyledNavContent>
           </StyledNav>
         </div>
-        <FullScreenMenu hidden={hidden} aria-label="Main navigation">
-          <Trail
-            native
-            items={items} keys={item => item.key}
-            to={to}>
-            {item => props =>
-              <animated.li style={props}>{item.element}</animated.li>
-            }
-          </Trail>
-        </FullScreenMenu>
+        <ModalMenu><Menu to={to} hidden={hidden} items={items} /></ModalMenu>
       </div>
     )
   }

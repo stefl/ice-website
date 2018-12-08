@@ -195,6 +195,9 @@ export const pageQuery = graphql`
 
     sponsorship: prismicSponsorship {
       data {
+        sponsorship_pack {
+          url
+        }
         title {
           text
         }

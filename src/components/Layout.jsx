@@ -9,6 +9,7 @@ import 'typeface-lora';
 import 'typeface-source-sans-pro';
 import { Footer, SEO, Logo, Nav} from 'components';
 import { theme, reset } from 'styles';
+import styled from 'react-emotion'
 import Headroom from 'react-headroom'
 
 injectGlobal`
@@ -63,6 +64,11 @@ injectGlobal`
   }
 `;
 
+const NavModal = styled.div`
+  ${tw`absolute w-full`};
+  z-index: 1000;
+`
+
 const PureLayout = ({ children, data, color }) => (
   <ThemeProvider theme={theme}>
     <>
@@ -75,6 +81,7 @@ const PureLayout = ({ children, data, color }) => (
       </div>
       <SEO />
       {children}
+      <NavModal id='nav_modal' />
     </>
   </ThemeProvider>
 );
