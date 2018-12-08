@@ -58,9 +58,13 @@ class Index extends Component {
             </HalfCol>
           </Halves>            
         </Section>
-        <div style={{width: '100%'}}>
-          <FullWidthPlayer url='https://vimeo.com/278903312/5718eefa6a' />
-        </div>
+        <Section color='black' bg='black' flexible>
+          <Heading size={1} color='white' bg='rose' text={`Want a quick flavour of what ICE is about?`} />
+          <Heading size={3} color='black' bg='white' text='Watch this video' />
+          <div style={{width: '100%', padding: '1rem'}}>
+            <FullWidthPlayer url='https://vimeo.com/278903312/5718eefa6a' />
+          </div>
+        </Section>
       </Layout>
     );
   }
