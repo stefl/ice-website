@@ -19,13 +19,13 @@ const OverflowGrid = styled.div`
   // overflow-y: hidden;
   // width: 100%;
   // -webkit-overflow-scrolling: touch;  
-  ${tw`px-2 text-center w-full`}        
+  ${tw`text-center w-full px-4 px-8`}        
 `
 
 const CardContainer = styled.div`
   //position: absolute;
   display: grid;
-  grid-template-columns: repeat( auto-fit, minmax(180px, 1fr) );
+  grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) );
   grid-gap: 2rem;
   margin: auto;
   ${tw`max-w-xl`};
