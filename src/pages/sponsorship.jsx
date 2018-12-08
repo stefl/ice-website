@@ -14,6 +14,7 @@ import Megaphone from '../../svgs/icons/mint/Megaphone.svg'
 import Mail from '../../svgs/icons/black/Mail.svg'
 import CommitteeGrid from '../components/CommitteeGrid'
 import SponsorGrid from '../components/SponsorGrid'
+import MemberLogos from '../../static/members.jpg'
 
 class Sponsorship extends Component {
   render() {
@@ -95,6 +96,8 @@ class Sponsorship extends Component {
           <Narrow>
             <p>We don’t like to boast about our existing members. But we do it anyway.</p>
           </Narrow>
+
+          <img src={MemberLogos} />
         </Section>
 
         <Section bg='mint' color='black' flexible>
