@@ -12,6 +12,7 @@ import Cocktail from '../../svgs/icons/mint/Cocktail.svg'
 import Lightbulb from '../../svgs/icons/mint/Lightbulb.svg'
 import Megaphone from '../../svgs/icons/mint/Megaphone.svg'
 import Mail from '../../svgs/icons/black/Mail.svg'
+import Document from '../../svgs/icons/black/Document.svg'
 import CommitteeGrid from '../components/CommitteeGrid'
 import SponsorGrid from '../components/SponsorGrid'
 import MemberLogos from '../../static/members.jpg'
@@ -86,7 +87,7 @@ class Sponsorship extends Component {
           <Heading size={1} color='white' bg='black' text='Find out about our sponsorship packages' />
 
           <Narrow>
-            <StandardIcon><Mail style={{width: '100%'}} /></StandardIcon>
+            <StandardIcon><a aria-label="Download sponsorship pack" download href={sponsorship.data.sponsorship_pack.url}><Document style={{width: '100%'}} /></a></StandardIcon>
           </Narrow>
         </Section>
 
@@ -126,7 +127,7 @@ class Sponsorship extends Component {
           <Heading size={1} color='white' bg='black' text='Find out about our sponsorship packages' />
 
           <Narrow>
-            <StandardIcon><Mail style={{width: '100%'}} /></StandardIcon>
+            <StandardIcon><a aria-label="Download sponsorship pack" download href={sponsorship.data.sponsorship_pack.url}><Document style={{width: '100%'}} /></a></StandardIcon>
           </Narrow>
         </Section>
       </Layout>
