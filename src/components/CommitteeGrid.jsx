@@ -29,6 +29,10 @@ const CardContainer = styled.div`
   grid-gap: 2rem;
   margin: auto;
   ${tw`max-w-xl`};
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr 1fr;
+  }
 `
 
 const CommitteeCard = styled.div`
