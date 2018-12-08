@@ -9,10 +9,79 @@ import { Hero,
   SimpleHeader,
   PaddedCol } from 'components'
 import Meeting from '../../svgs/icons/sky/Meeting.svg'
+
+import Globe from '../../svgs/icons/white/Globe.svg'
+import Mountain from '../../svgs/icons/white/Mountain.svg'
+import Location from '../../svgs/icons/white/Location.svg'
+import Cocktail from '../../svgs/icons/white/Cocktail.svg'
+import Cutlery from '../../svgs/icons/white/Cutlery.svg'
+
 import Calendar from '../../svgs/icons/sky/Calendar.svg'
 import Talk from '../../svgs/icons/sky/Talk.svg'
 import Mail from '../../svgs/icons/black/Mail.svg'
 import CommitteeGrid from '../components/CommitteeGrid'
+import MemberLogos from '../../static/members.jpg'
+
+const OverviewGrid = styled.div`
+  ${tw`max-w-xl m-auto text-center`};
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(180px, 1fr) );
+`
+
+const OverviewContainer = styled.div`
+ ${tw`w-full mx-2`}
+`
+
+class EventsOverview extends Component {
+
+  render() {
+
+    const events = [
+      {
+        icon: Globe,
+        title: "Annual trips",
+        description: "Bi-annual international adventure. Skiiing. Sunbathing. Workshops. Good times."
+      },
+      {
+        icon: Mountain,
+        title: "Mini-trips",
+        description: "UK based adventures to learn, celebrate, discuss, relax and have some serious fun."
+      },
+      {
+        icon: Location,
+        title: "Local events",
+        description: "Heading out on the road to MWC or WebSummit."
+      },
+      {
+        icon: Cocktail,
+        title: "ICE parties",
+        description: "Summer parties, Christmas balls and more"
+      },
+      {
+        icon: Cutlery,
+        title: "ICE feasts",
+        description: "These special ICE dinners will bring together a more intimate group of ICERs to connect in a meaningful way."
+      }
+    ]
+    return (
+      <OverviewContainer>
+      <OverviewGrid>
+        {events.map(item => {
+          const EventIcon = item.icon
+          return (
+            <div>
+              <StandardIcon><EventIcon style={{width: '100%'}} /></StandardIcon>
+              <SimpleHeader>{item.title}</SimpleHeader>
+              <Heading size={4} color='white' bg='black' text={item.description} />  
+            </div>
+          )
+        }
+        )}
+      </OverviewGrid>
+      </OverviewContainer>
+    )
+  }
+}
 
 class Membership extends Component {
   render() {
@@ -63,13 +132,15 @@ class Membership extends Component {
           </Narrow>
         </Section>
         
-        <Section bg='black' color='white'>
+        <Section bg='black' color='white' flexible>
           <Heading size={2} color='white' bg='sky' text='ICE events' />
           <Heading size={1} color='black' bg='white' text='Great minds think <strike>alike</strike> nearby' />
           <Narrow>
             <p>We’re at our best when we’re together. So we make sure that we’re together as much as possible.</p>
             <p>Trips abroad to build lasting bonds, mini-breaks to clear our heads, workshops, talks and glorious dinners, we build amazing atmospheres and watch the creative sparks fly.</p>
           </Narrow>
+
+          <EventsOverview />
         </Section>
         
         <Section bg='white' color='black'>
@@ -98,6 +169,8 @@ class Membership extends Component {
           <Narrow>
             <p>We don’t like to boast about our existing members. But we do it anyway.</p>
           </Narrow>
+
+          <img src={MemberLogos} />
         </Section>
 
         <Section bg='black' color='white' flexible>
@@ -138,7 +211,7 @@ export const pageQuery = graphql`
               url
               localFile {
               childImageSharp {
-                fluid(srcSetBreakpoints: [ 600, 800, 1000, 1200, 1400, 1600, 1920 ], quality: 80, grayscale: true) {
+                fluid(srcSetBreakpoints: [ 100, 200, 300, 400, 500, 600 ], quality: 80, grayscale: true) {
                   ...GatsbyImageSharpFluid_withWebp
                 }
               }

@@ -13,11 +13,12 @@ import Lightbulb from '../../svgs/icons/mint/Lightbulb.svg'
 import Megaphone from '../../svgs/icons/mint/Megaphone.svg'
 import Mail from '../../svgs/icons/black/Mail.svg'
 import CommitteeGrid from '../components/CommitteeGrid'
+import SponsorGrid from '../components/SponsorGrid'
 
 class Sponsorship extends Component {
   render() {
     const {
-      data: { committee, sponsorship, social, posts, projects },
+      data: { committee, sponsors, sponsorship, social, posts, projects },
     } = this.props;
     return (
       <Layout color='mint'>
@@ -84,7 +85,7 @@ class Sponsorship extends Component {
           <Heading size={1} color='white' bg='black' text='Find out about our sponsorship packages' />
 
           <Narrow>
-            <p>Form for PDF download</p>
+            <StandardIcon><Mail style={{width: '100%'}} /></StandardIcon>
           </Narrow>
         </Section>
 
@@ -96,6 +97,16 @@ class Sponsorship extends Component {
           </Narrow>
         </Section>
 
+        <Section bg='mint' color='black' flexible>
+          <Heading size={2} color='white' bg='black' text='Our sponsors' />
+
+          <Narrow>
+            <p>And speaking of sponsors, you’ll be in good company.</p>
+          </Narrow>
+
+          <SponsorGrid sponsors={sponsors} />
+        </Section>
+
         <Section bg='black' color='white' flexible>
           <Heading size={2} color='mint' bg='white' text='An idea this good must run itself…' />
 
@@ -104,6 +115,16 @@ class Sponsorship extends Component {
           </Narrow>
 
           <CommitteeGrid committee={committee} />
+        </Section>
+
+        <Section bg='mint' color='black'>
+          <Heading size={2} color='black' bg='white' text='Get involved' />
+
+          <Heading size={1} color='white' bg='black' text='Find out about our sponsorship packages' />
+
+          <Narrow>
+            <StandardIcon><Mail style={{width: '100%'}} /></StandardIcon>
+          </Narrow>
         </Section>
       </Layout>
     );
@@ -118,12 +139,13 @@ export const pageQuery = graphql`
     committee: allPrismicCommitteeMember {
       edges {
         node {
+          id
           data {
             photo {
               url
               localFile {
               childImageSharp {
-                fluid(srcSetBreakpoints: [ 600, 800, 1000, 1200, 1400, 1600, 1920 ], quality: 80, grayscale: true) {
+                fluid(srcSetBreakpoints: [ 100, 200, 300, 400, 500, 600 ], quality: 80, grayscale: true) {
                   ...GatsbyImageSharpFluid_withWebp
                 }
               }
@@ -139,6 +161,33 @@ export const pageQuery = graphql`
             link_text {
               text
             }
+          }
+        }
+      }
+    }
+
+    sponsors: allPrismicSponsor {
+      edges {
+        node {
+          uid
+          id
+          data {
+            sponsorlogo {
+              url
+              localFile {
+              childImageSharp {
+                fluid(srcSetBreakpoints: [ 100, 200, 300, 400, 500, 600 ], quality: 80, grayscale: true) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+            }
+            name {
+              text
+            }
+            link {
+              url
+            }            
           }
         }
       }

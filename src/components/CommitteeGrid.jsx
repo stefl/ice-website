@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'react-emotion'
-import HeroContents from './HeroContents'
 import Img from 'gatsby-image'
 
 const Rounded = styled.div`
@@ -20,19 +19,16 @@ const OverflowGrid = styled.div`
   // overflow-y: hidden;
   // width: 100%;
   // -webkit-overflow-scrolling: touch;  
-  ${tw`px-2 text-center`}        
+  ${tw`px-2 text-center w-full`}        
 `
 
 const CardContainer = styled.div`
   //position: absolute;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat( auto-fit, minmax(180px, 1fr) );
   grid-gap: 2rem;
   margin: auto;
-  width: 100%;
-  @media (max-width: 600px) {
-    grid-template-columns: 1fr 1fr;
-  }
+  ${tw`max-w-xl`};
 `
 
 const CommitteeCard = styled.div`
@@ -51,7 +47,7 @@ class CommitteeGrid extends Component {
         <OverflowGrid committee={committee}>
           <CardContainer committee={committee}>
             {committee.edges.map( member => {
-              return (<CommitteeCard>
+              return (<CommitteeCard key={member.node.id}>
                 <Rounded>
                   <ScaledUp>
                     <Img fadeIn={true} fluid={member.node.data.photo.localFile.childImageSharp.fluid} />
