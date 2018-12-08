@@ -29,7 +29,7 @@ class Sponsorship extends Component {
           <Heading size={4} color='black' bg='white' text='We’re always on the hunt for people who can help run the show. Our beloved sponsors help us to realise our ridiculous plans. In return, we give them great stuff. The system works.' />
         </Hero>
 
-        <Section>
+        <Section flexible>
           <Thirds>
             <ThirdCol>
               <PaddedCol>

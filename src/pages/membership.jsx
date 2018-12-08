@@ -98,7 +98,7 @@ class Membership extends Component {
           </Narrow>
         </Hero>
         
-        <Section>
+        <Section flexible>
           <Thirds>
             <ThirdCol>
               <PaddedCol>
