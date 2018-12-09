@@ -17,6 +17,7 @@
     },
     "dependencies": {
         "babel-plugin-tailwind-components": "^0.5.10",
+        "dateformat": "^3.0.3",
         "emotion": "^9.2.12",
         "emotion-server": "^9.2.12",
         "emotion-theming": "^9.2.9",
@@ -70,5 +71,11 @@
         "eslint-plugin-react": "^7.11.1",
         "prettier": "^1.14.3"
     },
-    "keywords": ["gatsby", "starter", "prismic", "typography", "minimal"]
+    "keywords": [
+        "gatsby",
+        "starter",
+        "prismic",
+        "typography",
+        "minimal"
+    ]
 }
