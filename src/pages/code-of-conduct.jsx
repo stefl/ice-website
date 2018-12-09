@@ -6,9 +6,6 @@ import Link from 'gatsby-link'
 import {
   Hero,
   Layout,
-  Listing,
-  Wrapper,
-  Title,
   Heading,
   Section,
   Narrow,
@@ -17,26 +14,22 @@ import {
   Halves,
   HalfCol,
   StandardIcon,
-  SimpleHeader,
-  Page,
-  PaddedCol,
+  Page
 } from 'components'
 import Umbrella from '../../svgs/icons/sky/Umbrella.svg'
 import Lightning from '../../svgs/icons/mint/Lightning.svg'
 import WebVideo from '../../svgs/icons/rose/WebVideo.svg'
 import Mail from '../../svgs/icons/black/Mail.svg'
-import ReactPlayer from 'react-player'
 
-import FullWidthPlayer from '../components/FullWidthPlayer'
 const StyledLink = styled(Link)`
   color: ${props => props.theme.colors.black};
   font-style: normal;
 `
 
-class Index extends Component {
+class Coc extends Component {
   render() {
     const {
-      data: { coc },
+      data: { coc }
     } = this.props
     return (
       <Layout color={'rose'}>
@@ -200,12 +193,12 @@ class Index extends Component {
   }
 }
 
-export default Index
+export default Coc
 
-Index.propTypes = {
+Coc.propTypes = {
   data: PropTypes.shape({
-    posts: PropTypes.object.isRequired,
-  }).isRequired,
+    posts: PropTypes.object.isRequired
+  }).isRequired
 }
 
 export const pageQuery = graphql`

@@ -10784,10 +10784,6 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
-typeface-lora@^0.0.54:
-  version "0.0.54"
-  resolved "https://registry.yarnpkg.com/typeface-lora/-/typeface-lora-0.0.54.tgz#7767eeaf17bf066b8faf25f3057dd5eaa0a9f39a"
-
 typeface-montserrat@^0.0.54:
   version "0.0.54"
   resolved "https://registry.yarnpkg.com/typeface-montserrat/-/typeface-montserrat-0.0.54.tgz#3fc338db6428d73485b75aa7bd2af8c9a55b9ab3"

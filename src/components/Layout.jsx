@@ -5,12 +5,17 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import { injectGlobal } from 'emotion'
 import { ThemeProvider } from 'emotion-theming'
-import 'typeface-lora'
 import 'typeface-source-sans-pro'
-import { Footer, SEO, Logo, Nav } from 'components'
+import { Footer, SEO, Logo, Nav, Section } from 'components'
 import { theme, reset } from 'styles'
 import styled from 'react-emotion'
 import Headroom from 'react-headroom'
+import Link from 'gatsby-link'
+
+const WhiteLink = styled(Link)`
+  color: white;
+  text-decoration: none;
+`
 
 injectGlobal`
   ${reset}
@@ -83,7 +88,7 @@ const PureLayout = ({ children, data, color }) => (
                 position: 'absolute',
                 top: '0px',
                 left: '0px',
-                width: '100%',
+                width: '100%'
               }}
             >
               <Nav color={theme.colors[color]} />
@@ -93,6 +98,14 @@ const PureLayout = ({ children, data, color }) => (
       </div>
       <SEO />
       {children}
+      <Section bg="black" color="white">
+        <h3>
+          <WhiteLink to="/terms-conditions">Terms and conditions</WhiteLink>
+        </h3>
+        <h3>
+          <WhiteLink to="/code-of-conduct">Code of conduct</WhiteLink>
+        </h3>
+      </Section>
       <NavModal id="nav_modal" />
     </>
   </ThemeProvider>
@@ -123,5 +136,5 @@ export default Layout
 
 PureLayout.propTypes = {
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired,
-  data: PropTypes.object.isRequired,
+  data: PropTypes.object.isRequired
 }
