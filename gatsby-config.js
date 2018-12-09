@@ -1,5 +1,5 @@
 require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`
+  path: `.env.${process.env.NODE_ENV}`,
 })
 
 const { RichText } = require('prismic-reactjs')
@@ -19,7 +19,7 @@ const {
   logo,
   favicon,
   siteLanguage,
-  twitter
+  twitter,
 } = require('./config/website')
 
 module.exports = {
@@ -37,7 +37,7 @@ module.exports = {
     pathPrefix: _pathPrefix,
     description,
     banner: logo,
-    twitter
+    twitter,
   },
   /* Plugins */
   plugins: [
@@ -67,8 +67,8 @@ module.exports = {
               return null
             }
           }
-        }
-      }
+        },
+      },
     },
     'gatsby-plugin-lodash',
     // Although this starter doesn't use local files this plugin is necessary for the gatsby-image features of gatsby-source-prismic
@@ -76,24 +76,24 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: 'src',
-        path: `${__dirname}/src/`
-      }
+        path: `${__dirname}/src/`,
+      },
     },
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
-          include: /svgs/
-        }
-      }
+          include: /svgs/,
+        },
+      },
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-plugin-typography',
       options: {
-        pathToConfigModule: 'config/typography.js'
-      }
+        pathToConfigModule: 'config/typography.js',
+      },
     },
     'gatsby-plugin-sitemap',
     {
@@ -106,11 +106,11 @@ module.exports = {
         background_color: backgroundColor,
         theme_color: themeColor,
         display: 'standalone',
-        icon: favicon
-      }
+        icon: favicon,
+      },
     },
     // Must be placed at the end
     'gatsby-plugin-offline',
-    'gatsby-plugin-netlify'
-  ]
+    'gatsby-plugin-netlify',
+  ],
 }

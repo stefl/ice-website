@@ -1,14 +1,14 @@
 /* eslint no-unused-expressions: 0 */
 
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { StaticQuery, graphql } from 'gatsby';
-import { injectGlobal } from 'emotion';
-import { ThemeProvider } from 'emotion-theming';
-import 'typeface-lora';
-import 'typeface-source-sans-pro';
-import { Footer, SEO, Logo, Nav} from 'components';
-import { theme, reset } from 'styles';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { StaticQuery, graphql } from 'gatsby'
+import { injectGlobal } from 'emotion'
+import { ThemeProvider } from 'emotion-theming'
+import 'typeface-lora'
+import 'typeface-source-sans-pro'
+import { Footer, SEO, Logo, Nav } from 'components'
+import { theme, reset } from 'styles'
 import styled from 'react-emotion'
 import Headroom from 'react-headroom'
 
@@ -62,29 +62,41 @@ injectGlobal`
       font-size: 0.563rem !important;
     }
   }
-`;
+`
 
 const NavModal = styled.div`
   ${tw`absolute w-full`};
-  z-index: 50;
+  z-index: 500;
 `
 
 const PureLayout = ({ children, data, color }) => (
   <ThemeProvider theme={theme}>
     <>
-      <div style={{position: 'absolute', width: '100%', zIndex: 1000}}><Headroom>
-        <div style={{position: 'relative'}}>
-          <div style={{float: 'left'}}><Logo color={color} /></div>
-          <div style={{position: 'absolute', top: '0px', left: '0px', width: '100%'}}><Nav color={theme.colors[color]} /></div>
-        </div>
-      </Headroom>
+      <div style={{ position: 'absolute', width: '100%', zIndex: 50 }}>
+        <Headroom>
+          <div style={{ position: 'relative' }}>
+            <div style={{ float: 'left' }}>
+              <Logo color={color} />
+            </div>
+            <div
+              style={{
+                position: 'absolute',
+                top: '0px',
+                left: '0px',
+                width: '100%',
+              }}
+            >
+              <Nav color={theme.colors[color]} />
+            </div>
+          </div>
+        </Headroom>
       </div>
       <SEO />
       {children}
-      <NavModal id='nav_modal' />
+      <NavModal id="nav_modal" />
     </>
   </ThemeProvider>
-);
+)
 
 class Layout extends Component {
   render() {
@@ -103,13 +115,13 @@ class Layout extends Component {
         `}
         render={data => <PureLayout {...this.props} data={data} />}
       />
-    );
+    )
   }
 }
 
-export default Layout;
+export default Layout
 
 PureLayout.propTypes = {
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired,
   data: PropTypes.object.isRequired,
-};
+}

@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
-import styled from 'react-emotion';
-import { Layout, Listing, Wrapper, Title, SEO, Header } from 'components';
-import website from '../../config/website';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { graphql } from 'gatsby'
+import styled from 'react-emotion'
+import { Layout, Listing, Wrapper, Title, SEO, Header } from 'components'
+import website from '../../config/website'
 
 const Hero = styled.section`
   background-color: ${props => props.theme.colors.primary};
@@ -12,18 +12,19 @@ const Hero = styled.section`
   h1 {
     color: ${props => props.theme.colors.bg};
   }
-`;
+`
 
 const Headline = styled.p`
-  font-family: 'Source Sans Pro', -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial',
-    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-family: 'Source Sans Pro', -apple-system, 'BlinkMacSystemFont',
+    'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
   color: ${props => props.theme.colors.greyBlue};
   font-size: 1.25rem;
   a {
     font-style: normal;
     font-weight: normal;
   }
-`;
+`
 
 const Category = ({
   pageContext: { category },
@@ -33,7 +34,10 @@ const Category = ({
   location,
 }) => (
   <Layout>
-    <SEO title={`${category} | ${website._title}`} pathname={location.pathname} />
+    <SEO
+      title={`${category} | ${website._title}`}
+      pathname={location.pathname}
+    />
     <Hero>
       <Wrapper>
         <Header invert />
@@ -42,9 +46,9 @@ const Category = ({
       </Wrapper>
     </Hero>
   </Layout>
-);
+)
 
-export default Category;
+export default Category
 
 // Category.propTypes = {
 //   pageContext: PropTypes.shape({

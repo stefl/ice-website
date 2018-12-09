@@ -12,7 +12,7 @@ const theme = {
     mint: '#77c095',
     rose: '#e94a60',
     white: '#fff',
-    transparent: '#00000000'
+    transparent: '#00000000',
   },
   maxWidth: '1000px',
   maxWidthText: '720px',
@@ -20,8 +20,8 @@ const theme = {
     xs: '400px',
     s: '600px',
     m: '900px',
-    l: '1200px'
-  }
+    l: '1200px',
+  },
 }
 
 export default theme

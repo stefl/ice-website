@@ -1,4 +1,4 @@
-import styled from 'react-emotion';
+import styled from 'react-emotion'
 
 const Title = styled.p`
   font-style: italic;
@@ -26,6 +26,6 @@ const Title = styled.p`
       left: -35px;
     }
   }
-`;
+`
 
-export default Title;
+export default Title

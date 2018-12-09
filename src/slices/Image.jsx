@@ -11,12 +11,14 @@ const Content = styled.div`
 
 const Image = ({ input }) => {
   const fluid = get(input, 'primary.image.localFile.childImageSharp.fluid')
-  if(!fluid) {
+  if (!fluid) {
     return <div />
   }
-  return ( <Content>
-    <Img fluid={fluid} />
-  </Content> )
+  return (
+    <Content>
+      <Img fluid={fluid} />
+    </Content>
+  )
 }
 
 export default Image

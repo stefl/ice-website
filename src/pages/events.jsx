@@ -1,25 +1,38 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import styled from 'react-emotion';
-import { graphql } from 'gatsby';
-import { Hero, Layout, Listing, Wrapper, Title, Heading, Section, Narrow } from 'components';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import styled from 'react-emotion'
+import { graphql } from 'gatsby'
+import {
+  Hero,
+  Layout,
+  Listing,
+  Wrapper,
+  Title,
+  Heading,
+  Section,
+  Narrow,
+} from 'components'
 
 class Events extends Component {
   render() {
     const {
       data: { homepage, social, posts, projects },
-    } = this.props;
+    } = this.props
     return (
-      <Layout color='black'>
-        <Hero color='black'>
-          <Heading size={1} color='black' bg='white' text='Grab your diary' />
+      <Layout color="black">
+        <Hero color="black">
+          <Heading size={1} color="black" bg="white" text="Grab your diary" />
           <Narrow>
-            <Heading size={3} color='white' bg='sky' text='Upcoming ICE events for your moleskin. That’s right, we know you.' />
-          </Narrow>       
+            <Heading
+              size={3}
+              color="white"
+              bg="sky"
+              text="Upcoming ICE events for your moleskin. That’s right, we know you."
+            />
+          </Narrow>
         </Hero>
-        
       </Layout>
-    );
+    )
   }
 }
 
@@ -38,4 +51,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

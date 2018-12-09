@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import styled from 'react-emotion';
-import { graphql } from 'gatsby';
-import { Hero, Layout, Listing, Wrapper, Title, Heading } from 'components';
-
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import styled from 'react-emotion'
+import { graphql } from 'gatsby'
+import { Hero, Layout, Listing, Wrapper, Title, Heading } from 'components'
 
 const Social = styled.ul`
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
   margin-left: 0;
-  font-family: 'Source Sans Pro', -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial',
-    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-family: 'Source Sans Pro', -apple-system, 'BlinkMacSystemFont',
+    'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
   li {
     display: inline;
     &:not(:first-child) {
@@ -35,7 +35,7 @@ const Social = styled.ul`
       }
     }
   }
-`;
+`
 
 const ProjectListing = styled.ul`
   list-style-type: none;
@@ -52,18 +52,25 @@ const ProjectListing = styled.ul`
       }
     }
   }
-`;
+`
 
 class Index extends Component {
   render() {
     const {
       data: { homepage, social, posts, projects },
-    } = this.props;
+    } = this.props
     return (
       <Layout>
         <Hero>
-          <Heading size={1} color='white' bg='black' text={homepage.data.title.text} />
-          <div dangerouslySetInnerHTML={{ __html: homepage.data.content.html }} />
+          <Heading
+            size={1}
+            color="white"
+            bg="black"
+            text={homepage.data.title.text}
+          />
+          <div
+            dangerouslySetInnerHTML={{ __html: homepage.data.content.html }}
+          />
         </Hero>
         <Wrapper style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
           <Title style={{ marginTop: '4rem' }}>Recent posts</Title>
@@ -72,23 +79,25 @@ class Index extends Component {
           <ProjectListing>
             {projects.edges.map(project => (
               <li key={project.node.primary.label.text}>
-                <a href={project.node.primary.link.url}>{project.node.primary.label.text}</a>
+                <a href={project.node.primary.link.url}>
+                  {project.node.primary.label.text}
+                </a>
               </li>
             ))}
           </ProjectListing>
         </Wrapper>
       </Layout>
-    );
+    )
   }
 }
 
-export default Index;
+export default Index
 
 Index.propTypes = {
   data: PropTypes.shape({
     posts: PropTypes.object.isRequired,
   }).isRequired,
-};
+}
 
 export const pageQuery = graphql`
   query OldIndexQuery {
@@ -153,4 +162,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

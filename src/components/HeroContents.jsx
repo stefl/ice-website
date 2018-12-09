@@ -20,7 +20,10 @@ const RoundedDiamond = styled.div`
   left: 0px;
   z-index: 1;
   ${tw`w-12 h-12 rounded-lg text-center`};
-  background-color: ${props => {console.log('theme', {props}); return props.theme.colors[props.bg]}};
+  background-color: ${props => {
+    console.log('theme', { props })
+    return props.theme.colors[props.bg]
+  }};
   transform: rotate(-45deg) scale(0.711);
 `
 
@@ -35,31 +38,38 @@ const RoundedIcon = styled.div`
 `
 
 class HeroContents extends React.PureComponent {
-  state = {
-  }
-  
-  static getDerivedStateFromProps({containerHeight}) {
-    return({fixedHeight: containerHeight})
+  state = {}
+
+  static getDerivedStateFromProps({ containerHeight }) {
+    return { fixedHeight: containerHeight }
   }
 
-  render () {
-    const {children, containerWidth, containerHeight, color} = this.props
-    const {fixedHeight} = this.state
+  render() {
+    const { children, containerWidth, containerHeight, color } = this.props
+    const { fixedHeight } = this.state
     return (
-      <div style={{position: 'relative', height: fixedHeight + 'px'}}>
-        <FlexContent>
-          {children}          
-        </FlexContent>
-        <div style={{position: 'absolute', bottom: '12px', textAlign: 'center', width: '100%'}}>
+      <div style={{ position: 'relative', height: fixedHeight + 'px' }}>
+        <FlexContent>{children}</FlexContent>
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '12px',
+            textAlign: 'center',
+            width: '100%',
+          }}
+        >
           <RoundedBox>
             <RoundedDiamond bg={color} />
-            <RoundedIcon >
-              <Chevron style={{width: '100%', height: 'auto', margin: 'auto'}} />
+            <RoundedIcon>
+              <Chevron
+                style={{ width: '100%', height: 'auto', margin: 'auto' }}
+              />
             </RoundedIcon>
           </RoundedBox>
         </div>
-      </div>)
+      </div>
+    )
   }
 }
- 
+
 export default Dimensions()(HeroContents)

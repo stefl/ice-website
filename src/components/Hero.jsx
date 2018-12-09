@@ -13,25 +13,45 @@ const StyledHeader = styled.header`
 
 class Hero extends Component {
   render() {
-    const { children, color, theme, images} = this.props;
-    if(!images) {
+    const { children, color, theme, images } = this.props
+    if (!images) {
       return (
         <StyledHeader>
-          <HeroContents color={color} images={images}>{children}</HeroContents>
+          <HeroContents color={color} images={images}>
+            {children}
+          </HeroContents>
         </StyledHeader>
       )
     } else {
       return (
         <StyledHeader>
-          <div style={{position: 'relative', width: '100%', height: '100vh'}}>
-            <div style={{position: 'absolute', top: '0px', width: '100%', height: '100vh', zIndex: 1, overflow: 'hidden'}}>
-              <Img 
-                fadeIn={true} 
-                backgroundColor='lightgray' 
-                fluid={images} 
-                style={{width: '100%', height: '100vh'}} />
+          <div style={{ position: 'relative', width: '100%', height: '100vh' }}>
+            <div
+              style={{
+                position: 'absolute',
+                top: '0px',
+                width: '100%',
+                height: '100vh',
+                zIndex: 1,
+                overflow: 'hidden',
+              }}
+            >
+              <Img
+                fadeIn={true}
+                backgroundColor="lightgray"
+                fluid={images}
+                style={{ width: '100%', height: '100vh' }}
+              />
             </div>
-            <div style={{position: 'absolute', top: '0px', width: '100%', height: '100vh', zIndex: 2}}>
+            <div
+              style={{
+                position: 'absolute',
+                top: '0px',
+                width: '100%',
+                height: '100vh',
+                zIndex: 2,
+              }}
+            >
               <HeroContents color={color}>{children}</HeroContents>
             </div>
           </div>
@@ -45,10 +65,10 @@ export default Hero
 
 Hero.propTypes = {
   bg: PropTypes.string,
-  color: PropTypes.string
+  color: PropTypes.string,
 }
 
 Hero.defaultProps = {
   bg: 'transparent',
-  color: 'black'
+  color: 'black',
 }

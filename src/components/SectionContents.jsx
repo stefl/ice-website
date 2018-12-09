@@ -8,24 +8,21 @@ const FlexContent = styled.div`
 `
 
 class SectionContents extends React.PureComponent {
-  state = {
+  state = {}
 
-  }
-  
-  static getDerivedStateFromProps(props) {    
-    return({fixedHeight: props.containerHeight || 'auto'})
+  static getDerivedStateFromProps(props) {
+    return { fixedHeight: props.containerHeight || 'auto' }
   }
 
-  render () {
-    const {children, containerWidth, containerHeight} = this.props
-    const {fixedHeight} = this.state
+  render() {
+    const { children, containerWidth, containerHeight } = this.props
+    const { fixedHeight } = this.state
     return (
-      <div style={{height: fixedHeight + 'px'}}>
-        <FlexContent>
-          {children}
-        </FlexContent>
-      </div>)
+      <div style={{ height: fixedHeight + 'px' }}>
+        <FlexContent>{children}</FlexContent>
+      </div>
+    )
   }
 }
- 
+
 export default Dimensions()(SectionContents)

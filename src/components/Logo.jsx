@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
-import styled from 'react-emotion';
-import {theme} from '../styles'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
+import styled from 'react-emotion'
+import { theme } from '../styles'
 import LogoSVG from '../../svgs/ice-logo.svg'
 
 const StyledLogo = styled.span`
@@ -14,16 +14,18 @@ const StyledLogo = styled.span`
 
 class Logo extends Component {
   render() {
-    const { color } = this.props;
+    const { color } = this.props
     return (
-      <Link to='/'>
-        <StyledLogo color={color}><LogoSVG /></StyledLogo>
+      <Link to="/">
+        <StyledLogo color={color}>
+          <LogoSVG />
+        </StyledLogo>
       </Link>
-    );
+    )
   }
 }
 
-export default Logo;
+export default Logo
 
 Logo.propTypes = {
   color: PropTypes.string,

@@ -45,8 +45,8 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/${edge.node.uid}`,
       component: postTemplate,
       context: {
-        uid: edge.node.uid
-      }
+        uid: edge.node.uid,
+      },
     })
   })
 
@@ -56,8 +56,8 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/categories/${_.kebabCase(category)}`,
       component: categoryTemplate,
       context: {
-        category
-      }
+        category,
+      },
     })
   })
 }
@@ -67,8 +67,8 @@ exports.onCreateBabelConfig = ({ actions: { setBabelPlugin } }) => {
     name: 'babel-plugin-tailwind-components',
     options: {
       config: './tailwind.config.js',
-      format: 'auto'
-    }
+      format: 'auto',
+    },
   })
 }
 
@@ -76,7 +76,7 @@ exports.onCreateBabelConfig = ({ actions: { setBabelPlugin } }) => {
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
-      modules: [path.resolve(__dirname, 'src'), 'node_modules']
-    }
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+    },
   })
 }
