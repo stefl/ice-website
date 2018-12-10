@@ -48,7 +48,7 @@ class Sponsorship extends Component {
             size={4}
             color="black"
             bg="white"
-            text="We’re always on the hunt for people who can help run the show. Our beloved sponsors help us to realise our ridiculous plans. In return, we give them great stuff. The system works."
+            text="Accept nothing less, sponsor ICE."
           />
         </Hero>
 
