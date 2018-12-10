@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import styled from "react-emotion";
-import { graphql } from "gatsby";
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import styled from 'react-emotion'
+import { graphql } from 'gatsby'
 import {
   Hero,
   Layout,
@@ -16,21 +16,22 @@ import {
   StandardIcon,
   SimpleHeader,
   PaddedCol
-} from "components";
-import Cocktail from "../../svgs/icons/mint/Cocktail.svg";
-import Lightbulb from "../../svgs/icons/mint/Lightbulb.svg";
-import Megaphone from "../../svgs/icons/mint/Megaphone.svg";
-import Mail from "../../svgs/icons/black/Mail.svg";
-import Document from "../../svgs/icons/black/Document.svg";
-import CommitteeGrid from "../components/CommitteeGrid";
-import SponsorGrid from "../components/SponsorGrid";
-import MemberLogos from "../../static/members.jpg";
+} from 'components'
+import Cocktail from '../../svgs/icons/mint/Cocktail.svg'
+import Lightbulb from '../../svgs/icons/mint/Lightbulb.svg'
+import Megaphone from '../../svgs/icons/mint/Megaphone.svg'
+import Mail from '../../svgs/icons/black/Mail.svg'
+import Document from '../../svgs/icons/black/Document.svg'
+import CommitteeGrid from '../components/CommitteeGrid'
+import SponsorGrid from '../components/SponsorGrid'
+import MemberLogos from '../../static/members.jpg'
+import CTA from '../components/CTA'
 
 class Sponsorship extends Component {
   render() {
     const {
       data: { committee, sponsors, sponsorship, social, posts, projects }
-    } = this.props;
+    } = this.props
     return (
       <Layout color="mint">
         <Hero
@@ -56,7 +57,7 @@ class Sponsorship extends Component {
             <ThirdCol>
               <PaddedCol>
                 <StandardIcon>
-                  <Cocktail style={{ width: "100%" }} />
+                  <Cocktail style={{ width: '100%' }} />
                 </StandardIcon>
                 <SimpleHeader>VIP experience</SimpleHeader>
                 <Heading
@@ -70,7 +71,7 @@ class Sponsorship extends Component {
             <ThirdCol>
               <PaddedCol>
                 <StandardIcon>
-                  <Lightbulb style={{ width: "100%" }} />
+                  <Lightbulb style={{ width: '100%' }} />
                 </StandardIcon>
                 <SimpleHeader>Excellence on tap</SimpleHeader>
                 <Heading
@@ -84,7 +85,7 @@ class Sponsorship extends Component {
             <ThirdCol>
               <PaddedCol>
                 <StandardIcon>
-                  <Megaphone style={{ width: "100%" }} />
+                  <Megaphone style={{ width: '100%' }} />
                 </StandardIcon>
                 <SimpleHeader>Brand exposure</SimpleHeader>
                 <Heading
@@ -127,7 +128,7 @@ class Sponsorship extends Component {
             <p>
               Our members are changing the face of tech, and they’re here to
               talk about how they do it. Connect with the innovators, creators
-              and disruptors who are making and breaking the rules.{" "}
+              and disruptors who are making and breaking the rules.{' '}
             </p>
           </Narrow>
         </Section>
@@ -168,9 +169,15 @@ class Sponsorship extends Component {
                 download
                 href={sponsorship.data.sponsorship_pack.url}
               >
-                <Document style={{ width: "100%" }} />
+                <Document style={{ width: '100%' }} />
               </a>
             </StandardIcon>
+
+            <CTA
+              color="black"
+              text="Download sponsorship pack"
+              href={sponsorship.data.sponsorship_pack.url}
+            />
           </Narrow>
         </Section>
 
@@ -233,17 +240,23 @@ class Sponsorship extends Component {
                 download
                 href={sponsorship.data.sponsorship_pack.url}
               >
-                <Document style={{ width: "100%" }} />
+                <Document style={{ width: '100%' }} />
               </a>
             </StandardIcon>
+
+            <CTA
+              color="black"
+              text="Download sponsorship pack"
+              href={sponsorship.data.sponsorship_pack.url}
+            />
           </Narrow>
         </Section>
       </Layout>
-    );
+    )
   }
 }
 
-export default Sponsorship;
+export default Sponsorship
 
 export const pageQuery = graphql`
   query SponsorshipQuery {
@@ -339,4 +352,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

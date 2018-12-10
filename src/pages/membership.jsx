@@ -29,6 +29,7 @@ import Talk from '../../svgs/icons/sky/Talk.svg'
 import Mail from '../../svgs/icons/black/Mail.svg'
 import CommitteeGrid from '../components/CommitteeGrid'
 import MemberLogos from '../../static/members.jpg'
+import CTA from '../components/CTA'
 
 const OverviewGrid = styled.div`
   ${tw`max-w-xl m-auto text-center`};
@@ -121,7 +122,7 @@ class Membership extends Component {
               size={4}
               color="white"
               bg="sky"
-              text="Forging strong bonds, supporting through the good and bad, making amazing memories. We’re not here to network, we’re here to find our people."
+              text="Forging strong bonds, supporting through the good and bad, changing the tech world for the better. We’re not here to network, we’re here to find our people."
             />
           </Narrow>
         </Hero>
@@ -291,25 +292,22 @@ class Membership extends Component {
           <CommitteeGrid committee={committee} />
         </Section>
 
-        <Section bg="sky" color="black">
+        <Section bg="sky" color="black" flexible>
           <Heading size={2} color="white" bg="black" text="Want in? Great." />
           <Heading
             size={1}
             color="black"
             bg="white"
-            text="We just need our gang to sing your praises"
+            text="You’re brilliant. We’re brilliant. Let’s make this happen."
           />
 
           <Narrow>
             <p>
-              For us, this business is personal. We’d love you to join us, but
-              to be considered you’ll need two existing members to vouch for
-              your brilliance.
+              For us, this business is personal. We’d love to learn more about
+              you, to find out if you’d be a fantastic fit for our beloved
+              community.
             </p>
-            <p>
-              If you reckon you’ve got the good opinion of two people we already
-              trust, hit apply. We want to know more about you.{' '}
-            </p>
+
             <StandardIcon>
               <a
                 aria-label="Apply to join ICE"
@@ -318,6 +316,12 @@ class Membership extends Component {
                 <Mail style={{ width: '100%' }} />
               </a>
             </StandardIcon>
+
+            <CTA
+              color="black"
+              text="Apply to join ICE"
+              href="https://airtable.com/shrOJuDfRpLXz3JoS"
+            />
           </Narrow>
         </Section>
       </Layout>
