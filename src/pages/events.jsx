@@ -88,15 +88,17 @@ class Event extends Component {
               <Icon />
             </EventIcon>
           </div>
-          <DiamondHolder>
-            <RoundedDiamond>
-              <RoundedImg
-                resolutions={
-                  event.node.data.image.localFile.childImageSharp.resolutions
-                }
-              />
-            </RoundedDiamond>
-          </DiamondHolder>
+          {event.node.data.image.localFile && (
+            <DiamondHolder>
+              <RoundedDiamond>
+                <RoundedImg
+                  resolutions={
+                    event.node.data.image.localFile.childImageSharp.resolutions
+                  }
+                />
+              </RoundedDiamond>
+            </DiamondHolder>
+          )}
         </div>
         <div>
           <h2>{event.node.data.title.text}</h2>
@@ -124,10 +126,35 @@ class Event extends Component {
 }
 
 class Events extends Component {
+  state = {
+    filter: 'future'
+  }
   render() {
     const {
       data: { page, events }
     } = this.props
+    const { filter } = this.state
+    const yesterday = new Date(Date.now() - 864e5)
+    const sortedEvents = events.edges
+      .sort((a, b) => {
+        if (filter == 'future') {
+          return (
+            new Date(b.node.data.date_from) - new Date(a.node.data.date_from)
+          )
+        } else {
+          return (
+            new Date(b.node.data.date_from) - new Date(a.node.data.date_from)
+          )
+        }
+      })
+      .filter(e => {
+        if (filter == 'future') {
+          return new Date(e.node.data.date_from) > yesterday
+        } else {
+          return new Date(e.node.data.date_from) < yesterday
+        }
+      })
+    console.log({ sortedEvents })
     return (
       <Layout color="black">
         <Hero color="black">
@@ -137,13 +164,13 @@ class Events extends Component {
               size={3}
               color="white"
               bg="sky"
-              text="Upcoming ICE events for your moleskin. That’s right, we know you."
+              text="Upcoming ICE events for your moleskine. That’s right, we know you."
             />
           </Narrow>
         </Hero>
         <Section flexible bg="white" color="black">
           <Page>
-            {events.edges.map(event => {
+            {sortedEvents.map(event => {
               return <Event event={event} />
             })}
           </Page>

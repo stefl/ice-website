@@ -43,9 +43,9 @@ View the full documentation at https://tailwindcss.com.
 
 let colors = {
   transparent: 'transparent',
-  'ice-blue': '#00b5e2',
-  'ice-green': '#77c095',
-  'ice-pink': '#e94a60',
+  sky: '#00b5e2',
+  mint: '#77c095',
+  rose: '#e94a60',
   black: '#22292f',
   'grey-darkest': '#3d4852',
   'grey-darker': '#606f7b',
