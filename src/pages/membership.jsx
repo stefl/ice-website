@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import styled from "react-emotion";
-import { graphql } from "gatsby";
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import styled from 'react-emotion'
+import { graphql } from 'gatsby'
 import {
   Hero,
   Layout,
@@ -16,71 +16,71 @@ import {
   StandardIcon,
   SimpleHeader,
   PaddedCol
-} from "components";
-import Meeting from "../../svgs/icons/sky/Meeting.svg";
+} from 'components'
+import Meeting from '../../svgs/icons/sky/Meeting.svg'
 
-import Globe from "../../svgs/icons/white/Globe.svg";
-import Mountain from "../../svgs/icons/white/Mountain.svg";
-import Location from "../../svgs/icons/white/Location.svg";
-import Cocktail from "../../svgs/icons/white/Cocktail.svg";
-import Cutlery from "../../svgs/icons/white/Cutlery.svg";
-import Calendar from "../../svgs/icons/sky/Calendar.svg";
-import Talk from "../../svgs/icons/sky/Talk.svg";
-import Mail from "../../svgs/icons/black/Mail.svg";
-import CommitteeGrid from "../components/CommitteeGrid";
-import MemberLogos from "../../static/members.jpg";
+import Globe from '../../svgs/icons/white/Globe.svg'
+import Mountain from '../../svgs/icons/white/Mountain.svg'
+import Location from '../../svgs/icons/white/Location.svg'
+import Cocktail from '../../svgs/icons/white/Cocktail.svg'
+import Cutlery from '../../svgs/icons/white/Cutlery.svg'
+import Calendar from '../../svgs/icons/sky/Calendar.svg'
+import Talk from '../../svgs/icons/sky/Talk.svg'
+import Mail from '../../svgs/icons/black/Mail.svg'
+import CommitteeGrid from '../components/CommitteeGrid'
+import MemberLogos from '../../static/members.jpg'
 
 const OverviewGrid = styled.div`
   ${tw`max-w-xl m-auto text-center`};
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-`;
+`
 
 const OverviewContainer = styled.div`
   ${tw`w-full mx-2`};
-`;
+`
 
 class EventsOverview extends Component {
   render() {
     const events = [
       {
         icon: Globe,
-        title: "Annual trips",
+        title: 'Annual trips',
         description:
-          "Bi-annual international adventure. Skiiing. Sunbathing. Workshops. Good times."
+          'Bi-annual international adventure. Skiiing. Sunbathing. Workshops. Good times.'
       },
       {
         icon: Mountain,
-        title: "Mini-trips",
+        title: 'Mini-trips',
         description:
-          "UK based adventures to learn, celebrate, discuss, relax and have some serious fun."
+          'UK based adventures to learn, celebrate, discuss, relax and have some serious fun.'
       },
       {
         icon: Location,
-        title: "Local events",
-        description: "Heading out on the road to MWC or WebSummit."
+        title: 'Local events',
+        description: 'Heading out on the road to MWC or WebSummit.'
       },
       {
         icon: Cocktail,
-        title: "ICE parties",
-        description: "Summer parties, Christmas balls and more"
+        title: 'ICE parties',
+        description: 'Summer parties, Christmas balls and more'
       },
       {
         icon: Cutlery,
-        title: "ICE feasts",
+        title: 'ICE feasts',
         description:
-          "These special ICE dinners will bring together a more intimate group of ICERs to connect in a meaningful way."
+          'These special ICE dinners will bring together a more intimate group of ICERs to connect in a meaningful way.'
       }
-    ];
+    ]
     return (
       <OverviewContainer>
         <OverviewGrid>
           {events.map(item => {
-            const EventIcon = item.icon;
+            const EventIcon = item.icon
             return (
               <div>
                 <StandardIcon>
-                  <EventIcon style={{ width: "100%" }} />
+                  <EventIcon style={{ width: '100%' }} />
                 </StandardIcon>
                 <SimpleHeader>{item.title}</SimpleHeader>
                 <Heading
@@ -90,11 +90,11 @@ class EventsOverview extends Component {
                   text={item.description}
                 />
               </div>
-            );
+            )
           })}
         </OverviewGrid>
       </OverviewContainer>
-    );
+    )
   }
 }
 
@@ -102,7 +102,7 @@ class Membership extends Component {
   render() {
     const {
       data: { membership, committee }
-    } = this.props;
+    } = this.props
     return (
       <Layout color="sky">
         <Hero
@@ -131,7 +131,7 @@ class Membership extends Component {
             <ThirdCol>
               <PaddedCol>
                 <StandardIcon>
-                  <Meeting style={{ width: "100%" }} />
+                  <Meeting style={{ width: '100%' }} />
                 </StandardIcon>
                 <SimpleHeader>ICE list</SimpleHeader>
                 <Heading
@@ -145,7 +145,7 @@ class Membership extends Component {
             <ThirdCol>
               <PaddedCol>
                 <StandardIcon>
-                  <Calendar style={{ width: "100%" }} />
+                  <Calendar style={{ width: '100%' }} />
                 </StandardIcon>
                 <SimpleHeader>ICE events</SimpleHeader>
                 <Heading
@@ -159,7 +159,7 @@ class Membership extends Component {
             <ThirdCol>
               <PaddedCol>
                 <StandardIcon>
-                  <Talk style={{ width: "100%" }} />
+                  <Talk style={{ width: '100%' }} />
                 </StandardIcon>
                 <SimpleHeader>ICE cubes</SimpleHeader>
                 <Heading
@@ -308,19 +308,24 @@ class Membership extends Component {
             </p>
             <p>
               If you reckon you’ve got the good opinion of two people we already
-              trust, hit apply. We want to know more about you.{" "}
+              trust, hit apply. We want to know more about you.{' '}
             </p>
             <StandardIcon>
-              <Mail style={{ width: "100%" }} />
+              <a
+                aria-label="Apply to join ICE"
+                href="https://airtable.com/shrOJuDfRpLXz3JoS"
+              >
+                <Mail style={{ width: '100%' }} />
+              </a>
             </StandardIcon>
           </Narrow>
         </Section>
       </Layout>
-    );
+    )
   }
 }
 
-export default Membership;
+export default Membership
 
 export const pageQuery = graphql`
   query MembershipQuery {
@@ -381,4 +386,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

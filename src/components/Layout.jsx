@@ -105,6 +105,9 @@ const PureLayout = ({ children, data, color }) => (
         <h3>
           <WhiteLink to="/code-of-conduct">Code of conduct</WhiteLink>
         </h3>
+        <h3>
+          <WhiteLink to="/cookies">Cookie policy</WhiteLink>
+        </h3>
       </Section>
       <NavModal id="nav_modal" />
     </>

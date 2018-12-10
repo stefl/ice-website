@@ -1,5 +1,6 @@
 import React from 'react'
 import Heading from './Heading'
+import { SimpleHeader } from 'components'
 
 class RandomQuote extends React.Component {
   render() {
@@ -10,16 +11,16 @@ class RandomQuote extends React.Component {
       this.props.quotes.edges[0].node.data
     )
     return (
-      <div>
+      <div style={{ textAlign: 'center' }}>
         <div style={{ paddingBottom: '1em' }}>
           <Heading size={2} color="black" bg="rose" text={`“${quote.text}”`} />
         </div>
-        <Heading
+        <SimpleHeader
+          style={{ margin: 'auto' }}
           size={3}
           color="white"
           bg="black"
-          text={`${name.text} — ${role.text}`}
-        />
+        >{`${name.text} — ${role.text}`}</SimpleHeader>
       </div>
     )
   }

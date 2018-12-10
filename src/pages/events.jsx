@@ -17,12 +17,17 @@ import {
 } from 'components'
 import dateFormat from 'dateformat'
 
+const SkySpan = styled.span`
+  ${tw`text-sky`};
+`
+
 const EventGrid = styled.div`
   display: grid;
   grid-template-columns: 320px 1fr;
   grid-gap: 2rem;
   width: 100%;
-  ${tw`border-t-1 border-black`};
+  border-top: 1px solid;
+  ${tw`border-black pt-4`};
   @media (max-width: 600px) {
     grid-template-columns: 1fr;
   }
@@ -95,11 +100,18 @@ class Event extends Component {
         </div>
         <div>
           <h2>{event.node.data.title.text}</h2>
-          <h3>{dateFormat(event.node.data.date_from, 'd mmm ‘yy')}</h3>
-          {event.node.data.date_to &&
-            event.node.data.date_to !== event.node.data.date_from && (
-              <h3>{dateFormat(event.node.data.date_to, 'd mmm ‘yy')}</h3>
-            )}
+          <h3>
+            <SkySpan>
+              {dateFormat(event.node.data.date_from, 'd mmm ‘yy')}
+            </SkySpan>
+            {event.node.data.date_to &&
+              event.node.data.date_to !== event.node.data.date_from && (
+                <SkySpan>
+                  {' '}
+                  – {dateFormat(event.node.data.date_to, 'd mmm ‘yy')}
+                </SkySpan>
+              )}
+          </h3>
           <div
             dangerouslySetInnerHTML={{
               __html: event.node.data.description.html
@@ -156,7 +168,7 @@ export const pageQuery = graphql`
       }
     }
 
-    events: allPrismicEvent(sort: { order: DESC, fields: [data___date_from] }) {
+    events: allPrismicEvent(sort: { order: ASC, fields: [data___date_from] }) {
       edges {
         node {
           data {
