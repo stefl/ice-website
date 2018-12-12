@@ -14,5 +14,5 @@ module.exports = {
   themeColor: '#3D63AE',
   backgroundColor: '#EBEDF2',
 
-  twitter: '@icelist' // Twitter Username
+  twitter: '@icelist', // Twitter Username
 }

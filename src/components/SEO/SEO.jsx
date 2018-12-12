@@ -96,9 +96,7 @@ export default class SEO extends Component {
                 <meta name="image" content={seo.image} />
                 <meta name="apple-mobile-web-app-title" content={shortName} />
                 <meta name="application-name" content={shortName} />
-                <script type="application/ld+json">
-                  {JSON.stringify(schemaOrgJSONLD)}
-                </script>
+                <script type="application/ld+json">{JSON.stringify(schemaOrgJSONLD)}</script>
               </Helmet>
               <Facebook
                 desc={seo.description}
@@ -107,12 +105,7 @@ export default class SEO extends Component {
                 type={article ? 'article' : null}
                 url={seo.url}
               />
-              <Twitter
-                title={seo.title}
-                image={seo.image}
-                desc={seo.description}
-                username={twitter}
-              />
+              <Twitter title={seo.title} image={seo.image} desc={seo.description} username={twitter} />
             </>
           )
         }}

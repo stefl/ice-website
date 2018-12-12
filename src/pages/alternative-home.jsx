@@ -18,15 +18,16 @@ import {
   HalfCol,
   StandardIcon,
   SimpleHeader,
-  PaddedCol
+  PaddedCol,
 } from 'components'
+import ReactPlayer from 'react-player'
 import Umbrella from '../../svgs/icons/sky/Umbrella.svg'
 import Lightning from '../../svgs/icons/mint/Lightning.svg'
 import WebVideo from '../../svgs/icons/rose/WebVideo.svg'
 import Mail from '../../svgs/icons/black/Mail.svg'
-import ReactPlayer from 'react-player'
 import RandomQuote from '../components/RandomQuote'
 import FullWidthPlayer from '../components/FullWidthPlayer'
+
 const StyledLink = styled(Link)`
   color: ${props => props.theme.colors.black};
   font-style: normal;
@@ -36,26 +37,13 @@ const StyledLink = styled(Link)`
 class Index extends Component {
   render() {
     const {
-      data: { homepage, quotes }
+      data: { homepage, quotes },
     } = this.props
     return (
-      <Layout color={'rose'}>
-        <Hero
-          color={'rose'}
-          images={homepage.data.background.localFile.childImageSharp.fluid}
-        >
-          <Heading
-            size={1}
-            color="white"
-            bg="black"
-            text={homepage.data.title.text}
-          />
-          <Heading
-            size={3}
-            color="black"
-            bg="white"
-            text={homepage.data.content.text}
-          />
+      <Layout color="rose">
+        <Hero color="rose" images={homepage.data.background.localFile.childImageSharp.fluid}>
+          <Heading size={1} color="white" bg="black" text={homepage.data.title.text} />
+          <Heading size={3} color="black" bg="white" text={homepage.data.content.text} />
         </Hero>
 
         <Section color="white" bg="rose">
@@ -89,12 +77,7 @@ class Index extends Component {
           </div>
         </Section>
         <Section color="black" bg="black" flexible>
-          <Heading
-            size={2}
-            color="white"
-            bg="rose"
-            text={`Want a quick flavour of what ICE is all about?`}
-          />
+          <Heading size={2} color="white" bg="rose" text="Want a quick flavour of what ICE is all about?" />
           <Heading size={3} color="black" bg="white" text="Watch this video" />
           <div style={{ width: '100%', padding: '1rem' }}>
             <FullWidthPlayer url="https://vimeo.com/278903312/5718eefa6a" />
@@ -121,11 +104,7 @@ export const pageQuery = graphql`
         background {
           localFile {
             childImageSharp {
-              fluid(
-                srcSetBreakpoints: [600, 800, 1000, 1200, 1400, 1600, 1920]
-                quality: 80
-                grayscale: true
-              ) {
+              fluid(srcSetBreakpoints: [600, 800, 1000, 1200, 1400, 1600, 1920], quality: 80, grayscale: true) {
                 ...GatsbyImageSharpFluid_withWebp
               }
             }

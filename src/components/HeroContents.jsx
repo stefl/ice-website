@@ -2,8 +2,8 @@ import React from 'react'
 import Dimensions from 'react-dimensions'
 import memoizeOne from 'memoize-one'
 import styled from 'react-emotion'
-import Chevron from '../../svgs/chevron.svg'
 import { animateScroll } from 'react-scroll'
+import Chevron from '../../svgs/chevron.svg'
 import { RoundedBox, RoundedIcon, RoundedDiamond } from './Rounded'
 
 const FlexContent = styled.div`
@@ -21,7 +21,7 @@ class HeroContents extends React.PureComponent {
     animateScroll.scrollTo(window.innerHeight, {
       duration: 500,
       delay: 100,
-      smooth: 'easeInOutQuad'
+      smooth: 'easeInOutQuad',
     })
   }
 
@@ -30,22 +30,20 @@ class HeroContents extends React.PureComponent {
     const { fixedHeight } = this.state
     const { scroll } = this
     return (
-      <div style={{ position: 'relative', height: fixedHeight + 'px' }}>
+      <div style={{ position: 'relative', height: `${fixedHeight}px` }}>
         <FlexContent>{children}</FlexContent>
         <div
           style={{
             position: 'absolute',
             bottom: '12px',
             textAlign: 'center',
-            width: '100%'
+            width: '100%',
           }}
         >
           <RoundedBox onClick={scroll}>
             <RoundedDiamond bg={color} />
             <RoundedIcon>
-              <Chevron
-                style={{ width: '100%', height: 'auto', margin: 'auto' }}
-              />
+              <Chevron style={{ width: '100%', height: 'auto', margin: 'auto' }} />
             </RoundedIcon>
           </RoundedBox>
         </div>

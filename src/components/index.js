@@ -1,3 +1,4 @@
+import styled from 'react-emotion'
 import Listing from './Listing'
 import SEO from './SEO'
 import Footer from './Footer'
@@ -11,7 +12,6 @@ import Heading from './Heading'
 import Logo from './Logo'
 import Nav from './Nav'
 import Section from './Section'
-import styled from 'react-emotion'
 
 const ThirdCol = styled.div`
   ${tw`w-full md:w-1/3 lg:w-1/3 xl:w-1/3 text-center`};

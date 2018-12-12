@@ -1,32 +1,22 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import styled from 'react-emotion'
 import { graphql } from 'gatsby'
 import Link from 'gatsby-link'
 import {
   Hero,
   Layout,
-  Listing,
-  Wrapper,
-  Title,
   Heading,
   Section,
-  Narrow,
-  Thirds,
-  ThirdCol,
   Halves,
   HalfCol,
   StandardIcon,
-  SimpleHeader,
   PaddedCol
 } from 'components'
 import Umbrella from '../../svgs/icons/sky/Umbrella.svg'
 import Lightning from '../../svgs/icons/mint/Lightning.svg'
-import WebVideo from '../../svgs/icons/rose/WebVideo.svg'
-import Mail from '../../svgs/icons/black/Mail.svg'
-import ReactPlayer from 'react-player'
 import RandomQuote from '../components/RandomQuote'
 import FullWidthPlayer from '../components/FullWidthPlayer'
+
 const StyledLink = styled(Link)`
   color: ${props => props.theme.colors.black};
   font-style: normal;
@@ -39,9 +29,9 @@ class Index extends Component {
       data: { homepage, quotes }
     } = this.props
     return (
-      <Layout color={'rose'}>
+      <Layout color="rose">
         <Hero
-          color={'rose'}
+          color="rose"
           images={homepage.data.background.localFile.childImageSharp.fluid}
         >
           <RandomQuote color="black" bg="white" quotes={quotes} />
@@ -91,7 +81,7 @@ class Index extends Component {
             size={2}
             color="white"
             bg="rose"
-            text={`Want a quick flavour of what ICE is all about?`}
+            text="Want a quick flavour of what ICE is all about?"
           />
           <Heading size={3} color="black" bg="white" text="Watch this video" />
           <div style={{ width: '100%', padding: '1rem' }}>

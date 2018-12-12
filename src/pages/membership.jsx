@@ -15,7 +15,7 @@ import {
   ThirdCol,
   StandardIcon,
   SimpleHeader,
-  PaddedCol
+  PaddedCol,
 } from 'components'
 import Meeting from '../../svgs/icons/sky/Meeting.svg'
 
@@ -47,31 +47,29 @@ class EventsOverview extends Component {
       {
         icon: Globe,
         title: 'Annual trips',
-        description:
-          'Bi-annual international adventure. Skiiing. Sunbathing. Workshops. Good times.'
+        description: 'Bi-annual international adventure. Skiiing. Sunbathing. Workshops. Good times.',
       },
       {
         icon: Mountain,
         title: 'Mini-trips',
-        description:
-          'UK based adventures to learn, celebrate, discuss, relax and have some serious fun.'
+        description: 'UK based adventures to learn, celebrate, discuss, relax and have some serious fun.',
       },
       {
         icon: Location,
         title: 'Local events',
-        description: 'Heading out on the road to MWC or WebSummit.'
+        description: 'Heading out on the road to MWC or WebSummit.',
       },
       {
         icon: Cocktail,
         title: 'ICE parties',
-        description: 'Summer parties, Christmas balls and more'
+        description: 'Summer parties, Christmas balls and more',
       },
       {
         icon: Cutlery,
         title: 'ICE feasts',
         description:
-          'These special ICE dinners will bring together a more intimate group of ICERs to connect in a meaningful way.'
-      }
+          'These special ICE dinners will bring together a more intimate group of ICERs to connect in a meaningful way.',
+      },
     ]
     return (
       <OverviewContainer>
@@ -84,12 +82,7 @@ class EventsOverview extends Component {
                   <EventIcon style={{ width: '100%' }} />
                 </StandardIcon>
                 <SimpleHeader>{item.title}</SimpleHeader>
-                <Heading
-                  size={4}
-                  color="white"
-                  bg="black"
-                  text={item.description}
-                />
+                <Heading size={4} color="white" bg="black" text={item.description} />
               </div>
             )
           })}
@@ -102,20 +95,12 @@ class EventsOverview extends Component {
 class Membership extends Component {
   render() {
     const {
-      data: { membership, committee }
+      data: { membership, committee },
     } = this.props
     return (
       <Layout color="sky">
-        <Hero
-          color="sky"
-          images={membership.data.background.localFile.childImageSharp.fluid}
-        >
-          <Heading
-            size={1}
-            color="white"
-            bg="black"
-            text="ICE is the tech family you’ve waited for"
-          />
+        <Hero color="sky" images={membership.data.background.localFile.childImageSharp.fluid}>
+          <Heading size={1} color="white" bg="black" text="ICE is the tech family you’ve waited for" />
 
           <Narrow>
             <Heading
@@ -179,30 +164,20 @@ class Membership extends Component {
           <Heading size={1} color="black" bg="white" text="Nice to CC you" />
           <Narrow>
             <p>
-              Forging strong bonds, supporting through the good and bad, making
-              amazing memories. We’re not here to network, we’re here to find
-              our people.
+              Forging strong bonds, supporting through the good and bad, making amazing memories. We’re not here to
+              network, we’re here to find our people.
             </p>
           </Narrow>
         </Section>
 
         <Section bg="black" color="white" flexible>
           <Heading size={2} color="white" bg="sky" text="ICE events" />
-          <Heading
-            size={1}
-            color="black"
-            bg="white"
-            text="Great minds think <strike>alike</strike> nearby"
-          />
+          <Heading size={1} color="black" bg="white" text="Great minds think <strike>alike</strike> nearby" />
           <Narrow>
+            <p>We’re at our best when we’re together. So we make sure that we’re together as much as possible.</p>
             <p>
-              We’re at our best when we’re together. So we make sure that we’re
-              together as much as possible.
-            </p>
-            <p>
-              Trips abroad to build lasting bonds, mini-breaks to clear our
-              heads, workshops, talks and glorious dinners, we build amazing
-              atmospheres and watch the creative sparks fly.
+              Trips abroad to build lasting bonds, mini-breaks to clear our heads, workshops, talks and glorious
+              dinners, we build amazing atmospheres and watch the creative sparks fly.
             </p>
           </Narrow>
 
@@ -211,51 +186,29 @@ class Membership extends Component {
 
         <Section bg="white" color="black">
           <Heading size={2} color="white" bg="black" text="ICE cubes" />
-          <Heading
-            size={1}
-            color="white"
-            bg="sky"
-            text="We love to think inside the box"
-          />
+          <Heading size={1} color="white" bg="sky" text="We love to think inside the box" />
 
           <Narrow>
             <p>
-              Our events are the best. But we wanted more. Our ICE Cubes are
-              smaller, carefully curated groups who meet regularly - providing
-              deep support, ongoing advice and a proper investment in
-              each-other’s development.
+              Our events are the best. But we wanted more. Our ICE Cubes are smaller, carefully curated groups who meet
+              regularly - providing deep support, ongoing advice and a proper investment in each-other’s development.
             </p>
             <p>
-              It’s hard to overstate the value of having a team of brilliant
-              people who have your back, without any pressure. An entrepreneur’s
-              journey can be lonely. We decided to change that.
+              It’s hard to overstate the value of having a team of brilliant people who have your back, without any
+              pressure. An entrepreneur’s journey can be lonely. We decided to change that.
             </p>
           </Narrow>
         </Section>
 
         <Section bg="sky" color="black">
-          <Heading
-            size={2}
-            color="white"
-            bg="black"
-            text="Your talent > Your cash"
-          />
-          <Heading
-            size={1}
-            color="black"
-            bg="white"
-            text="We need your brains, not your bank balance"
-          />
+          <Heading size={2} color="white" bg="black" text="Your talent > Your cash" />
+          <Heading size={1} color="black" bg="white" text="We need your brains, not your bank balance" />
 
           <Narrow>
+            <p>ICE is a not-for-profit, and costs nothing to join. However, we don’t let just anyone in.</p>
             <p>
-              ICE is a not-for-profit, and costs nothing to join. However, we
-              don’t let just anyone in.
-            </p>
-            <p>
-              We keep it exclusive because we want to stay personal, and make
-              sure every member shares our values, spark and desire to be
-              better.
+              We keep it exclusive because we want to stay personal, and make sure every member shares our values, spark
+              and desire to be better.
             </p>
           </Narrow>
         </Section>
@@ -264,28 +217,19 @@ class Membership extends Component {
           <Heading size={2} color="white" bg="black" text="Our members" />
 
           <Narrow>
-            <p>
-              We don’t like to boast about our existing members. But we do it
-              anyway.
-            </p>
+            <p>We don’t like to boast about our existing members. But we do it anyway.</p>
           </Narrow>
 
           <img src={MemberLogos} />
         </Section>
 
         <Section bg="black" color="white" flexible>
-          <Heading
-            size={2}
-            color="sky"
-            bg="white"
-            text="An idea this good must run itself…"
-          />
+          <Heading size={2} color="sky" bg="white" text="An idea this good must run itself…" />
 
           <Narrow>
             <p>
-              It absolutely doesn’t. ICE is run by an amazing group who give up
-              their time and talent because they believe in what we’re doing
-              here. And they do it for free. The beautiful maniacs.
+              It absolutely doesn’t. ICE is run by an amazing group who give up their time and talent because they
+              believe in what we’re doing here. And they do it for free. The beautiful maniacs.
             </p>
           </Narrow>
 
@@ -303,25 +247,17 @@ class Membership extends Component {
 
           <Narrow>
             <p>
-              For us, this business is personal. We’d love to learn more about
-              you, to find out if you’d be a fantastic fit for our beloved
-              community.
+              For us, this business is personal. We’d love to learn more about you, to find out if you’d be a fantastic
+              fit for our beloved community.
             </p>
 
             <StandardIcon>
-              <a
-                aria-label="Apply to join ICE"
-                href="https://airtable.com/shrOJuDfRpLXz3JoS"
-              >
+              <a aria-label="Apply to join ICE" href="https://airtable.com/shrOJuDfRpLXz3JoS">
                 <Mail style={{ width: '100%' }} />
               </a>
             </StandardIcon>
 
-            <CTA
-              color="black"
-              text="Apply to join ICE"
-              href="https://airtable.com/shrOJuDfRpLXz3JoS"
-            />
+            <CTA color="black" text="Apply to join ICE" href="https://airtable.com/shrOJuDfRpLXz3JoS" />
           </Narrow>
         </Section>
       </Layout>
@@ -341,11 +277,7 @@ export const pageQuery = graphql`
               url
               localFile {
                 childImageSharp {
-                  fluid(
-                    srcSetBreakpoints: [100, 200, 300, 400, 500, 600]
-                    quality: 80
-                    grayscale: true
-                  ) {
+                  fluid(srcSetBreakpoints: [100, 200, 300, 400, 500, 600], quality: 80, grayscale: true) {
                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }
@@ -377,11 +309,7 @@ export const pageQuery = graphql`
         background {
           localFile {
             childImageSharp {
-              fluid(
-                srcSetBreakpoints: [600, 800, 1000, 1200, 1400, 1600, 1920]
-                quality: 80
-                grayscale: true
-              ) {
+              fluid(srcSetBreakpoints: [600, 800, 1000, 1200, 1400, 1600, 1920], quality: 80, grayscale: true) {
                 ...GatsbyImageSharpFluid_withWebp
               }
             }

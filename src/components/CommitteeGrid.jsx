@@ -44,39 +44,31 @@ class CommitteeGrid extends Component {
     const { committee } = this.props
     if (!committee) {
       return <div />
-    } else {
-      return (
-        <OverflowGrid committee={committee}>
-          <CardContainer committee={committee}>
-            {committee.edges.map(member => {
-              return (
-                <CommitteeCard key={member.node.id}>
-                  <Rounded>
-                    <ScaledUp>
-                      <Img
-                        fadeIn={true}
-                        fluid={
-                          member.node.data.photo.localFile.childImageSharp.fluid
-                        }
-                      />
-                    </ScaledUp>
-                  </Rounded>
-                  <p style={{ paddingTop: '1rem' }}>
-                    <a href={member.node.data.link.url}>
-                      <strong>{member.node.data.name.text}</strong>
-                    </a>
-                    <br />
-                    {member.node.data.role}
-                    <br />
-                    {member.node.data.link_text.text}
-                  </p>
-                </CommitteeCard>
-              )
-            })}
-          </CardContainer>
-        </OverflowGrid>
-      )
     }
+    return (
+      <OverflowGrid committee={committee}>
+        <CardContainer committee={committee}>
+          {committee.edges.map(member => (
+            <CommitteeCard key={member.node.id}>
+              <Rounded>
+                <ScaledUp>
+                  <Img fadeIn fluid={member.node.data.photo.localFile.childImageSharp.fluid} />
+                </ScaledUp>
+              </Rounded>
+              <p style={{ paddingTop: '1rem' }}>
+                <a href={member.node.data.link.url}>
+                  <strong>{member.node.data.name.text}</strong>
+                </a>
+                <br />
+                {member.node.data.role}
+                <br />
+                {member.node.data.link_text.text}
+              </p>
+            </CommitteeCard>
+          ))}
+        </CardContainer>
+      </OverflowGrid>
+    )
   }
 }
 

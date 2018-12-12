@@ -42,8 +42,7 @@ const StyledHeading1 = styled.span`
   -webkit-box-decoration-break: clone;
   display: inline !important;
   overflow: visible;
-  box-shadow: 0.4em 0 0 ${props => props.theme.colors[props.bg]},
-    -0.4em 0 0 ${props => props.theme.colors[props.bg]};
+  box-shadow: 0.4em 0 0 ${props => props.theme.colors[props.bg]}, -0.4em 0 0 ${props => props.theme.colors[props.bg]};
 `
 
 const StyledHeading2 = styled.span`
@@ -55,8 +54,7 @@ const StyledHeading2 = styled.span`
   -webkit-box-decoration-break: clone;
   display: inline;
   overflow: visible;
-  box-shadow: 0.4em 0 0 ${props => props.theme.colors[props.bg]},
-    -0.4em 0 0 ${props => props.theme.colors[props.bg]};
+  box-shadow: 0.4em 0 0 ${props => props.theme.colors[props.bg]}, -0.4em 0 0 ${props => props.theme.colors[props.bg]};
 `
 
 const StyledHeading3 = styled.span`
@@ -68,8 +66,7 @@ const StyledHeading3 = styled.span`
   -webkit-box-decoration-break: clone;
   display: inline;
   overflow: visible;
-  box-shadow: 0.4em 0 0 ${props => props.theme.colors[props.bg]},
-    -0.4em 0 0 ${props => props.theme.colors[props.bg]};
+  box-shadow: 0.4em 0 0 ${props => props.theme.colors[props.bg]}, -0.4em 0 0 ${props => props.theme.colors[props.bg]};
 `
 
 const StyledHeading4 = styled.span`
@@ -81,8 +78,7 @@ const StyledHeading4 = styled.span`
   -webkit-box-decoration-break: clone;
   display: inline;
   overflow: visible;
-  box-shadow: 0.4em 0 0 ${props => props.theme.colors[props.bg]},
-    -0.4em 0 0 ${props => props.theme.colors[props.bg]};
+  box-shadow: 0.4em 0 0 ${props => props.theme.colors[props.bg]}, -0.4em 0 0 ${props => props.theme.colors[props.bg]};
 `
 
 const StyledHeading5 = styled.span`
@@ -94,8 +90,7 @@ const StyledHeading5 = styled.span`
   -webkit-box-decoration-break: clone;
   display: inline;
   overflow: visible;
-  box-shadow: 0.4em 0 0 ${props => props.theme.colors[props.bg]},
-    -0.4em 0 0 ${props => props.theme.colors[props.bg]};
+  box-shadow: 0.4em 0 0 ${props => props.theme.colors[props.bg]}, -0.4em 0 0 ${props => props.theme.colors[props.bg]};
 `
 
 class Heading extends Component {
@@ -122,22 +117,11 @@ class Heading extends Component {
 
     return (
       <HeadingContainer style={style}>
-        <Wrapper
-          style={{ position: 'absolute', top: '0px' }}
-          aria-hidden="true"
-        >
-          <Heading
-            color="transparent"
-            bg={bg}
-            dangerouslySetInnerHTML={{ __html: text }}
-          />
+        <Wrapper style={{ position: 'absolute', top: '0px' }} aria-hidden="true">
+          <Heading color="transparent" bg={bg} dangerouslySetInnerHTML={{ __html: text }} />
         </Wrapper>
         <Wrapper style={{ position: 'relative' }}>
-          <Heading
-            color={color}
-            bg="transparent"
-            dangerouslySetInnerHTML={{ __html: text }}
-          />
+          <Heading color={color} bg="transparent" dangerouslySetInnerHTML={{ __html: text }} />
         </Wrapper>
       </HeadingContainer>
     )
@@ -149,12 +133,12 @@ export default Heading
 Heading.propTypes = {
   bg: PropTypes.string,
   color: PropTypes.string,
-  size: PropTypes.number
+  size: PropTypes.number,
 }
 
 Heading.defaultProps = {
   bg: 'black',
   color: 'white',
   size: 1,
-  style: {}
+  style: {},
 }

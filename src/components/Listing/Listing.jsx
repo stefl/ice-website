@@ -18,17 +18,9 @@ export default class Listing extends Component {
         {posts.map(post => {
           let categories = false
           if (post.node.data.categories[0].category) {
-            categories = post.node.data.categories.map(
-              c => c.category.document[0].data.name
-            )
+            categories = post.node.data.categories.map(c => c.category.document[0].data.name)
           }
-          return (
-            <ListItem
-              key={post.node.uid}
-              node={post.node}
-              categories={categories}
-            />
-          )
+          return <ListItem key={post.node.uid} node={post.node} categories={categories} />
         })}
       </List>
     )

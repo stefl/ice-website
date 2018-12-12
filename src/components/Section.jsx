@@ -30,10 +30,12 @@ export default Section
 Section.propTypes = {
   bg: PropTypes.string,
   color: PropTypes.string,
+  flexible: PropTypes.bool,
+  children: PropTypes.object
 }
 
 Section.defaultProps = {
   bg: 'transparent',
   color: 'black',
-  flexible: false,
+  flexible: false
 }

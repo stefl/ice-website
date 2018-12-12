@@ -88,7 +88,7 @@ const PureLayout = ({ children, data, color }) => (
                 position: 'absolute',
                 top: '0px',
                 left: '0px',
-                width: '100%'
+                width: '100%',
               }}
             >
               <Nav color={theme.colors[color]} />
@@ -139,5 +139,5 @@ export default Layout
 
 PureLayout.propTypes = {
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired,
-  data: PropTypes.object.isRequired
+  data: PropTypes.object.isRequired,
 }

@@ -43,34 +43,25 @@ class MemberGrid extends Component {
     const { members } = this.props
     if (!members) {
       return <div />
-    } else {
-      return (
-        <OverflowGrid members={members}>
-          <CardContainer members={members}>
-            {members.edges.map(member => {
-              return (
-                <MemberCard key={member.node.data.uid}>
-                  <a
-                    style={{ width: '100%', height: 'auto' }}
-                    href={member.node.data.link.url}
-                  >
-                    <Img
-                      style={{ width: '100%', height: 'auto' }}
-                      alt={member.node.data.name.text}
-                      fadeIn={true}
-                      fluid={
-                        member.node.data.memberlogo.localFile.childImageSharp
-                          .fluid
-                      }
-                    />
-                  </a>
-                </MemberCard>
-              )
-            })}
-          </CardContainer>
-        </OverflowGrid>
-      )
     }
+    return (
+      <OverflowGrid members={members}>
+        <CardContainer members={members}>
+          {members.edges.map(member => (
+            <MemberCard key={member.node.data.uid}>
+              <a style={{ width: '100%', height: 'auto' }} href={member.node.data.link.url}>
+                <Img
+                  style={{ width: '100%', height: 'auto' }}
+                  alt={member.node.data.name.text}
+                  fadeIn
+                  fluid={member.node.data.memberlogo.localFile.childImageSharp.fluid}
+                />
+              </a>
+            </MemberCard>
+          ))}
+        </CardContainer>
+      </OverflowGrid>
+    )
   }
 }
 

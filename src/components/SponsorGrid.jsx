@@ -43,35 +43,26 @@ class SponsorGrid extends Component {
     const { sponsors } = this.props
     if (!sponsors) {
       return <div />
-    } else {
-      return (
-        <OverflowGrid sponsors={sponsors}>
-          <CardContainer sponsors={sponsors}>
-            {sponsors.edges.map(sponsor => {
-              return (
-                <SponsorCard key={sponsor.node.data.uid}>
-                  <a
-                    style={{ width: '100%', height: 'auto' }}
-                    href={sponsor.node.data.link.url}
-                  >
-                    <Img
-                      style={{ width: '100%', height: 'auto' }}
-                      alt={sponsor.node.data.name.text}
-                      fadeIn={true}
-                      dataPinNopin="true"
-                      fluid={
-                        sponsor.node.data.sponsorlogo.localFile.childImageSharp
-                          .fluid
-                      }
-                    />
-                  </a>
-                </SponsorCard>
-              )
-            })}
-          </CardContainer>
-        </OverflowGrid>
-      )
     }
+    return (
+      <OverflowGrid sponsors={sponsors}>
+        <CardContainer sponsors={sponsors}>
+          {sponsors.edges.map(sponsor => (
+            <SponsorCard key={sponsor.node.data.uid}>
+              <a style={{ width: '100%', height: 'auto' }} href={sponsor.node.data.link.url}>
+                <Img
+                  style={{ width: '100%', height: 'auto' }}
+                  alt={sponsor.node.data.name.text}
+                  fadeIn
+                  dataPinNopin="true"
+                  fluid={sponsor.node.data.sponsorlogo.localFile.childImageSharp.fluid}
+                />
+              </a>
+            </SponsorCard>
+          ))}
+        </CardContainer>
+      </OverflowGrid>
+    )
   }
 }
 

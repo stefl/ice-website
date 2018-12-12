@@ -2,15 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import styled from 'react-emotion'
-import {
-  Layout,
-  Listing,
-  Wrapper,
-  SliceZone,
-  Title,
-  SEO,
-  Header,
-} from 'components'
+import { Layout, Listing, Wrapper, SliceZone, Title, SEO, Header } from 'components'
 import Categories from '../components/Listing/Categories'
 import website from '../../config/website'
 
@@ -21,9 +13,8 @@ const Hero = styled.section`
 `
 
 const Headline = styled.p`
-  font-family: 'Source Sans Pro', -apple-system, 'BlinkMacSystemFont',
-    'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-family: 'Source Sans Pro', -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial',
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   color: ${props => props.theme.colors.grey};
   font-size: 1.25rem;
   a {
@@ -40,11 +31,7 @@ const Post = ({ data: { prismicPost, posts }, location }) => {
   }
   return (
     <Layout>
-      <SEO
-        title={`${data.title.text} | ${website._title}`}
-        pathname={location.pathname}
-        article
-      />
+      <SEO title={`${data.title.text} | ${website._title}`} pathname={location.pathname} article />
       <Hero>
         <Wrapper>
           <Header />
@@ -140,10 +127,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    posts: allPrismicPost(
-      limit: 2
-      sort: { fields: [data___date], order: DESC }
-    ) {
+    posts: allPrismicPost(limit: 2, sort: { fields: [data___date], order: DESC }) {
       edges {
         node {
           uid

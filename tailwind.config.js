@@ -41,7 +41,7 @@ View the full documentation at https://tailwindcss.com.
 |
 */
 
-let colors = {
+const colors = {
   transparent: 'transparent',
   sky: '#00b5e2',
   mint: '#77c095',
@@ -54,7 +54,7 @@ let colors = {
   'grey-light': '#dae1e7',
   'grey-lighter': '#f1f5f8',
   'grey-lightest': '#f8fafc',
-  white: '#ffffff'
+  white: '#ffffff',
 
   // 'red-darkest': '#3b0d0c',
   // 'red-darker': '#621b18',
@@ -143,7 +143,7 @@ module.exports = {
   |
   */
 
-  colors: colors,
+  colors,
 
   /*
   |-----------------------------------------------------------------------------
@@ -168,7 +168,7 @@ module.exports = {
     sm: '576px',
     md: '768px',
     lg: '992px',
-    xl: '1200px'
+    xl: '1200px',
   },
 
   /*
@@ -203,7 +203,7 @@ module.exports = {
       'Fira Sans',
       'Droid Sans',
       'Helvetica Neue',
-      'sans-serif'
+      'sans-serif',
     ],
     body: [
       'Source Sans Pro',
@@ -218,16 +218,9 @@ module.exports = {
       'Fira Sans',
       'Droid Sans',
       'Helvetica Neue',
-      'sans-serif'
+      'sans-serif',
     ],
-    mono: [
-      'Menlo',
-      'Monaco',
-      'Consolas',
-      'Liberation Mono',
-      'Courier New',
-      'monospace'
-    ]
+    mono: ['Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
   },
 
   /*
@@ -258,7 +251,7 @@ module.exports = {
     '2xl': '1.5rem', // 24px
     '3xl': '1.875rem', // 30px
     '4xl': '2.25rem', // 36px
-    '5xl': '3rem' // 48px
+    '5xl': '3rem', // 48px
   },
 
   /*
@@ -284,7 +277,7 @@ module.exports = {
     semibold: 600,
     bold: 700,
     extrabold: 800,
-    black: 900
+    black: 900,
   },
 
   /*
@@ -303,7 +296,7 @@ module.exports = {
     none: 1,
     tight: 1.25,
     normal: 1.5,
-    loose: 2
+    loose: 2,
   },
 
   /*
@@ -321,7 +314,7 @@ module.exports = {
   tracking: {
     tight: '-0.05em',
     normal: '0',
-    wide: '0.05em'
+    wide: '0.05em',
   },
 
   /*
@@ -370,7 +363,7 @@ module.exports = {
   backgroundSize: {
     auto: 'auto',
     cover: 'cover',
-    contain: 'contain'
+    contain: 'contain',
   },
 
   /*
@@ -391,7 +384,7 @@ module.exports = {
     '0': '0',
     '2': '2px',
     '4': '4px',
-    '8': '8px'
+    '8': '8px',
   },
 
   /*
@@ -434,7 +427,7 @@ module.exports = {
     sm: '.125rem',
     default: '.25rem',
     lg: '.5rem',
-    full: '9999px'
+    full: '9999px',
   },
 
   /*
@@ -486,7 +479,7 @@ module.exports = {
     '1/6': '16.66667%',
     '5/6': '83.33333%',
     full: '100%',
-    screen: '100vw'
+    screen: '100vw',
   },
 
   /*
@@ -522,7 +515,7 @@ module.exports = {
     '48': '12rem',
     '64': '16rem',
     full: '100%',
-    screen: '100vh'
+    screen: '100vh',
   },
 
   /*
@@ -541,7 +534,7 @@ module.exports = {
 
   minWidth: {
     '0': '0',
-    full: '100%'
+    full: '100%',
   },
 
   /*
@@ -561,7 +554,7 @@ module.exports = {
   minHeight: {
     '0': '0',
     full: '100%',
-    screen: '100vh'
+    screen: '100vh',
   },
 
   /*
@@ -589,7 +582,7 @@ module.exports = {
     '3xl': '80rem',
     '4xl': '90rem',
     '5xl': '100rem',
-    full: '100%'
+    full: '100%',
   },
 
   /*
@@ -608,7 +601,7 @@ module.exports = {
 
   maxHeight: {
     full: '100%',
-    screen: '100vh'
+    screen: '100vh',
   },
 
   /*
@@ -641,7 +634,7 @@ module.exports = {
     '16': '4rem',
     '20': '5rem',
     '24': '6rem',
-    '32': '8rem'
+    '32': '8rem',
   },
 
   /*
@@ -675,7 +668,7 @@ module.exports = {
     '16': '4rem',
     '20': '5rem',
     '24': '6rem',
-    '32': '8rem'
+    '32': '8rem',
   },
 
   /*
@@ -708,7 +701,7 @@ module.exports = {
     '16': '4rem',
     '20': '5rem',
     '24': '6rem',
-    '32': '8rem'
+    '32': '8rem',
   },
 
   /*
@@ -733,7 +726,7 @@ module.exports = {
     lg: '0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08)',
     inner: 'inset 0 2px 4px 0 rgba(0,0,0,0.06)',
     outline: '0 0 0 3px rgba(52,144,220,0.5)',
-    none: 'none'
+    none: 'none',
   },
 
   /*
@@ -756,7 +749,7 @@ module.exports = {
     '20': 20,
     '30': 30,
     '40': 40,
-    '50': 50
+    '50': 50,
   },
 
   /*
@@ -777,7 +770,7 @@ module.exports = {
     '25': '.25',
     '50': '.5',
     '75': '.75',
-    '100': '1'
+    '100': '1',
   },
 
   /*
@@ -795,7 +788,7 @@ module.exports = {
   */
 
   svgFill: {
-    current: 'currentColor'
+    current: 'currentColor',
   },
 
   /*
@@ -813,7 +806,7 @@ module.exports = {
   */
 
   svgStroke: {
-    current: 'currentColor'
+    current: 'currentColor',
   },
 
   /*
@@ -883,7 +876,7 @@ module.exports = {
     visibility: ['responsive'],
     whitespace: ['responsive'],
     width: ['responsive'],
-    zIndex: ['responsive']
+    zIndex: ['responsive'],
   },
 
   /*
@@ -904,7 +897,7 @@ module.exports = {
     require('tailwindcss/plugins/container')({
       // center: true,
       // padding: '1rem',
-    })
+    }),
   ],
 
   /*
@@ -920,6 +913,6 @@ module.exports = {
   options: {
     prefix: '',
     important: false,
-    separator: ':'
-  }
+    separator: ':',
+  },
 }

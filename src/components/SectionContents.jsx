@@ -18,7 +18,7 @@ class SectionContents extends React.PureComponent {
     const { children, containerWidth, containerHeight } = this.props
     const { fixedHeight } = this.state
     return (
-      <div style={{ height: fixedHeight + 'px' }}>
+      <div style={{ height: `${fixedHeight}px` }}>
         <FlexContent>{children}</FlexContent>
       </div>
     )

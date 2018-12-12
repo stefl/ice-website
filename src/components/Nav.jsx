@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import styled from 'react-emotion'
-import { theme } from '../styles'
-import LogoSVG from '../../svgs/ice-logo.svg'
 import { animated, Trail, Transition } from 'react-spring'
 import ReactDOM from 'react-dom'
+import { theme } from '../styles'
+import LogoSVG from '../../svgs/ice-logo.svg'
 
 const Bar = styled.div`
   height: 3px;
@@ -95,9 +95,7 @@ class Menu extends Component {
     return (
       <FullScreenMenu to={to} hidden={hidden} aria-label="Main navigation">
         <Trail native items={items} keys={item => item.key} to={to}>
-          {item => props => (
-            <animated.li style={props}>{item.element}</animated.li>
-          )}
+          {item => props => <animated.li style={props}>{item.element}</animated.li>}
         </Trail>
       </FullScreenMenu>
     )
@@ -145,14 +143,12 @@ class Nav extends Component {
     const items = menu.map(item => {
       const element = (
         <NavItem style={{ color: 'white', fontStyle: 'normal' }} to={item.to}>
-          <h2 style={{ textDecoration: 'none', color: 'white' }}>
-            {item.label}
-          </h2>
+          <h2 style={{ textDecoration: 'none', color: 'white' }}>{item.label}</h2>
         </NavItem>
       )
 
       return {
-        element: element,
+        element,
         key: item.to,
       }
     })
@@ -179,11 +175,7 @@ class Nav extends Component {
         >
           <StyledNav color={color}>
             <StyledNavContent onClick={toggle}>
-              <StyledNavButton
-                color={color}
-                onClick={toggle}
-                aria-label="Main menu"
-              >
+              <StyledNavButton color={color} onClick={toggle} aria-label="Main menu">
                 <Transition
                   items={open}
                   from={{

@@ -3,19 +3,13 @@ import PropTypes from 'prop-types'
 import styled from 'react-emotion'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import {
-  Hero,
-  Layout,
-  Listing,
-  Wrapper,
-  Title,
-  Heading,
-  Section,
-  Narrow,
-  Page,
-  StandardIcon
-} from 'components'
+import { Hero, Layout, Listing, Wrapper, Title, Heading, Section, Narrow, Page, StandardIcon } from 'components'
 import dateFormat from 'dateformat'
+
+import Cocktail from '../../svgs/icons/black/Cocktail.svg'
+import Global from '../../svgs/icons/black/Global.svg'
+import Cutlery from '../../svgs/icons/black/Cutlery.svg'
+import Location from '../../svgs/icons/black/Location.svg'
 
 const SkySpan = styled.span`
   ${tw`text-sky`};
@@ -54,11 +48,6 @@ const EventIcon = styled.div`
   ${tw`w-24 m-auto`};
 `
 
-import Cocktail from '../../svgs/icons/black/Cocktail.svg'
-import Global from '../../svgs/icons/black/Global.svg'
-import Cutlery from '../../svgs/icons/black/Cutlery.svg'
-import Location from '../../svgs/icons/black/Location.svg'
-
 class Event extends Component {
   render() {
     const { event } = this.props
@@ -91,11 +80,7 @@ class Event extends Component {
           {event.node.data.image.localFile && (
             <DiamondHolder>
               <RoundedDiamond>
-                <RoundedImg
-                  resolutions={
-                    event.node.data.image.localFile.childImageSharp.resolutions
-                  }
-                />
+                <RoundedImg resolutions={event.node.data.image.localFile.childImageSharp.resolutions} />
               </RoundedDiamond>
             </DiamondHolder>
           )}
@@ -103,20 +88,15 @@ class Event extends Component {
         <div>
           <h2>{event.node.data.title.text}</h2>
           <h3>
-            <SkySpan>
-              {dateFormat(event.node.data.date_from, 'd mmm ‘yy')}
-            </SkySpan>
+            <SkySpan>{dateFormat(event.node.data.date_from, 'd mmm ‘yy')}</SkySpan>
             {event.node.data.date_to &&
               event.node.data.date_to !== event.node.data.date_from && (
-                <SkySpan>
-                  {' '}
-                  – {dateFormat(event.node.data.date_to, 'd mmm ‘yy')}
-                </SkySpan>
+                <SkySpan> – {dateFormat(event.node.data.date_to, 'd mmm ‘yy')}</SkySpan>
               )}
           </h3>
           <div
             dangerouslySetInnerHTML={{
-              __html: event.node.data.description.html
+              __html: event.node.data.description.html,
             }}
           />
         </div>
@@ -127,32 +107,27 @@ class Event extends Component {
 
 class Events extends Component {
   state = {
-    filter: 'future'
+    filter: 'future',
   }
+
   render() {
     const {
-      data: { page, events }
+      data: { page, events },
     } = this.props
     const { filter } = this.state
     const yesterday = new Date(Date.now() - 864e5)
     const sortedEvents = events.edges
       .sort((a, b) => {
         if (filter == 'future') {
-          return (
-            new Date(b.node.data.date_from) - new Date(a.node.data.date_from)
-          )
-        } else {
-          return (
-            new Date(b.node.data.date_from) - new Date(a.node.data.date_from)
-          )
+          return new Date(b.node.data.date_from) - new Date(a.node.data.date_from)
         }
+        return new Date(b.node.data.date_from) - new Date(a.node.data.date_from)
       })
       .filter(e => {
         if (filter == 'future') {
           return new Date(e.node.data.date_from) > yesterday
-        } else {
-          return new Date(e.node.data.date_from) < yesterday
         }
+        return new Date(e.node.data.date_from) < yesterday
       })
     console.log({ sortedEvents })
     return (
@@ -170,9 +145,9 @@ class Events extends Component {
         </Hero>
         <Section flexible bg="white" color="black">
           <Page>
-            {sortedEvents.map(event => {
-              return <Event event={event} />
-            })}
+            {sortedEvents.map(event => (
+              <Event event={event} />
+            ))}
           </Page>
         </Section>
       </Layout>

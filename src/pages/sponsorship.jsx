@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import styled from 'react-emotion'
 import { graphql } from 'gatsby'
 import {
@@ -191,7 +190,7 @@ class Sponsorship extends Component {
             </p>
           </Narrow>
 
-          <img src={MemberLogos} />
+          <img src={MemberLogos} alt="Logos of our members" />
         </Section>
 
         <Section bg="mint" color="black" flexible>
