@@ -4,18 +4,9 @@ import { SimpleHeader } from 'components'
 
 class RandomQuote extends React.Component {
   render() {
-    const {
-      quote,
-      name,
-      role,
-      color,
-      bg
-    } = this.props.quotes.edges[0].node.data
-    console.log(
-      'quote',
-      { quote, name, role },
-      this.props.quotes.edges[0].node.data
-    )
+    const { color, bg } = this.props
+    const { quote, name, role } = this.props.quotes.edges[0].node.data
+
     return (
       <div style={{ textAlign: 'center' }}>
         <div style={{ paddingBottom: '1em' }}>
