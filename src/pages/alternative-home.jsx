@@ -44,23 +44,25 @@ class Index extends Component {
           color={'rose'}
           images={homepage.data.background.localFile.childImageSharp.fluid}
         >
-          <RandomQuote color="black" bg="white" quotes={quotes} />
-        </Hero>
-
-        <Section color="black" bg="white">
           <Heading
             size={1}
             color="white"
             bg="black"
             text={homepage.data.title.text}
-            style={{ marginTop: '2em', marginBottom: '2em' }}
           />
           <Heading
-            size={4}
+            size={3}
             color="black"
             bg="white"
             text={homepage.data.content.text}
           />
+        </Hero>
+
+        <Section color="white" bg="rose">
+          <RandomQuote color="rose" bg="white" quotes={quotes} />
+        </Section>
+
+        <Section color="black" bg="white" flexible>
           <div style={{ maxWidth: '40rem', width: '100%', margin: 'auto' }}>
             <Halves>
               <HalfCol>
@@ -106,7 +108,7 @@ class Index extends Component {
 export default Index
 
 export const pageQuery = graphql`
-  query IndexQuery {
+  query AltIndexQuery {
     homepage: prismicHomepage {
       data {
         title {

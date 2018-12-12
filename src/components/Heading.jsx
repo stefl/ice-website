@@ -100,7 +100,7 @@ const StyledHeading5 = styled.span`
 
 class Heading extends Component {
   render() {
-    const { text, bg, color, size } = this.props
+    const { text, bg, color, size, style } = this.props
     let Wrapper
     let Heading
     if (size === 1) {
@@ -121,7 +121,7 @@ class Heading extends Component {
     }
 
     return (
-      <HeadingContainer>
+      <HeadingContainer style={style}>
         <Wrapper
           style={{ position: 'absolute', top: '0px' }}
           aria-hidden="true"
@@ -149,11 +149,12 @@ export default Heading
 Heading.propTypes = {
   bg: PropTypes.string,
   color: PropTypes.string,
-  size: PropTypes.number,
+  size: PropTypes.number
 }
 
 Heading.defaultProps = {
   bg: 'black',
   color: 'white',
   size: 1,
+  style: {}
 }
