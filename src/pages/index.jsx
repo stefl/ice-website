@@ -85,7 +85,7 @@ class Index extends Component {
           />
           <Heading size={3} color="black" bg="white" text="Watch this video" />
           <div style={{ width: '100%', padding: '1rem' }}>
-            <FullWidthPlayer url="https://vimeo.com/278903312/5718eefa6a" />
+            <FullWidthPlayer url="https://vimeo.com/287290527/5546da4f9a" />
           </div>
         </Section>
       </Layout>

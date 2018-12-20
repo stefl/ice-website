@@ -18,7 +18,7 @@ import {
   HalfCol,
   StandardIcon,
   SimpleHeader,
-  PaddedCol,
+  PaddedCol
 } from 'components'
 import ReactPlayer from 'react-player'
 import Umbrella from '../../svgs/icons/sky/Umbrella.svg'
@@ -34,53 +34,68 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `
 
+const ButtonLinkSky = styled(Link)`
+  text-decoration: none;
+  font-size: 150%;
+  border-bottom: 4px solid white;
+  ${tw`bg-sky text-white px-3 py-2 m-auto text-center`};
+  margin-left: 1em;
+  margin-right: 1em;
+`
+
+const ButtonLinkRose = styled(Link)`
+  text-decoration: none;
+  font-size: 150%;
+  border-bottom: 4px solid white;
+  ${tw`bg-rose text-white px-3 py-2 m-auto text-center`};
+  margin-left: 1em;
+  margin-right: 1em;
+`
+
 class Index extends Component {
   render() {
     const {
-      data: { homepage, quotes },
+      data: { homepage, quotes }
     } = this.props
     return (
       <Layout color="rose">
-        <Hero color="rose" images={homepage.data.background.localFile.childImageSharp.fluid}>
-          <Heading size={1} color="white" bg="black" text={homepage.data.title.text} />
-          <Heading size={3} color="black" bg="white" text={homepage.data.content.text} />
+        <Hero
+          color="rose"
+          images={homepage.data.background.localFile.childImageSharp.fluid}
+        >
+          <Heading
+            size={1}
+            color="white"
+            bg="black"
+            text={homepage.data.title.text}
+          />
+          <Heading
+            size={3}
+            color="black"
+            bg="white"
+            text={homepage.data.content.text}
+          />
+          <div>
+            <ButtonLinkSky to="/membership">Join ICE</ButtonLinkSky>
+            &nbsp;
+            <ButtonLinkRose to="/sponsorship">Sponsor ICE</ButtonLinkRose>
+          </div>
         </Hero>
 
         <Section color="white" bg="rose">
           <RandomQuote color="rose" bg="white" quotes={quotes} />
         </Section>
 
-        <Section color="black" bg="white" flexible>
-          <div style={{ maxWidth: '40rem', width: '100%', margin: 'auto' }}>
-            <Halves>
-              <HalfCol>
-                <PaddedCol>
-                  <StyledLink to="/membership">
-                    <StandardIcon>
-                      <Umbrella style={{ width: '100%' }} />
-                    </StandardIcon>
-                    <h3>Become a member</h3>
-                  </StyledLink>
-                </PaddedCol>
-              </HalfCol>
-              <HalfCol>
-                <PaddedCol>
-                  <StyledLink to="/sponsorship">
-                    <StandardIcon>
-                      <Lightning style={{ width: '100%' }} />
-                    </StandardIcon>
-                    <h3>Become a sponsor</h3>
-                  </StyledLink>
-                </PaddedCol>
-              </HalfCol>
-            </Halves>
-          </div>
-        </Section>
         <Section color="black" bg="black" flexible>
-          <Heading size={2} color="white" bg="rose" text="Want a quick flavour of what ICE is all about?" />
+          <Heading
+            size={2}
+            color="white"
+            bg="rose"
+            text="Want a quick flavour of what ICE is all about?"
+          />
           <Heading size={3} color="black" bg="white" text="Watch this video" />
           <div style={{ width: '100%', padding: '1rem' }}>
-            <FullWidthPlayer url="https://vimeo.com/278903312/5718eefa6a" />
+            <FullWidthPlayer url="https://vimeo.com/287290527/5546da4f9a" />
           </div>
         </Section>
       </Layout>
@@ -104,7 +119,11 @@ export const pageQuery = graphql`
         background {
           localFile {
             childImageSharp {
-              fluid(srcSetBreakpoints: [600, 800, 1000, 1200, 1400, 1600, 1920], quality: 80, grayscale: true) {
+              fluid(
+                srcSetBreakpoints: [600, 800, 1000, 1200, 1400, 1600, 1920]
+                quality: 80
+                grayscale: true
+              ) {
                 ...GatsbyImageSharpFluid_withWebp
               }
             }
