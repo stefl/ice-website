@@ -8,7 +8,7 @@ const StyledSection = styled.section`
   $((props) => props.flexible ? '' : ${tw`lg:py-0`});
   ${props =>
     props.flexible
-      ? 'padding-top: 64px; padding-bottom: 64px;'
+      ? `padding-top: ${props.padding}; padding-bottom: ${props.padding};`
       : 'height: 100vh;'}
   background-color: ${props => props.theme.colors[props.bg]};
   color: ${props => props.theme.colors[props.color]};
@@ -16,9 +16,14 @@ const StyledSection = styled.section`
 
 class Section extends Component {
   render() {
-    const { children, bg, color, flexible } = this.props
+    const { children, bg, color, flexible, padding } = this.props
     return (
-      <StyledSection flexible={flexible} bg={bg} color={color}>
+      <StyledSection
+        padding={padding}
+        flexible={flexible}
+        bg={bg}
+        color={color}
+      >
         <SectionContents>{children}</SectionContents>
       </StyledSection>
     )
@@ -31,11 +36,13 @@ Section.propTypes = {
   bg: PropTypes.string,
   color: PropTypes.string,
   flexible: PropTypes.bool,
-  children: PropTypes.object
+  children: PropTypes.object,
+  padding: PropTypes.string
 }
 
 Section.defaultProps = {
   bg: 'transparent',
   color: 'black',
-  flexible: false
+  flexible: false,
+  padding: '64px'
 }
