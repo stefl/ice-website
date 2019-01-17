@@ -88,7 +88,7 @@ const PureLayout = ({ children, data, color }) => (
                 position: 'absolute',
                 top: '0px',
                 left: '0px',
-                width: '100%',
+                width: '100%'
               }}
             >
               <Nav color={theme.colors[color]} />
@@ -98,16 +98,16 @@ const PureLayout = ({ children, data, color }) => (
       </div>
       <SEO />
       {children}
-      <Section bg="black" color="white">
-        <h3>
+      <Section bg="black" color="white" flexible>
+        <h4>
           <WhiteLink to="/terms-conditions">Terms and conditions</WhiteLink>
-        </h3>
-        <h3>
+        </h4>
+        <h4>
           <WhiteLink to="/code-of-conduct">Code of conduct</WhiteLink>
-        </h3>
-        <h3>
+        </h4>
+        <h4>
           <WhiteLink to="/cookies">Cookie policy</WhiteLink>
-        </h3>
+        </h4>
       </Section>
       <NavModal id="nav_modal" />
     </>
@@ -139,5 +139,5 @@ export default Layout
 
 PureLayout.propTypes = {
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired,
-  data: PropTypes.object.isRequired,
+  data: PropTypes.object.isRequired
 }
