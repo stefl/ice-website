@@ -132,14 +132,14 @@ class Events extends Component {
     console.log({ sortedEvents })
     return (
       <Layout color="black">
-        <Hero color="black">
-          <Heading size={1} color="black" bg="white" text="Grab your diary" />
+        <Hero color="black" images={page.data.background.localFile.childImageSharp.fluid}>
+          <Heading size={1} color="black" bg="white" text={page.data.title.text} />
           <Narrow>
             <Heading
               size={3}
               color="white"
               bg="sky"
-              text="Upcoming ICE events for your moleskine. That’s right, we know you."
+              text={page.data.subtitle.text}
             />
           </Narrow>
         </Hero>
@@ -159,13 +159,22 @@ export default Events
 
 export const pageQuery = graphql`
   query EventsQuery {
-    page: prismicHomepage {
+    page: prismicEvents {
       data {
         title {
           text
         }
-        content {
-          html
+        subtitle {
+          text
+        }
+        background {
+          localFile {
+            childImageSharp {
+              fluid(srcSetBreakpoints: [600, 800, 1000, 1200, 1400, 1600, 1920], quality: 80, grayscale: true) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
         }
       }
     }
