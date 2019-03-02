@@ -25,6 +25,7 @@ import CommitteeGrid from '../components/CommitteeGrid'
 import SponsorGrid from '../components/SponsorGrid'
 import MemberLogos from '../../static/members.jpg'
 import CTA from '../components/CTA'
+import RequestSponsorshipPack from '../components/RequestSponsorshipPack'
 
 class Sponsorship extends Component {
   render() {
@@ -172,11 +173,7 @@ class Sponsorship extends Component {
               </a>
             </StandardIcon>
 
-            <CTA
-              color="black"
-              text="Download sponsorship pack"
-              href={sponsorship.data.sponsorship_pack.url}
-            />
+            <RequestSponsorshipPack url={sponsorship.data.sponsorship_pack.url} />
           </Narrow>
         </Section>
 
@@ -243,11 +240,7 @@ class Sponsorship extends Component {
               </a>
             </StandardIcon>
 
-            <CTA
-              color="black"
-              text="Download sponsorship pack"
-              href={sponsorship.data.sponsorship_pack.url}
-            />
+            <RequestSponsorshipPack url={sponsorship.data.sponsorship_pack.url} />
           </Narrow>
         </Section>
       </Layout>
