@@ -124,10 +124,12 @@ class Index extends Component {
         <Actions />
 
         <Section color="white" bg="rose">
-          <RandomQuote color="rose" bg="white" quotes={quotes} />
+          <div style={{margin: '2em'}}>
+            <RandomQuote color="rose" bg="white" quotes={quotes} />
+          </div>
         </Section>
 
-        <Section color="black" bg="black" flexible padding="6rem">
+        <Section color="black" bg="black" padding="6rem">
           <Heading
             size={3}
             color="white"

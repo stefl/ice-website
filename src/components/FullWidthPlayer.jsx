@@ -14,13 +14,15 @@ class FullWidthPlayer extends React.PureComponent {
   render() {
     const { containerWidth } = this.state
     return (
-      <div ref={ (playerElement) => this.playerElement = playerElement}>
-        <ReactPlayer
-          
-          url={this.props.url}
-          width={`${containerWidth}px`}
-          height={`${Math.ceil(0.423 * containerWidth)}px`}
-        />
+      <div>
+        <div ref={ (playerElement) => this.playerElement = playerElement}>
+          <ReactPlayer
+            
+            url={this.props.url}
+            width={`${containerWidth}px`}
+            height={`${Math.ceil(0.423 * containerWidth)}px`}
+          />
+        </div>
       </div>
     )
   }
