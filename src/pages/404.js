@@ -5,6 +5,9 @@ import { Hero, Layout, Heading } from 'components'
 class FourOhFour extends Component {
   render() {
     return (
+      <div>
+        <div>Testing</div>
+
       <Layout color="rose">
         <Hero color="rose">
           <Heading size={1} color="white" bg="black" text="Sorry - Page not found" />
@@ -16,6 +19,7 @@ class FourOhFour extends Component {
           />
         </Hero>
       </Layout>
+      </div>
       
     )
   }
