@@ -11,6 +11,7 @@ import { theme, reset } from 'styles'
 import styled from "@emotion/styled"
 import Headroom from 'react-headroom'
 import Link from 'gatsby-link'
+import { SizesProvider } from 'react-sizes'
 
 const WhiteLink = styled(Link)`
   color: white;
@@ -74,42 +75,46 @@ const NavModal = styled.div`
   z-index: 500;
 `
 
+const sizesProviderConfig = { fallbackWidth: 360, fallbackHeight: 640 }
+
 const PureLayout = ({ children, data, color }) => (
   <ThemeProvider theme={theme}>
     <>
-      <div style={{ position: 'absolute', width: '100%', zIndex: 50 }}>
-        <Headroom>
-          <div style={{ position: 'relative' }}>
-            <div style={{ float: 'left' }}>
-              <Logo color={color} />
+      <SizesProvider config={sizesProviderConfig}> 
+        <div style={{ position: 'absolute', width: '100%', zIndex: 50 }}>
+          <Headroom>
+            <div style={{ position: 'relative' }}>
+              <div style={{ float: 'left' }}>
+                <Logo color={color} />
+              </div>
+              <div
+                style={{
+                  position: 'absolute',
+                  top: '0px',
+                  left: '0px',
+                  width: '100%'
+                }}
+              >
+                <Nav color={theme.colors[color]} />
+              </div>
             </div>
-            <div
-              style={{
-                position: 'absolute',
-                top: '0px',
-                left: '0px',
-                width: '100%'
-              }}
-            >
-              <Nav color={theme.colors[color]} />
-            </div>
-          </div>
-        </Headroom>
-      </div>
-      <SEO />
-      {children}
-      <Section bg="black" color="white" flexible>
-        <h4>
-          <WhiteLink to="/terms-conditions">Terms and conditions</WhiteLink>
-        </h4>
-        <h4>
-          <WhiteLink to="/code-of-conduct">Code of conduct</WhiteLink>
-        </h4>
-        <h4>
-          <WhiteLink to="/cookies">Cookie policy</WhiteLink>
-        </h4>
-      </Section>
-      <NavModal id="nav_modal" />
+          </Headroom>
+        </div>
+        <SEO />
+        {children}
+        <Section bg="black" color="white" flexible>
+          <h4>
+            <WhiteLink to="/terms-conditions">Terms and conditions</WhiteLink>
+          </h4>
+          <h4>
+            <WhiteLink to="/code-of-conduct">Code of conduct</WhiteLink>
+          </h4>
+          <h4>
+            <WhiteLink to="/cookies">Cookie policy</WhiteLink>
+          </h4>
+        </Section>
+        <NavModal id="nav_modal" />
+      </SizesProvider>
     </>
   </ThemeProvider>
 )

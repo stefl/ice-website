@@ -1,5 +1,4 @@
 import React from 'react'
-import Dimensions from 'react-dimensions'
 import memoizeOne from 'memoize-one'
 import styled from "@emotion/styled"
 
@@ -10,19 +9,22 @@ const FlexContent = styled.div`
 class SectionContents extends React.PureComponent {
   state = {}
 
-  static getDerivedStateFromProps(props) {
-    return { fixedHeight: props.containerHeight || 'auto' }
+  componentDidMount() {
+    const fixedHeight = this.divElement.parentElement.clientHeight;
+    this.setState({ fixedHeight });
   }
 
   render() {
     const { children, containerWidth, containerHeight } = this.props
     const { fixedHeight } = this.state
     return (
-      <div style={{ height: `${fixedHeight}px` }}>
+      <div 
+        ref={ (divElement) => this.divElement = divElement}
+        style={{ height: (fixedHeight ? `${fixedHeight}px` : '100%') }}>
         <FlexContent>{children}</FlexContent>
       </div>
     )
   }
 }
 
-export default Dimensions()(SectionContents)
+export default SectionContents

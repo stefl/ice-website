@@ -1,5 +1,4 @@
 import React from 'react'
-import Dimensions from 'react-dimensions'
 import memoizeOne from 'memoize-one'
 import styled from "@emotion/styled"
 import { animateScroll } from 'react-scroll'
@@ -13,10 +12,6 @@ const FlexContent = styled.div`
 class HeroContents extends React.PureComponent {
   state = {}
 
-  static getDerivedStateFromProps({ containerHeight }) {
-    return { fixedHeight: containerHeight }
-  }
-
   scroll = () => {
     animateScroll.scrollTo(window.innerHeight, {
       duration: 500,
@@ -25,12 +20,19 @@ class HeroContents extends React.PureComponent {
     })
   }
 
+  componentDidMount() {
+    const fixedHeight = this.divElement.parentElement.clientHeight;
+    this.setState({ fixedHeight });
+  }
+
   render() {
     const { children, containerWidth, containerHeight, color } = this.props
     const { fixedHeight } = this.state
     const { scroll } = this
     return (
-      <div style={{ position: 'relative', height: `${fixedHeight}px` }}>
+      <div 
+        ref={ (divElement) => this.divElement = divElement}
+        style={{ position: 'relative', height: (fixedHeight ? `${fixedHeight}px` : '100%') }}>
         <FlexContent>{children}</FlexContent>
         <div
           style={{
@@ -52,4 +54,4 @@ class HeroContents extends React.PureComponent {
   }
 }
 
-export default Dimensions()(HeroContents)
+export default HeroContents

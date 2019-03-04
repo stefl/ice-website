@@ -1,18 +1,29 @@
 import React from 'react'
 import ReactPlayer from 'react-player'
-import Dimensions from 'react-dimensions'
 
 class FullWidthPlayer extends React.PureComponent {
+
+  state = {
+  }
+
+  componentDidMount() {
+    const containerWidth = this.playerElement.parentElement.clientWidth;
+    this.setState({ containerWidth });
+  }
+
   render() {
-    const { containerWidth, containerHeight } = this.props
+    const { containerWidth } = this.state
     return (
-      <ReactPlayer
-        url={this.props.url}
-        width={`${containerWidth}px`}
-        height={`${Math.ceil(0.423 * containerWidth)}px`}
-      />
+      <div ref={ (playerElement) => this.playerElement = playerElement}>
+        <ReactPlayer
+          
+          url={this.props.url}
+          width={`${containerWidth}px`}
+          height={`${Math.ceil(0.423 * containerWidth)}px`}
+        />
+      </div>
     )
   }
 }
 
-export default Dimensions()(FullWidthPlayer)
+export default FullWidthPlayer
