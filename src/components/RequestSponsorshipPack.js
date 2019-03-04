@@ -54,7 +54,7 @@ export default class RequestSponsorshipPack extends React.Component {
         <StyledForm
           name="pack"
           method="post"
-          action="pack"
+          action="/"
           data-download={url}
           data-netlify="true"
           data-netlify-honeypot="bot-field"
