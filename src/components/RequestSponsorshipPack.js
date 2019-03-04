@@ -41,7 +41,9 @@ export default class RequestSponsorshipPack extends React.Component {
         ...this.state
       })
     })
-      .then(() => navigateTo(form.getAttribute("action")))
+      .then(() => {
+        document.location.href = form.getAttribute("data-download")
+      })
       .catch(error => alert(error));
   };
 
@@ -52,7 +54,8 @@ export default class RequestSponsorshipPack extends React.Component {
         <StyledForm
           name="pack"
           method="post"
-          action="/pack"
+          action="pack"
+          data-download={url}
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={this.handleSubmit}
@@ -75,7 +78,7 @@ export default class RequestSponsorshipPack extends React.Component {
           <CTAButton
             color="black"
             text="Download sponsorship pack"
-            href={url}
+            
           />
         </StyledForm>
       </div>

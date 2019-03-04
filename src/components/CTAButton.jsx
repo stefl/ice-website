@@ -10,7 +10,7 @@ const Button = styled.button`
 class CTAButton extends React.Component {
   render() {
     const { href, text } = this.props
-    return <Button href={href}>{text}</Button>
+    return <Button>{text}</Button>
   }
 }
 
