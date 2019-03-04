@@ -1,6 +1,6 @@
 import React from "react";
 import { navigateTo } from "gatsby-link";
-import CTA from './CTA'
+import CTAButton from './CTAButton'
 import styled from 'react-emotion'
 
 function encode(data) {
@@ -72,7 +72,7 @@ export default class RequestSponsorshipPack extends React.Component {
             </label>
           </p>
           
-          <CTA
+          <CTAButton
             color="black"
             text="Download sponsorship pack"
             href={url}
