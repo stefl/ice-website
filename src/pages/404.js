@@ -16,6 +16,7 @@ class FourOhFour extends Component {
           />
         </Hero>
       </Layout>
+      
     )
   }
 }

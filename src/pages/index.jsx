@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'react-emotion'
+import styled from "@emotion/styled"
 import { graphql } from 'gatsby'
 import Link from 'gatsby-link'
 import {
@@ -156,7 +156,7 @@ class Index extends Component {
 export default Index
 
 export const pageQuery = graphql`
-  query AltIndexQuery {
+  query HomePageQuery {
     homepage: prismicHomepage {
       data {
         title {

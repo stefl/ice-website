@@ -1,4 +1,4 @@
-import styled from 'react-emotion'
+import styled from "@emotion/styled"
 import Listing from './Listing'
 import SEO from './SEO'
 import Footer from './Footer'

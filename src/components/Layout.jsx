@@ -8,7 +8,7 @@ import { ThemeProvider } from 'emotion-theming'
 import 'typeface-source-sans-pro'
 import { Footer, SEO, Logo, Nav, Section } from 'components'
 import { theme, reset } from 'styles'
-import styled from 'react-emotion'
+import styled from "@emotion/styled"
 import Headroom from 'react-headroom'
 import Link from 'gatsby-link'
 

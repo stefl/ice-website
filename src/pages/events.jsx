@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'react-emotion'
+import styled from "@emotion/styled"
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { Hero, Layout, Listing, Wrapper, Title, Heading, Section, Narrow, Page, StandardIcon } from 'components'

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import styled from 'react-emotion'
+import styled from "@emotion/styled"
 import { theme } from '../styles'
 import LogoSVG from '../../svgs/ice-logo.svg'
 

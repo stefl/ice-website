@@ -1,7 +1,7 @@
 import React from 'react'
 import Dimensions from 'react-dimensions'
 import memoizeOne from 'memoize-one'
-import styled from 'react-emotion'
+import styled from "@emotion/styled"
 import { animateScroll } from 'react-scroll'
 import Chevron from '../../svgs/chevron.svg'
 import { RoundedBox, RoundedIcon, RoundedDiamond } from './Rounded'

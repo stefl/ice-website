@@ -1,7 +1,7 @@
 import React from "react";
 import { navigateTo } from "gatsby-link";
 import CTAButton from './CTAButton'
-import styled from 'react-emotion'
+import styled from "@emotion/styled"
 
 function encode(data) {
   return Object.keys(data)

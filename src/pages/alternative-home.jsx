@@ -1,19 +1,30 @@
 import React, { Component } from 'react'
-import styled from "@emotion/styled"
+import PropTypes from 'prop-types'
+import styled from 'react-emotion'
 import { graphql } from 'gatsby'
 import Link from 'gatsby-link'
 import {
   Hero,
   Layout,
+  Listing,
+  Wrapper,
+  Title,
   Heading,
   Section,
+  Narrow,
+  Thirds,
+  ThirdCol,
   Halves,
   HalfCol,
   StandardIcon,
+  SimpleHeader,
   PaddedCol
 } from 'components'
+import ReactPlayer from 'react-player'
 import Umbrella from '../../svgs/icons/sky/Umbrella.svg'
 import Lightning from '../../svgs/icons/mint/Lightning.svg'
+import WebVideo from '../../svgs/icons/rose/WebVideo.svg'
+import Mail from '../../svgs/icons/black/Mail.svg'
 import RandomQuote from '../components/RandomQuote'
 import FullWidthPlayer from '../components/FullWidthPlayer'
 
@@ -21,6 +32,24 @@ const StyledLink = styled(Link)`
   color: ${props => props.theme.colors.black};
   font-style: normal;
   text-decoration: none;
+`
+
+const ButtonLinkSky = styled(Link)`
+  text-decoration: none;
+  font-size: 150%;
+  border-bottom: 4px solid white;
+  ${tw`bg-sky text-white px-3 py-2 m-auto text-center`};
+  margin-left: 1em;
+  margin-right: 1em;
+`
+
+const ButtonLinkRose = styled(Link)`
+  text-decoration: none;
+  font-size: 150%;
+  border-bottom: 4px solid white;
+  ${tw`bg-rose text-white px-3 py-2 m-auto text-center`};
+  margin-left: 1em;
+  margin-right: 1em;
 `
 
 class Index extends Component {
@@ -34,48 +63,29 @@ class Index extends Component {
           color="rose"
           images={homepage.data.background.localFile.childImageSharp.fluid}
         >
-          <RandomQuote color="black" bg="white" quotes={quotes} />
-        </Hero>
-
-        <Section color="black" bg="white">
           <Heading
             size={1}
             color="white"
             bg="black"
             text={homepage.data.title.text}
-            style={{ marginTop: '2em', marginBottom: '2em' }}
           />
           <Heading
-            size={4}
+            size={3}
             color="black"
             bg="white"
             text={homepage.data.content.text}
           />
-          <div style={{ maxWidth: '40rem', width: '100%', margin: 'auto' }}>
-            <Halves>
-              <HalfCol>
-                <PaddedCol>
-                  <StyledLink to="/membership">
-                    <StandardIcon>
-                      <Umbrella style={{ width: '100%' }} />
-                    </StandardIcon>
-                    <h3>Become a member</h3>
-                  </StyledLink>
-                </PaddedCol>
-              </HalfCol>
-              <HalfCol>
-                <PaddedCol>
-                  <StyledLink to="/sponsorship">
-                    <StandardIcon>
-                      <Lightning style={{ width: '100%' }} />
-                    </StandardIcon>
-                    <h3>Become a sponsor</h3>
-                  </StyledLink>
-                </PaddedCol>
-              </HalfCol>
-            </Halves>
+          <div>
+            <ButtonLinkSky to="/membership">Join ICE</ButtonLinkSky>
+            &nbsp;
+            <ButtonLinkRose to="/sponsorship">Sponsor ICE</ButtonLinkRose>
           </div>
+        </Hero>
+
+        <Section color="white" bg="rose">
+          <RandomQuote color="rose" bg="white" quotes={quotes} />
         </Section>
+
         <Section color="black" bg="black" flexible>
           <Heading
             size={2}
@@ -96,7 +106,7 @@ class Index extends Component {
 export default Index
 
 export const pageQuery = graphql`
-  query IndexQuery {
+  query AltIndexQuery {
     homepage: prismicHomepage {
       data {
         title {

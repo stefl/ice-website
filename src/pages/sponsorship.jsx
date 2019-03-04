@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import styled from 'react-emotion'
+import styled from "@emotion/styled"
 import { graphql } from 'gatsby'
 import {
   Hero,
