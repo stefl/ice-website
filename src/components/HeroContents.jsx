@@ -32,7 +32,7 @@ class HeroContents extends React.PureComponent {
     return (
       <div 
         ref={ (divElement) => this.divElement = divElement}
-        style={{ position: 'relative', height: (fixedHeight ? `${fixedHeight}px` : '100%') }}>
+        style={{ position: 'relative', height: ((fixedHeight !== undefined) ? `${fixedHeight}px` : '100%') }}>
         <FlexContent>{children}</FlexContent>
         <div
           style={{

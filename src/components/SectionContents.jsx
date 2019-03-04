@@ -20,7 +20,7 @@ class SectionContents extends React.PureComponent {
     return (
       <div 
         ref={ (divElement) => this.divElement = divElement}
-        style={{ height: (fixedHeight ? `${fixedHeight}px` : '100%') }}>
+        style={{ height: ((fixedHeight !== undefined) ? `${fixedHeight}px` : '100%') }}>
         <FlexContent>{children}</FlexContent>
       </div>
     )
