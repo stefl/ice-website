@@ -6,7 +6,7 @@
     "author": "Stef Lewandowski <stef@stef.io>",
     "scripts": {
         "dev": " gatsby develop -o --verbose",
-        "build": "gatsby build; cp _redirects public/.",
+        "build": "gatsby build",
         "serve": "gatsby serve --verbose",
         "start": "serve public/",
         "lint": "yarn run lint:md && yarn run lint:js:fix",
