@@ -77,7 +77,7 @@ class Event extends Component {
               <Icon />
             </EventIcon>
           </div>
-          {event.node.data.image.localFile && (
+          {event.node.data.image && event.node.data.image.localFile && event.node.data.image.localFile.childImageSharp && (
             <DiamondHolder>
               <RoundedDiamond>
                 <RoundedImg resolutions={event.node.data.image.localFile.childImageSharp.resolutions} />
