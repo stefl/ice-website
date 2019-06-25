@@ -120,7 +120,7 @@ class Events extends Component {
     const sortedEvents = events.edges
       .sort((a, b) => {
         if (filter == 'future') {
-          return new Date(b.node.data.date_from) - new Date(a.node.data.date_from)
+          return new Date(a.node.data.date_from) - new Date(b.node.data.date_from)
         }
         return new Date(b.node.data.date_from) - new Date(a.node.data.date_from)
       })
