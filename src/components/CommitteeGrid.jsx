@@ -52,7 +52,10 @@ class CommitteeGrid extends Component {
             <CommitteeCard key={member.node.id}>
               <Rounded>
                 <ScaledUp>
+                {
+                  member.node.data.photo && member.node.data.photo.localFile && member.node.data.photo.localFile.childImageSharp.fluid &&
                   <Img fadeIn fluid={member.node.data.photo.localFile.childImageSharp.fluid} />
+                }
                 </ScaledUp>
               </Rounded>
               <p style={{ paddingTop: '1rem' }}>
