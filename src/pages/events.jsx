@@ -10,6 +10,7 @@ import Cocktail from '../../svgs/icons/black/Cocktail.svg'
 import Global from '../../svgs/icons/black/Global.svg'
 import Cutlery from '../../svgs/icons/black/Cutlery.svg'
 import Location from '../../svgs/icons/black/Location.svg'
+import Bus from '../../svgs/icons/black/Bus.svg'
 
 const SkySpan = styled.span`
   ${tw`text-sky`};
