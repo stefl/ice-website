@@ -180,7 +180,7 @@ export const pageQuery = graphql`
       }
     }
 
-    events: allPrismicEvent(sort: { order: ASC, fields: [data___date_from] }) {
+    events: allPrismicEvent(sort: { order: DESC, fields: [data___date_from] }) {
       edges {
         node {
           data {
