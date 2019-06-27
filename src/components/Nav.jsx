@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import styled from "@emotion/styled"
-import { animated, Trail, Transition } from 'react-spring'
+import { animated } from 'react-spring' // Trail, Transition
 import ReactDOM from 'react-dom'
 import { theme } from '../styles'
 import LogoSVG from '../../svgs/ice-logo.svg'
@@ -94,9 +94,9 @@ class Menu extends Component {
     const { hidden, items, to } = this.props
     return (
       <FullScreenMenu to={to} hidden={hidden} aria-label="Main navigation">
-        <Trail native items={items} keys={item => item.key} to={to}>
-          {item => props => <animated.li style={props}>{item.element}</animated.li>}
-        </Trail>
+{/*        <Trail native items={items} keys={item => item.key} to={to}>
+*/}          {item => props => <animated.li style={props}>{item.element}</animated.li>}
+        {/* </Trail>*/}
       </FullScreenMenu>
     )
   }
@@ -176,7 +176,7 @@ class Nav extends Component {
           <StyledNav color={color}>
             <StyledNavContent onClick={toggle}>
               <StyledNavButton color={color} onClick={toggle} aria-label="Main menu">
-                <Transition
+                {/*<Transition
                   items={open}
                   from={{
                     position: 'absolute',
@@ -214,7 +214,7 @@ class Nav extends Component {
                           </div>
                         )
                   }
-                </Transition>
+                </Transition>*/}
               </StyledNavButton>
             </StyledNavContent>
           </StyledNav>
