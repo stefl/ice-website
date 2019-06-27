@@ -2,6 +2,8 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+console.log(`Prismic API key is ${process.env.API_KEY}`)
+
 const { RichText } = require('prismic-reactjs')
 
 const { Elements } = RichText
@@ -49,27 +51,43 @@ module.exports = {
         repositoryName: 'icewebsite',
         accessToken: `${process.env.API_KEY}`,
         linkResolver: () => post => `/${post.uid}`,
-        htmlSerializer: () => (type, element, content) => {
-          switch (type) {
-            // First differentiate between a label and a preformatted field (e.g. the Code Block slice)
-            case Elements.label: {
-              // Use the blockquote for labels with the name "quote"
-              if (element.data.label === 'quote') {
-                return `<blockquote><p>${content}</p></blockquote>`
-              }
+        // htmlSerializer: () => (type, element, content) => {
+        //   switch (type) {
+        //     // First differentiate between a label and a preformatted field (e.g. the Code Block slice)
+        //     case Elements.label: {
+        //       // Use the blockquote for labels with the name "quote"
+        //       if (element.data.label === 'quote') {
+        //         return `<blockquote><p>${content}</p></blockquote>`
+        //       }
 
-              return null
-            }
-            case Elements.preformatted: {
-              return null
-            }
-            default: {
-              return null
-            }
-          }
-        },
+        //       return null
+        //     }
+        //     case Elements.preformatted: {
+        //       return null
+        //     }
+        //     default: {
+        //       return null
+        //     }
+        //   }
+        // },
       },
     },
+    // {
+    //   resolve: 'gatsby-source-prismic-graphql',
+    //   options: {
+    //     repositoryName: 'icewebsite', // (required)
+    //     accessToken: `${process.env.API_KEY}`, // (optional)
+    //     // prismicRef: '...', // (optional, if not used then defaults to master ref. This option is useful for a/b experiments)
+    //     path: '/preview', // (optional, default: /preview)
+    //     previews: true, // (optional, default: false)
+    //     // pages: [{ // (optional)
+    //     //   type: 'Article',         // TypeName from prismic
+    //     //   match: '/article/:uid',  // Pages will be generated under this pattern (optional)
+    //     //   path: '/article',        // Placeholder page for unpublished documents
+    //     //   component: require.resolve('./src/templates/article.js'),
+    //     // }],
+    //   }
+    // },
     'gatsby-plugin-lodash',
     // Although this starter doesn't use local files this plugin is necessary for the gatsby-image features of gatsby-source-prismic
     {
@@ -87,6 +105,7 @@ module.exports = {
         },
       },
     },
+    "gatsby-plugin-extract-schema",
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
