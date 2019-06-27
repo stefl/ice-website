@@ -1,5 +1,4 @@
-import { css } from 'react-emotion'
-
+import { css } from 'emotion'
 const reset = css`
   *,
   *:before,
