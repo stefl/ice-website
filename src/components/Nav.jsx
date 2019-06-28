@@ -1,20 +1,22 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
 import styled from "@emotion/styled"
-import { animated, useTrail, useTransition } from 'react-spring' // Trail, Transition
+import { Link } from 'gatsby'
+
+import { animated, useTransition } from 'react-spring' // Trail, Transition
 import ReactDOM from 'react-dom'
 import { theme } from '../styles'
 import LogoSVG from '../../svgs/ice-logo.svg'
+import Menu from './Menu.jsx'
 
 const Bar = styled.div`
   height: 3px;
-  width: 100%;
+  margin: 2px;
+  width: 1.5rem;
   ${tw`bg-white`};
 `
 
 const BarRow = styled.div`
-  width: 100%;
   ${tw`flex flex-col justify-center items-center`};
 `
 
@@ -44,22 +46,6 @@ const StyledNavButton = styled.button`
   ${tw`w-8 h-8 bg-black text-white border-none flex flex-col justify-center items-center`};
 `
 
-const NavItem = styled(Link)`
-  ${tw`block hover:bg-black no-underline text-white h-full w-full text-center flex flex-col justify-center items-center`};
-`
-
-const FullScreenMenu = styled.ul`
-  position: fixed;
-  zindex: 500;
-  top: 0px;
-  left: '0px';
-  width: 100vw;
-  height: 100vh;
-  display: ${props => (props.hidden ? 'none' : 'grid')};
-  grid-auto-rows: 1fr;
-  padding: 0;
-  margin: 0;
-`
 
 // Reliant on nav_modal being present in Layout.jsx
 let navModalRoot
@@ -89,25 +75,10 @@ class ModalMenu extends Component {
   }
 }
 
-const trailConfig = { mass: 5, tension: 2000, friction: 200 }
 
-function Menu(props){
-  const { hidden, items, to, open, color } = props
-  const trail = useTrail(items.length, {
-    config: trailConfig,
-    opacity: open ? 1 : 0,
-    backgroundColor: color,
-    textAlign: 'center',
-    marginBottom: '0px',
-  })
-  return (
-    <FullScreenMenu to={to} hidden={hidden} aria-label="Main navigation">
-      {trail.map((props, index) => (
-         <animated.li key={index} style={props}>{items[index].element}</animated.li>
-      ))}
-    </FullScreenMenu>
-  )
-}
+const NavItem = styled(Link)`
+  ${tw`block hover:bg-black no-underline text-white h-full w-full text-center flex flex-col justify-center items-center`};
+`
 
 class Nav extends Component {
   state = {
@@ -177,45 +148,7 @@ class Nav extends Component {
           <StyledNav color={color}>
             <StyledNavContent onClick={toggle}>
               <StyledNavButton color={color} onClick={toggle} aria-label="Main menu">
-                {/*<Transition
-                  items={open}
-                  from={{
-                    position: 'absolute',
-                    width: '100%',
-                    height: '100%',
-                    opacity: 0,
-                    textAlign: 'center',
-                    display: 'grid',
-                    gridAutoRows: '1fr',
-                    padding: '6px',
-                  }}
-                  enter={{ opacity: 1 }}
-                  leave={{ opacity: 0 }}
-                >
-                  {t =>
-                    t
-                      ? props => (
-                          <div style={props}>
-                            <BarRow>
-                              <Bar />
-                            </BarRow>
-                          </div>
-                        )
-                      : props => (
-                          <div style={props}>
-                            <BarRow>
-                              <Bar />
-                            </BarRow>
-                            <BarRow>
-                              <Bar />
-                            </BarRow>
-                            <BarRow>
-                              <Bar />
-                            </BarRow>
-                          </div>
-                        )
-                  }
-                </Transition>*/}
+                <Hamburger open={open} />
               </StyledNavButton>
             </StyledNavContent>
           </StyledNav>
@@ -226,6 +159,24 @@ class Nav extends Component {
       </div>
     )
   }
+}
+
+function Hamburger(props) {
+
+  const transitions = useTransition()
+  return (
+    <Fragment>
+      <BarRow>
+        <Bar />
+      </BarRow>
+      <BarRow>
+        <Bar />
+      </BarRow>
+      <BarRow>
+        <Bar />
+      </BarRow>
+    </Fragment>
+  )
 }
 
 export default Nav
