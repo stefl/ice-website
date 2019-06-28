@@ -274,11 +274,13 @@ export const pageQuery = graphql`
         node {
           data {
             photo {
-              url
-              localFile {
-                childImageSharp {
-                  fluid(srcSetBreakpoints: [100, 200, 300, 400, 500, 600], quality: 80, grayscale: true) {
-                    ...GatsbyImageSharpFluid_withWebp
+              large {
+                url
+                localFile {
+                  childImageSharp {
+                    fluid(srcSetBreakpoints: [100, 200, 300, 400, 500, 600], quality: 80, grayscale: true) {
+                      ...GatsbyImageSharpFluid_withWebp
+                    }
                   }
                 }
               }

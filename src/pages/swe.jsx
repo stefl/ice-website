@@ -99,14 +99,14 @@ class SWEPage extends Component {
     return (
       <Layout color="sky">
         <Hero color="sky" images={page.data.background.localFile.childImageSharp.fluid}>
-          <Heading size={1} color="white" bg="black" text="ICE is the tech family you’ve waited for" />
+          <Heading size={1} color="white" bg="black" text={page.data.title.text} />
 
           <Narrow>
             <Heading
               size={4}
               color="white"
               bg="sky"
-              text="Forging strong bonds, supporting through the good and bad, changing the tech world for the better. We’re not here to network, we’re here to find our people."
+              text={page.data.subtitle.text}
             />
           </Narrow>
         </Hero>
@@ -273,11 +273,13 @@ export const pageQuery = graphql`
         node {
           data {
             photo {
-              url
-              localFile {
-                childImageSharp {
-                  fluid(srcSetBreakpoints: [100, 200, 300, 400, 500, 600], quality: 80, grayscale: true) {
-                    ...GatsbyImageSharpFluid_withWebp
+              large {
+                url
+                localFile {
+                  childImageSharp {
+                    fluid(srcSetBreakpoints: [100, 200, 300, 400, 500, 600], quality: 80, grayscale: true) {
+                      ...GatsbyImageSharpFluid_withWebp
+                    }
                   }
                 }
               }

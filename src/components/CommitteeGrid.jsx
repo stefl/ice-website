@@ -53,8 +53,8 @@ class CommitteeGrid extends Component {
               <Rounded>
                 <ScaledUp>
                 {
-                  member.node.data.photo && member.node.data.photo.localFile && member.node.data.photo.localFile.childImageSharp.fluid &&
-                  <Img fadeIn fluid={member.node.data.photo.localFile.childImageSharp.fluid} />
+                  member.node.data.photo && member.node.data.photo.large.localFile && member.node.data.photo.large.localFile.childImageSharp.fluid &&
+                  <Img fadeIn fluid={member.node.data.photo.large.localFile.childImageSharp.fluid} />
                 }
                 </ScaledUp>
               </Rounded>

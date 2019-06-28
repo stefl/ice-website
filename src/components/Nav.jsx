@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import styled from "@emotion/styled"
-import { animated } from 'react-spring' // Trail, Transition
+import { animated, useTrail, useTransition } from 'react-spring' // Trail, Transition
 import ReactDOM from 'react-dom'
 import { theme } from '../styles'
 import LogoSVG from '../../svgs/ice-logo.svg'
@@ -89,17 +89,24 @@ class ModalMenu extends Component {
   }
 }
 
-class Menu extends Component {
-  render() {
-    const { hidden, items, to } = this.props
-    return (
-      <FullScreenMenu to={to} hidden={hidden} aria-label="Main navigation">
-{/*        <Trail native items={items} keys={item => item.key} to={to}>
-*/}          {item => props => <animated.li style={props}>{item.element}</animated.li>}
-        {/* </Trail>*/}
-      </FullScreenMenu>
-    )
-  }
+const trailConfig = { mass: 5, tension: 2000, friction: 200 }
+
+function Menu(props){
+  const { hidden, items, to, open, color } = props
+  const trail = useTrail(items.length, {
+    config: trailConfig,
+    opacity: open ? 1 : 0,
+    backgroundColor: color,
+    textAlign: 'center',
+    marginBottom: '0px',
+  })
+  return (
+    <FullScreenMenu to={to} hidden={hidden} aria-label="Main navigation">
+      {trail.map((props, index) => (
+         <animated.li key={index} style={props}>{items[index].element}</animated.li>
+      ))}
+    </FullScreenMenu>
+  )
 }
 
 class Nav extends Component {
@@ -157,12 +164,6 @@ class Nav extends Component {
     const setOpen = this.setOpen
     const setClosed = this.setClosed
 
-    const to = {
-      opacity: open ? 1 : 0,
-      backgroundColor: color,
-      textAlign: 'center',
-      marginBottom: '0px',
-    }
     return (
       <div style={{ position: 'relative' }}>
         <div
@@ -220,7 +221,7 @@ class Nav extends Component {
           </StyledNav>
         </div>
         <ModalMenu>
-          <Menu to={to} hidden={hidden} items={items} />
+          <Menu color={color} open={open} hidden={hidden} items={items} />
         </ModalMenu>
       </div>
     )
