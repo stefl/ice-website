@@ -130,22 +130,24 @@ class Index extends Component {
         </Section>
 
         <Section color="black" bg="black" padding="6rem">
-          <Heading
-            size={3}
-            color="white"
-            bg="rose"
-            text="Wait, what? There's a video?"
-          />
+          <div>
+            <Heading
+              size={3}
+              color="white"
+              bg="rose"
+              text="Wait, what? There's a video?"
+            />
 
-          <div
-            style={{
-              width: '100%',
-              padding: '1rem',
-              maxWidth: '60rem',
-              margin: 'auto'
-            }}
-          >
-            <FullWidthPlayer url="https://vimeo.com/287290527/5546da4f9a" />
+            <div
+              style={{
+                width: '100%',
+                padding: '1rem',
+                maxWidth: '60rem',
+                margin: 'auto'
+              }}
+            >
+              <FullWidthPlayer url="https://vimeo.com/287290527/5546da4f9a" />
+            </div>
           </div>
         </Section>
 

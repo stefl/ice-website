@@ -1,7 +1,6 @@
 import React from 'react'
 import { animated, useTrail, useTransition } from 'react-spring' // Trail, Transition
 import styled from "@emotion/styled"
-import { Link } from 'gatsby'
 
 const trailConfig = { mass: 5, tension: 2000, friction: 200 }
 

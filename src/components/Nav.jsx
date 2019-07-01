@@ -64,7 +64,9 @@ class ModalMenu extends Component {
   }
 
   componentWillUnmount() {
-    navModalRoot.removeChild(this.el)
+    if(navModalRoot) {
+      navModalRoot.removeChild(this.el)
+    }
   }
 
   render() {
@@ -107,9 +109,14 @@ class Nav extends Component {
     this.hiddenTimeout = setTimeout(() => this.setState({ hidden: true }), 1000)
   }
 
+  componentWillUnmount = () => {
+    clearTimeout(this.hiddenTimeout)
+  }
+
   render() {
     const { color } = this.props
     const { open, hidden } = this.state
+    const {setClosed, setOpen, toggle} = this
 
     const menu = [
       { to: '/', label: 'Home' },
@@ -120,7 +127,7 @@ class Nav extends Component {
 
     const items = menu.map(item => {
       const element = (
-        <NavItem style={{ color: 'white', fontStyle: 'normal' }} to={item.to}>
+        <NavItem style={{ color: 'white', fontStyle: 'normal' }} to={item.to} onClick={setClosed}>
           <h2 style={{ textDecoration: 'none', color: 'white' }}>{item.label}</h2>
         </NavItem>
       )
@@ -130,10 +137,6 @@ class Nav extends Component {
         key: item.to,
       }
     })
-
-    const toggle = this.toggle
-    const setOpen = this.setOpen
-    const setClosed = this.setClosed
 
     return (
       <div style={{ position: 'relative' }}>
