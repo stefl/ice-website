@@ -88,13 +88,17 @@ class Event extends Component {
         </div>
         <div>
           <h2>{event.node.data.title.text}</h2>
-          <h3>
-            <SkySpan>{dateFormat(event.node.data.date_from, 'd mmm ‘yy')}</SkySpan>
-            {event.node.data.date_to &&
-              event.node.data.date_to !== event.node.data.date_from && (
-                <SkySpan> – {dateFormat(event.node.data.date_to, 'd mmm ‘yy')}</SkySpan>
-              )}
-          </h3>
+          {(event.node.data.rough_date && event.node.data.rough_date.text) ?
+            <h3><SkySpan>{event.node.data.rough_date.text}</SkySpan></h3>
+          :
+            <h3>
+              <SkySpan>{dateFormat(event.node.data.date_from, 'd mmm ‘yy')}</SkySpan>
+              {event.node.data.date_to &&
+                event.node.data.date_to !== event.node.data.date_from && (
+                  <SkySpan> – {dateFormat(event.node.data.date_to, 'd mmm ‘yy')}</SkySpan>
+                )}
+            </h3>
+          }
           <div
             dangerouslySetInnerHTML={{
               __html: event.node.data.description.html,
@@ -193,6 +197,9 @@ export const pageQuery = graphql`
             event_type
             date_from
             date_to
+            rough_date {
+              text
+            }
             image {
               url
               localFile {
