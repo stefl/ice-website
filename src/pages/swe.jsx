@@ -97,7 +97,7 @@ class SWEPage extends Component {
       data: { page, committee },
     } = this.props
     return (
-      <Layout color="sky">
+      <Layout color="sky" title={page.data.title.text} description={page.data.subtitle.text}>
         <Hero color="sky" images={page.data.background.localFile.childImageSharp.fluid}>
           <Heading size={1} color="white" bg="black" text={page.data.title.text} />
 
@@ -251,12 +251,12 @@ class SWEPage extends Component {
             </p>
 
             <StandardIcon>
-              <a aria-label="Apply to join ICE" href="https://airtable.com/shrOJuDfRpLXz3JoS">
+              <a aria-label="Apply to join ICE" href="https://airtable.com/shrMQzLOu0nd3VUyC">
                 <Mail style={{ width: '100%' }} />
               </a>
             </StandardIcon>
 
-            <CTA color="black" text="Apply to join ICE" href="https://airtable.com/shrOJuDfRpLXz3JoS" />
+            <CTA color="black" text="Apply to join ICE" href="https://airtable.com/shrMQzLOu0nd3VUyC" />
           </Narrow>
         </Section>
       </Layout>
