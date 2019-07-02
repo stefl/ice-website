@@ -27,6 +27,7 @@ import Calendar from '../../svgs/icons/sky/Calendar.svg'
 import Talk from '../../svgs/icons/sky/Talk.svg'
 import Mail from '../../svgs/icons/black/Mail.svg'
 import CommitteeGrid from '../components/CommitteeGrid'
+import EventsListing from '../components/EventsListing'
 import MemberLogos from '../../static/members.jpg'
 import CTA from '../components/CTA'
 
@@ -94,7 +95,7 @@ class EventsOverview extends Component {
 class SWEPage extends Component {
   render() {
     const {
-      data: { page, committee },
+      data: { page, committee, events },
     } = this.props
     return (
       <Layout color="sky" title={page.data.title.text} description={page.data.subtitle.text}>
@@ -103,7 +104,7 @@ class SWEPage extends Component {
 
           <Narrow>
             <Heading
-              size={4}
+              size={3}
               color="white"
               bg="sky"
               text={page.data.subtitle.text}
@@ -183,9 +184,12 @@ class SWEPage extends Component {
           <EventsOverview />
         </Section>
 
-        <Section bg="white" color="black">
+        <EventsListing events={events} />
+
+
+        <Section bg="sky" color="white">
           <Heading size={2} color="white" bg="black" text="ICE cubes" />
-          <Heading size={1} color="white" bg="sky" text="We love to think inside the box" />
+          <Heading size={1} color="sky" bg="white" text="We love to think inside the box" />
 
           <Narrow>
             <p>
@@ -199,8 +203,9 @@ class SWEPage extends Component {
           </Narrow>
         </Section>
 
-        <Section bg="sky" color="black">
-          <Heading size={2} color="white" bg="black" text="Your talent > Your cash" />
+
+        <Section bg="black" color="white">
+          <Heading size={2} color="white" bg="sky" text="Your talent > Your cash" />
           <Heading size={1} color="black" bg="white" text="We need your brains, not your bank balance" />
 
           <Narrow>
@@ -293,6 +298,37 @@ export const pageQuery = graphql`
             role
             link_text {
               text
+            }
+          }
+        }
+      }
+    }
+
+    events: allPrismicEvent(filter: {data: {chapters: {document: {elemMatch: {slugs: {eq: "ice-south-west-england"}}}}}}, sort: { order: DESC, fields: [data___date_from] }) {
+      edges {
+        node {
+          data {
+            title {
+              text
+            }
+            description {
+              html
+            }
+            event_type
+            date_from
+            date_to
+            rough_date {
+              text
+            }
+            image {
+              url
+              localFile {
+                childImageSharp {
+                  resolutions(width: 320, height: 320) {
+                    ...GatsbyImageSharpResolutions_withWebp_tracedSVG
+                  }
+                }
+              }
             }
           }
         }
