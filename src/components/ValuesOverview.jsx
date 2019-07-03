@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import styled from "@emotion/styled"
-import Globe from '../../svgs/icons/white/Globe.svg'
-import Mountain from '../../svgs/icons/white/Mountain.svg'
-import Location from '../../svgs/icons/white/Location.svg'
-import Cocktail from '../../svgs/icons/white/Cocktail.svg'
-import Cutlery from '../../svgs/icons/white/Cutlery.svg'
+import Direction from '../../svgs/icons/sky/Direction.svg'
+import Gift from '../../svgs/icons/sky/Gift.svg'
+import Meeting from '../../svgs/icons/sky/Meeting.svg'
+import Lightning from '../../svgs/icons/sky/Lightning.svg'
+import Champagne from '../../svgs/icons/sky/Champagne.svg'
 import {
   Heading,
   StandardIcon,
@@ -14,7 +14,20 @@ import {
 const OverviewGrid = styled.div`
   ${tw`max-w-xl m-auto text-center`};
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
+  grid-row-gap: 24px;
+  grid-column-gap: 24px;
+`
+
+const OverviewItem = styled.div`
+  grid-column: span 2;
+  &:nth-last-child(1):nth-child(odd) {
+    grid-column: 2 / span 2;
+  }
+`
+
+const OverviewDescription = styled.p`
+  margin-top: 1em;
 `
 
 const OverviewContainer = styled.div`
@@ -25,30 +38,30 @@ class ValuesOverview extends Component {
   render() {
     const values = [
       {
-        icon: Globe,
+        icon: Direction,
         title: 'Growth',
-        description: 'Bi-annual international adventure. Skiiing. Sunbathing. Workshops. Good times.',
+        description: 'We’re all about becoming better - professionally and personally. We help accelerate brilliant business minds by connecting them with like-minded souls.',
       },
       {
-        icon: Mountain,
+        icon: Gift,
         title: 'Friendship',
-        description: 'UK based adventures to learn, celebrate, discuss, relax and have some serious fun.',
+        description: 'We support each other during the highs and lows of being a founder. We are there for each other with handkerchiefs or champagne. We are an ICE family.',
       },
       {
-        icon: Location,
+        icon: Meeting,
         title: 'Respect',
-        description: 'Heading out on the road to MWC or WebSummit.',
+        description: 'No-one is above anyone else. Whether you’re just starting out, or are battle-scarred from years on the front line, we all have experience to share, and something valuable to say.',
       },
       {
-        icon: Contribution,
-        title: 'ICE parties',
-        description: 'Summer parties, Christmas balls and more',
+        icon: Lightning,
+        title: 'Contribution',
+        description: 'With ICE, you get out what you put in. We contribute in the knowledge that everyone else is doing the same. We learn from one another constantly, and it’s this amazing energy that helps propel us all forwards.',
       },
       {
-        icon: Cutlery,
+        icon: Champagne,
         title: 'Overfunning',
         description:
-          'These special ICE dinners will bring together a more intimate group of ICERs to connect in a meaningful way.',
+          'The joy of ICE is that it takes place outside our day to day and adds colour to our lives. It’s a reset button, it’s another dimension, it’s like nothing else in our lives. In short, it’s exactly what we need…',
       },
     ]
     return (
@@ -57,13 +70,13 @@ class ValuesOverview extends Component {
           {values.map(item => {
             const ValueIcon = item.icon
             return (
-              <div>
+              <OverviewItem>
                 <StandardIcon>
-                  <EventIcon style={{ width: '100%' }} />
+                  <ValueIcon style={{ width: '100%' }} />
                 </StandardIcon>
                 <SimpleHeader>{item.title}</SimpleHeader>
-                <Heading size={4} color="white" bg="black" text={item.description} />
-              </div>
+                <OverviewDescription>{item.description}</OverviewDescription>
+              </OverviewItem>
             )
           })}
         </OverviewGrid>

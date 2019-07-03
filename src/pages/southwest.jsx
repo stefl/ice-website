@@ -32,58 +32,7 @@ import EventsListing from '../components/EventsListing'
 import MemberLogos from '../../static/members.jpg'
 import CTA from '../components/CTA'
 import EventsOverview from '../components/EventsOverview'
-
-
-class ValuesOverview extends Component {
-  render() {
-    const values = [
-      {
-        icon: Globe,
-        title: 'Growth',
-        description: 'Bi-annual international adventure. Skiiing. Sunbathing. Workshops. Good times.',
-      },
-      {
-        icon: Mountain,
-        title: 'Friendship',
-        description: 'UK based adventures to learn, celebrate, discuss, relax and have some serious fun.',
-      },
-      {
-        icon: Location,
-        title: 'Respect',
-        description: 'Heading out on the road to MWC or WebSummit.',
-      },
-      {
-        icon: Contribution,
-        title: 'ICE parties',
-        description: 'Summer parties, Christmas balls and more',
-      },
-      {
-        icon: Cutlery,
-        title: 'Overfunning',
-        description:
-          'These special ICE dinners will bring together a more intimate group of ICERs to connect in a meaningful way.',
-      },
-    ]
-    return (
-      <OverviewContainer>
-        <OverviewGrid>
-          {events.map(item => {
-            const EventIcon = item.icon
-            return (
-              <div>
-                <StandardIcon>
-                  <EventIcon style={{ width: '100%' }} />
-                </StandardIcon>
-                <SimpleHeader>{item.title}</SimpleHeader>
-                <Heading size={4} color="white" bg="black" text={item.description} />
-              </div>
-            )
-          })}
-        </OverviewGrid>
-      </OverviewContainer>
-    )
-  }
-}
+import ValuesOverview from '../components/ValuesOverview'
 
 class SWEPage extends Component {
   render() {
@@ -209,6 +158,20 @@ class SWEPage extends Component {
             </p>
           </Narrow>
         </Section>}
+
+        <Section bg="black" color="white">
+          <Heading size={2} color="white" bg="sky" text="What do we stand for?" />
+          <Heading size={1} color="black" bg="white" text="Our values" />
+
+          <Narrow>
+            <p>The values are what unites us as a community and hopefully conveys the spirit of ICE that our members know (and love). These values help inform how we work and play together, how we are and how we want to be.</p>
+          </Narrow>
+        </Section>
+
+        <Section bg="white" color="black" flexible>
+          <ValuesOverview />
+        </Section>
+
 
         <Section bg="white" color="black">
           <Heading size={2} color="white" bg="black" text="Our members" />
