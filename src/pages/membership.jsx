@@ -204,36 +204,6 @@ export default Membership
 
 export const pageQuery = graphql`
   query MembershipQuery {
-    committee: allPrismicCommitteeMember {
-      edges {
-        node {
-          data {
-            photo {
-              large {
-                url
-                localFile {
-                  childImageSharp {
-                    fluid(srcSetBreakpoints: [100, 200, 300, 400, 500, 600], quality: 80, grayscale: true) {
-                      ...GatsbyImageSharpFluid_withWebp
-                    }
-                  }
-                }
-              }
-            }
-            name {
-              text
-            }
-            link {
-              url
-            }
-            role
-            link_text {
-              text
-            }
-          }
-        }
-      }
-    }
 
     membership: prismicMembership {
       data {

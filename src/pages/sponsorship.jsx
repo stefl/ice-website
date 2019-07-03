@@ -216,7 +216,7 @@ class Sponsorship extends Component {
             </p>
           </Narrow>
 
-          <CommitteeGrid committee={committee} />
+          <CommitteeGrid />
         </Section>
 
         <Section bg="mint" color="black">
@@ -252,41 +252,6 @@ export default Sponsorship
 
 export const pageQuery = graphql`
   query SponsorshipQuery {
-    committee: allPrismicCommitteeMember {
-      edges {
-        node {
-          id
-          data {
-            photo {
-              large {
-                url
-                localFile {
-                  childImageSharp {
-                    fluid(
-                      srcSetBreakpoints: [100, 200, 300, 400, 500, 600]
-                      quality: 80
-                      grayscale: true
-                    ) {
-                      ...GatsbyImageSharpFluid_withWebp
-                    }
-                  }
-                }
-              }
-            }
-            name {
-              text
-            }
-            link {
-              url
-            }
-            role
-            link_text {
-              text
-            }
-          }
-        }
-      }
-    }
 
     sponsors: allPrismicSponsor {
       edges {

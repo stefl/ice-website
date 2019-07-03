@@ -29,7 +29,6 @@ class Events extends Component {
         }
         return new Date(e.node.data.date_from) < yesterday
       })
-    console.log({ sortedEvents })
     return (
       <Layout color="black">
         <Hero color="black" images={page.data.background.localFile.childImageSharp.fluid}>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { StaticQuery, graphql } from "gatsby"
 import PropTypes from 'prop-types'
 import styled from "@emotion/styled"
 import Img from 'gatsby-image'
@@ -39,7 +40,7 @@ const CommitteeCard = styled.div`
   width: 100%;
 `
 
-class CommitteeGrid extends Component {
+class CommitteeGridDisplay extends Component {
   render() {
     const { committee } = this.props
     if (!committee) {
@@ -71,6 +72,51 @@ class CommitteeGrid extends Component {
           ))}
         </CardContainer>
       </OverflowGrid>
+    )
+  }
+}
+
+const committeeQuery = graphql`
+  query CommitteeGridQuery {
+    committee: allPrismicCommitteeMember {
+      edges {
+        node {
+          data {
+            photo {
+              large {
+                url
+                localFile {
+                  childImageSharp {
+                    fluid(srcSetBreakpoints: [100, 200, 300, 400, 500, 600], quality: 80, grayscale: true) {
+                      ...GatsbyImageSharpFluid_withWebp
+                    }
+                  }
+                }
+              }
+            }
+            name {
+              text
+            }
+            link {
+              url
+            }
+            role
+            link_text {
+              text
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
+class CommitteeGrid extends Component {
+  render() {
+    return (
+      <StaticQuery query={committeeQuery} render={data => (
+        <CommitteeGridDisplay committee={data.committee} />
+      )} />
     )
   }
 }
