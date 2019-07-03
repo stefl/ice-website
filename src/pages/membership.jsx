@@ -200,7 +200,7 @@ class Membership extends Component {
           </Narrow>
         </Section>
 
-        <Section bg="sky" color="black">
+        {false && <Section bg="sky" color="black">
           <Heading size={2} color="white" bg="black" text="Your talent > Your cash" />
           <Heading size={1} color="black" bg="white" text="We need your brains, not your bank balance" />
 
@@ -211,13 +211,13 @@ class Membership extends Component {
               and desire to be better.
             </p>
           </Narrow>
-        </Section>
+        </Section>}
 
         <Section bg="white" color="black">
           <Heading size={2} color="white" bg="black" text="Our members" />
 
           <Narrow>
-            <p>We don’t like to boast about our existing members. But we do it anyway.</p>
+            <p>To get a flavour of who is part of ICE, here’s a selection of the company you'd keep as a member.</p>
           </Narrow>
 
           <img src={MemberLogos} />
@@ -228,8 +228,7 @@ class Membership extends Component {
 
           <Narrow>
             <p>
-              It absolutely doesn’t. ICE is run by an amazing group who give up their time and talent because they
-              believe in what we’re doing here. And they do it for free. The beautiful maniacs.
+              To get a flavour of who is part of ICE, here’s a selection of the company you'd keep as a member.
             </p>
           </Narrow>
 
