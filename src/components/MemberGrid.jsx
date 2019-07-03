@@ -14,21 +14,14 @@ const ScaledUp = styled.div`
 `
 
 const OverflowGrid = styled.div`
-  // position: relative;
-  // min-height: 400px;
-  // overflow-x: scroll;
-  // overflow-y: hidden;
-  // width: 100%;
-  // -webkit-overflow-scrolling: touch;
   width: 100%;
   ${tw`px-2 text-center`};
 `
 
 const CardContainer = styled.div`
-  //position: absolute;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-gap: 3rem;
   margin: auto;
   ${tw`max-w-xl`};
 

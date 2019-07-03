@@ -19,7 +19,7 @@ const FullScreenMenu = styled.ul`
 
 function Menu(props){
   const { hidden, items, to, open, color } = props
-  const trail = useTrail(items.length, {
+  const trail = useTrail(items.length + 1, {
     config: trailConfig,
     opacity: open ? 1 : 0,
     backgroundColor: color,
@@ -29,7 +29,7 @@ function Menu(props){
   return (
     <FullScreenMenu to={to} hidden={hidden} aria-label="Main navigation">
       {trail.map((props, index) => (
-         <animated.li key={index} style={props}>{items[index].element}</animated.li>
+         <animated.li key={index} style={props}>{items[index] ? items[index].element : '' }</animated.li>
       ))}
     </FullScreenMenu>
   )

@@ -19,7 +19,6 @@ const StyledForm = styled.form`
   ${tw`w-full p-2`};
 `
 
-
 export default class RequestSponsorshipPack extends React.Component {
   constructor(props) {
     super(props);

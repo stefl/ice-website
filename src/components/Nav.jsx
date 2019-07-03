@@ -122,6 +122,7 @@ class Nav extends Component {
       { to: '/', label: 'Home' },
       { to: '/membership', label: 'Membership' },
       { to: '/sponsorship', label: 'Sponsorship' },
+      { to: '/chapters', label: 'Chapters' },
       { to: '/events', label: 'Events' },
     ]
 
