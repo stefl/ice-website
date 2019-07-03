@@ -46,9 +46,9 @@ class ChaptersPage extends Component {
         <Section color="black" bg="white" flexible>
           <Page>
             <div>
-              <a href="/southwest">
+              <Link to="/southwest">
                 <Heading size={1} color="white" bg="sky" text="ICE South West" />
-              </a>
+              </Link>
             </div>
           </Page>
         </Section>
