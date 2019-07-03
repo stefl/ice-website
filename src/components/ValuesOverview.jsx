@@ -4,7 +4,7 @@ import Direction from '../../svgs/icons/sky/Direction.svg'
 import Gift from '../../svgs/icons/sky/Gift.svg'
 import Meeting from '../../svgs/icons/sky/Meeting.svg'
 import Lightning from '../../svgs/icons/sky/Lightning.svg'
-import Champagne from '../../svgs/icons/sky/Champagne.svg'
+import Fire from '../../svgs/icons/sky/Fire.svg'
 import {
   Heading,
   StandardIcon,
@@ -13,10 +13,14 @@ import {
 
 const OverviewGrid = styled.div`
   ${tw`max-w-xl m-auto text-center`};
-  display: grid;
+  
   grid-template-columns: repeat(4, 1fr);
   grid-row-gap: 24px;
   grid-column-gap: 24px;
+
+  @media only screen and (min-width: 480px) {
+    display: grid;
+  }
 `
 
 const OverviewItem = styled.div`
@@ -28,6 +32,8 @@ const OverviewItem = styled.div`
 
 const OverviewDescription = styled.p`
   margin-top: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
 `
 
 const OverviewContainer = styled.div`
@@ -58,7 +64,7 @@ class ValuesOverview extends Component {
         description: 'With ICE, you get out what you put in. We contribute in the knowledge that everyone else is doing the same. We learn from one another constantly, and it’s this amazing energy that helps propel us all forwards.',
       },
       {
-        icon: Champagne,
+        icon: Fire,
         title: 'Overfunning',
         description:
           'The joy of ICE is that it takes place outside our day to day and adds colour to our lives. It’s a reset button, it’s another dimension, it’s like nothing else in our lives. In short, it’s exactly what we need…',
