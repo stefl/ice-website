@@ -12,6 +12,7 @@ import Heading from './Heading'
 import Logo from './Logo'
 import Nav from './Nav'
 import Section from './Section'
+import MemberGrid from './MemberGrid'
 
 const ThirdCol = styled.div`
   ${tw`w-full md:w-1/3 lg:w-1/3 xl:w-1/3 text-center`};
@@ -73,4 +74,5 @@ export {
   StandardIcon,
   SimpleHeader,
   PaddedCol,
+  MemberGrid
 }

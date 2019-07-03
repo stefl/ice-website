@@ -18,84 +18,20 @@ import {
   PaddedCol,
 } from 'components'
 import Meeting from '../../svgs/icons/sky/Meeting.svg'
-
-import Globe from '../../svgs/icons/white/Globe.svg'
-import Mountain from '../../svgs/icons/white/Mountain.svg'
-import Location from '../../svgs/icons/white/Location.svg'
-import Cocktail from '../../svgs/icons/white/Cocktail.svg'
-import Cutlery from '../../svgs/icons/white/Cutlery.svg'
 import Calendar from '../../svgs/icons/sky/Calendar.svg'
 import Talk from '../../svgs/icons/sky/Talk.svg'
 import Mail from '../../svgs/icons/black/Mail.svg'
 import CommitteeGrid from '../components/CommitteeGrid'
+import MemberGrid from '../components/MemberGrid'
 import MemberLogos from '../../static/members.jpg'
 import CTA from '../components/CTA'
-
-const OverviewGrid = styled.div`
-  ${tw`max-w-xl m-auto text-center`};
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-`
-
-const OverviewContainer = styled.div`
-  ${tw`w-full mx-2`};
-`
-
-class EventsOverview extends Component {
-  render() {
-    const events = [
-      {
-        icon: Globe,
-        title: 'Annual trips',
-        description: 'Bi-annual international adventure. Skiiing. Sunbathing. Workshops. Good times.',
-      },
-      {
-        icon: Mountain,
-        title: 'Mini-trips',
-        description: 'UK based adventures to learn, celebrate, discuss, relax and have some serious fun.',
-      },
-      {
-        icon: Location,
-        title: 'Local events',
-        description: 'Heading out on the road to MWC or WebSummit.',
-      },
-      {
-        icon: Cocktail,
-        title: 'ICE parties',
-        description: 'Summer parties, Christmas balls and more',
-      },
-      {
-        icon: Cutlery,
-        title: 'ICE feasts',
-        description:
-          'These special ICE dinners will bring together a more intimate group of ICERs to connect in a meaningful way.',
-      },
-    ]
-    return (
-      <OverviewContainer>
-        <OverviewGrid>
-          {events.map(item => {
-            const EventIcon = item.icon
-            return (
-              <div>
-                <StandardIcon>
-                  <EventIcon style={{ width: '100%' }} />
-                </StandardIcon>
-                <SimpleHeader>{item.title}</SimpleHeader>
-                <Heading size={4} color="white" bg="black" text={item.description} />
-              </div>
-            )
-          })}
-        </OverviewGrid>
-      </OverviewContainer>
-    )
-  }
-}
+import EventsOverview from '../components/EventsOverview'
+import SimpleSection from '../components/LandingPageSections/SimpleSection'
 
 class Membership extends Component {
   render() {
     const {
-      data: { membership, committee },
+      data: { membership, committee, members },
     } = this.props
     return (
       <Layout color="sky">
@@ -159,16 +95,16 @@ class Membership extends Component {
           </Thirds>
         </Section>
 
-        <Section color="black" bg="sky">
-          <Heading size={2} color="white" bg="black" text="ICE list" />
-          <Heading size={1} color="black" bg="white" text="Nice to CC you" />
-          <Narrow>
-            <p>
-              Forging strong bonds, supporting through the good and bad, making amazing memories. We’re not here to
-              network, we’re here to find our people.
-            </p>
-          </Narrow>
-        </Section>
+        <SimpleSection 
+          bodyColor="black" bodyBackground="sky" 
+          subheadingText="ICE List" subheadingColor="white" subheadingBackground="black" 
+          headingText="Nice to CC you" headingColor="black" headingBackground="white" 
+        >
+          <p>
+            Forging strong bonds, supporting through the good and bad, making amazing memories. 
+            We’re not here to network, we’re here to find our people.
+          </p>
+        </SimpleSection>
 
         <Section bg="black" color="white" flexible>
           <Heading size={2} color="white" bg="sky" text="ICE events" />
@@ -184,21 +120,20 @@ class Membership extends Component {
           <EventsOverview />
         </Section>
 
-        <Section bg="white" color="black">
-          <Heading size={2} color="white" bg="black" text="ICE cubes" />
-          <Heading size={1} color="white" bg="sky" text="We love to think inside the box" />
-
-          <Narrow>
-            <p>
-              Our events are the best. But we wanted more. Our ICE Cubes are smaller, carefully curated groups who meet
-              regularly - providing deep support, ongoing advice and a proper investment in each-other’s development.
-            </p>
-            <p>
-              It’s hard to overstate the value of having a team of brilliant people who have your back, without any
-              pressure. An entrepreneur’s journey can be lonely. We decided to change that.
-            </p>
-          </Narrow>
-        </Section>
+        <SimpleSection 
+          bodyColor="black" bodyBackground="sky" 
+          subheadingText="ICE Cubes" subheadingColor="white" subheadingBackground="black" 
+          headingText="We love to think inside the box" headingColor="black" headingBackground="white" 
+        >
+          <p>
+            Our events are the best. But we wanted more. Our ICE Cubes are smaller, carefully curated groups who meet
+            regularly - providing deep support, ongoing advice and a proper investment in each-other’s development.
+          </p>
+          <p>
+            It’s hard to overstate the value of having a team of brilliant people who have your back, without any
+            pressure. An entrepreneur’s journey can be lonely. We decided to change that.
+          </p>
+        </SimpleSection>
 
         {false && <Section bg="sky" color="black">
           <Heading size={2} color="white" bg="black" text="Your talent > Your cash" />
@@ -213,14 +148,14 @@ class Membership extends Component {
           </Narrow>
         </Section>}
 
-        <Section bg="white" color="black">
+        <Section bg="white" color="black" flexible>
           <Heading size={2} color="white" bg="black" text="Our members" />
 
           <Narrow>
             <p>To get a flavour of who is part of ICE, here’s a selection of the company you'd keep as a member.</p>
           </Narrow>
 
-          <img src={MemberLogos} />
+          <MemberGrid />
         </Section>
 
         <Section bg="black" color="white" flexible>
@@ -228,7 +163,8 @@ class Membership extends Component {
 
           <Narrow>
             <p>
-              To get a flavour of who is part of ICE, here’s a selection of the company you'd keep as a member.
+              It absolutely doesn’t. ICE is run by an amazing group who give up their time and talent because they
+              believe in what we’re doing here. And they do it for free. The beautiful maniacs.
             </p>
           </Narrow>
 
@@ -245,10 +181,10 @@ class Membership extends Component {
           />
 
           <Narrow>
-            <p>
+            {false && <p>
               For us, this business is personal. We’d love to learn more about you, to find out if you’d be a fantastic
               fit for our beloved community.
-            </p>
+            </p>}
 
             <StandardIcon>
               <a aria-label="Apply to join ICE" href="https://airtable.com/shrOJuDfRpLXz3JoS">

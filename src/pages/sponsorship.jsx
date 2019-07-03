@@ -14,7 +14,8 @@ import {
   ThirdCol,
   StandardIcon,
   SimpleHeader,
-  PaddedCol
+  PaddedCol,
+  MemberGrid
 } from 'components'
 import Cocktail from '../../svgs/icons/mint/Cocktail.svg'
 import Lightbulb from '../../svgs/icons/mint/Lightbulb.svg'
@@ -23,7 +24,6 @@ import Mail from '../../svgs/icons/black/Mail.svg'
 import Document from '../../svgs/icons/black/Document.svg'
 import CommitteeGrid from '../components/CommitteeGrid'
 import SponsorGrid from '../components/SponsorGrid'
-import MemberLogos from '../../static/members.jpg'
 import CTA from '../components/CTA'
 import RequestSponsorshipPack from '../components/RequestSponsorshipPack'
 
@@ -177,7 +177,7 @@ class Sponsorship extends Component {
           </Narrow>
         </Section>
 
-        <Section bg="white" color="black">
+        <Section bg="white" color="black" flexible>
           <Heading size={2} color="white" bg="black" text="Our members" />
 
           <Narrow>
@@ -187,7 +187,7 @@ class Sponsorship extends Component {
             </p>
           </Narrow>
 
-          <img src={MemberLogos} alt="Logos of our members" />
+          <MemberGrid />
         </Section>
 
         <Section bg="mint" color="black" flexible>

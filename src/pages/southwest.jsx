@@ -206,10 +206,10 @@ class SWEPage extends Component {
           />
 
           <Narrow>
-            <p>
+            {false && <p>
               For us, this business is personal. We’d love to learn more about you, to find out if you’d be a fantastic
               fit for our beloved community.
-            </p>
+            </p>}
 
             <StandardIcon>
               <a aria-label="Apply to join ICE" href="https://airtable.com/shrMQzLOu0nd3VUyC">

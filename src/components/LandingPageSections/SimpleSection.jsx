@@ -15,7 +15,7 @@ class SimpleSection extends Component {
     } = this.props
 
     return(
-      <Section color={mainColor} bg={mainBackground}>
+      <Section color={bodyColor} bg={bodyBackground}>
         <Heading size={2} color={subheadingColor} bg={subheadingBackground} text={subheadingText} />
         <Heading size={1} color={headingColor} bg={headingBackground} text={headingText} />
         <Narrow>
