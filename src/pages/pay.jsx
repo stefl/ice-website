@@ -46,7 +46,7 @@ class Subscribe extends Component {
 
         <Section>
           <div>
-            <Heading size={3} color="black" bg="white" text="Please choose from the following subscription options. If you have a UK bank account, to help us with lower payment charges, please choose GoCardless at checkout." />
+            <Heading size={3} color="black" bg="white" text="If you have a UK bank account, to help us with lower payment charges, please choose Direct Debit at checkout." />
             <SubscribeButton
               color="sky"
               text="Subscribe Monthly"
