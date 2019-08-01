@@ -61,7 +61,7 @@ class Subscribe extends Component {
 
             <SubscribeButton
               color="black"
-              text="Test with £0.10"
+              text="Test with £0.30"
               plan="test"
             />
           </div>
