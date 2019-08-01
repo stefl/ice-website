@@ -14,6 +14,7 @@ import {
 const OverviewGrid = styled.div`
   ${tw`max-w-xl m-auto text-center`};
   display: grid;
+  grid-gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 `
 
