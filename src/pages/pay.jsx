@@ -7,7 +7,8 @@ const Button = styled.a`
   border-bottom: 4px solid white;
   margin: 1em;
   display: block;
-  ${tw`bg-black text-white px-3 py-2 m-auto text-center`};
+  max-width: 18rem;
+  ${tw`bg-rose text-white px-3 py-2 m-auto mw-50 text-center`};
 `
 
 class SubscribeButton extends React.Component {
@@ -37,27 +38,42 @@ class Subscribe extends Component {
   }
 
   render() {
+    const {
+      data: { membership },
+    } = this.props
     return (
       <Layout color="mint">
-        <Hero color="mint">
+        <Hero color="mint" images={membership.data.background.localFile.childImageSharp.fluid}>
           <Heading size={1} color="white" bg="black" text="Set up your ICE subscription" />
           <Heading size={3} color="black" bg="white" text="£50 per month, or £540 annually" />
         </Hero>
 
         <Section>
           <div>
-            <Heading size={3} color="black" bg="white" text="If you have a UK bank account, to help us with lower payment charges, please choose Direct Debit at checkout." />
-            <SubscribeButton
-              color="sky"
-              text="Subscribe Monthly"
-              plan="ice-monthly-membership"
-            />
+              <Heading size={3} color="black" bg="white" text="If you have a UK bank account, please choose Direct Debit at checkout." />
+            </div>
+          <div>
+            
+            <div style={{marginBottom: '2em', textAlign: 'left', width: '50%', display: 'block', margin: 'auto'}}>
+              <p>Using Direct Debit reduces transaction charges and means more of your subscription goes towards overfunning!</p>
+              <p>Your first payment will be taken on 1st September.</p>
 
-            <SubscribeButton
-              color="rose"
-              text="Subscribe Annually"
-              plan="ice-annual"
-            />
+            </div>
+            <div>
+              <SubscribeButton
+                color="sky"
+                text="Subscribe Monthly"
+                plan="ice-monthly-membership"
+              />
+
+              <p>&nbsp;</p>
+
+              <SubscribeButton
+                color="rose"
+                text="Subscribe Annually"
+                plan="ice-annual"
+              />
+            </div>
           </div>
         </Section>
       </Layout>
@@ -66,3 +82,30 @@ class Subscribe extends Component {
 }
 
 export default Subscribe
+
+
+export const pageQuery = graphql`
+  query SubscribePageQuery {
+
+    membership: prismicMembership {
+      data {
+        title {
+          text
+        }
+        subtitle {
+          text
+        }
+        background {
+          localFile {
+            childImageSharp {
+              fluid(srcSetBreakpoints: [600, 800, 1000, 1200, 1400, 1600, 1920], quality: 80, grayscale: true) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
