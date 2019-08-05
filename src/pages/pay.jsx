@@ -54,25 +54,30 @@ class Subscribe extends Component {
             </div>
           <div>
             
-            <div style={{marginBottom: '2em', textAlign: 'left', width: '50%', display: 'block', margin: 'auto'}}>
-              <p>Using Direct Debit reduces transaction charges and means more of your subscription goes towards overfunning!</p>
-              <p>Your first payment will be taken on 1st September.</p>
+            <div style={{marginBottom: '2em', textAlign: 'center', width: '60%', display: 'block', margin: 'auto'}}>
+              <p>Direct Debit keeps costs low so more of your subscription goes towards overfunning!</p>
 
             </div>
-            <div>
+            <div style={{marginBottom: '1em'}}>
               <SubscribeButton
                 color="sky"
                 text="Subscribe Monthly"
                 plan="ice-monthly-membership"
               />
 
-              <p>&nbsp;</p>
+            </div>
+            <div>
 
               <SubscribeButton
                 color="rose"
                 text="Subscribe Annually"
                 plan="ice-annual"
               />
+            </div>
+
+            <div style={{paddingTop: '2em', textAlign: 'center', width: '60%', display: 'block', margin: 'auto'}}>
+
+              <p>Your first payment will be taken on 1st September.</p>
             </div>
           </div>
         </Section>
