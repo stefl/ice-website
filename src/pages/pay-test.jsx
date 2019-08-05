@@ -21,7 +21,7 @@ class SubscribeButton extends React.Component {
 }
 
 
-class Subscribe extends Component {
+class PayTest extends Component {
 
   componentDidMount() {
     const el = document.createElement('script');
@@ -58,6 +58,12 @@ class Subscribe extends Component {
               text="Subscribe Annually"
               plan="ice-annual"
             />
+
+            <SubscribeButton
+              color="black"
+              text="Test with £0.30"
+              plan="test"
+            />
           </div>
         </Section>
       </Layout>
@@ -65,4 +71,4 @@ class Subscribe extends Component {
   }
 }
 
-export default Subscribe
+export default PayTest
