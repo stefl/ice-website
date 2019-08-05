@@ -39,11 +39,11 @@ class Subscribe extends Component {
 
   render() {
     const {
-      data: { membership },
+      data: { payPage },
     } = this.props
     return (
       <Layout color="mint">
-        <Hero color="mint" images={membership.data.background.localFile.childImageSharp.fluid}>
+        <Hero color="mint" images={payPage.data.background.localFile.childImageSharp.fluid}>
           <Heading size={1} color="white" bg="black" text="Set up your ICE subscription" />
           <Heading size={3} color="black" bg="white" text="£50 per month, or £540 annually" />
         </Hero>
@@ -92,18 +92,23 @@ export default Subscribe
 export const pageQuery = graphql`
   query SubscribePageQuery {
 
-    membership: prismicMembership {
+    payPage: prismicHomepage {
       data {
         title {
           text
         }
-        subtitle {
+        content {
+          html
           text
         }
         background {
           localFile {
             childImageSharp {
-              fluid(srcSetBreakpoints: [600, 800, 1000, 1200, 1400, 1600, 1920], quality: 80, grayscale: true) {
+              fluid(
+                srcSetBreakpoints: [600, 800, 1000, 1200, 1400, 1600, 1920]
+                quality: 80
+                grayscale: true
+              ) {
                 ...GatsbyImageSharpFluid_withWebp
               }
             }
