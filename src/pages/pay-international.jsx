@@ -112,7 +112,7 @@ class Subscribe extends Component {
 export default Subscribe;
 
 export const pageQuery = graphql`
-  query SubscribePageQuery {
+  query SubscribePageInternationalQuery {
     payPage: prismicHomepage {
       data {
         title {
