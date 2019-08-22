@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { Hero, Layout, Heading, Section } from "components";
 import styled from "@emotion/styled";
-import Link from 'gatsby-link'
 
-const Button = styled(Link)`
+const Button = styled.a`
   text-decoration: none;
   border-bottom: 4px solid white;
   margin: 1em;
@@ -12,8 +11,22 @@ const Button = styled(Link)`
   ${tw`bg-rose text-white px-3 py-2 m-auto mw-50 text-center`};
 `;
 
+class SubscribeButton extends React.Component {
+  render() {
+    const { href, text, plan } = this.props;
+    return (
+      <Button
+        href="javascript:void(0)"
+        data-cb-type="checkout"
+        data-cb-plan-id={plan}
+      >
+        {text}
+      </Button>
+    );
+  }
+}
 
-class SubscribeChoicePage extends Component {
+class SubscribeUK extends Component {
   componentDidMount () {
     const el = document.createElement("script");
     el.onload = () => {
@@ -43,7 +56,12 @@ class SubscribeChoicePage extends Component {
             bg="black"
             text="Set up your ICE subscription"
           />
-          
+          <Heading
+            size={3}
+            color="black"
+            bg="white"
+            text="£50 per month, or £540 annually"
+          />
         </Hero>
 
         <Section>
@@ -52,23 +70,37 @@ class SubscribeChoicePage extends Component {
               size={3}
               color="black"
               bg="white"
-              text="We have separate pricing for UK members and those overseas. Please choose based on your main location:"
+              text="If you have a UK bank account, please choose Direct Debit at checkout."
             />
           </div>
           <div>
-            
+            <div
+              style={{
+                marginBottom: "2em",
+                textAlign: "center",
+                width: "60%",
+                display: "block",
+                margin: "auto"
+              }}
+            >
+              <p>
+                Direct Debit keeps costs low so more of your subscription goes
+                towards overfunning!
+              </p>
+            </div>
             <div style={{ marginBottom: "1em" }}>
-              <Button
+              <SubscribeButton
                 color="sky"
-                
-                to="/pay-uk"
-              >Based in the UK</Button>
+                text="Subscribe Monthly"
+                plan="ice-monthly-membership"
+              />
             </div>
             <div>
-              <Button
-                color="rose"                
-                to="/pay-international"
-              >Based elsewhere</Button>
+              <SubscribeButton
+                color="rose"
+                text="Subscribe Annually"
+                plan="ice-annual"
+              />
             </div>
           </div>
         </Section>
@@ -77,10 +109,10 @@ class SubscribeChoicePage extends Component {
   }
 }
 
-export default SubscribeChoicePage;
+export default SubscribeUK;
 
 export const pageQuery = graphql`
-  query SubscribeChoicePageQuery {
+  query SubscribeUkPageQuery {
     payPage: prismicHomepage {
       data {
         title {
